@@ -2,16 +2,18 @@
 'use strict';
 
 angular
-  .module('secondLead')
+  .module('secondLead.common')
 
-  .factory('ActivityModel',['Restangular', function(Restangular) {
-     var baseActivities = Restangular.all('activities');
-
-     return {
-      getAll: baseActivities.getList().$object,
-      getOne: function(activityID) {
-        return Restangular.one('activities', activityID).get()
+  .factory('ActivityModel',['$http', function ($http) {
+    function extract (result){
+      return result.data;
+    }
+    
+    return {
+      getAll: function () {
+       $http.get('/activities', {id: 1}).then(extract);
       }
-    };
-  }])
+    }
+    
+    }]);
 })();

@@ -6,12 +6,16 @@ angular
 
   .controller('IndexCtrl', [
     'ActivityModel',
-    'Restangular',
-    function(ActivityModel, Restangular) {
+    '$http',
+    function (ActivityModel, $http) {
     var ctrl = this;
 
-    ctrl.name = "huy";
-    ctrl.activities = ActivityModel.getAll;
+    ctrl.name = "Lola";
+    ctrl.test = function() {
+    	ctrl.name = ActivityModel.getAll;
+    	console.log(ctrl.name);
+    };
+
   }])
 
 })();

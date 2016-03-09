@@ -17,7 +17,9 @@
         <md-toolbar>
           <div class="md-toolbar-tools">
             <h2>
-              <span>Second Lead</span>
+              <md-button aria-label="Home" ng-if="true" ui-sref='home'>
+                <a ui-sref-active="active">Second Lead</a>
+              </md-button>
             </h2>
             <md-button aria-label="Browse" ng-if="true" ui-sref='dramas'>
               <a ui-sref-active="active">Browse</a>

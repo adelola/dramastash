@@ -41,12 +41,12 @@ angular
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      // .state('home', {
-      //   url:'/',
-      //   templateUrl: 'index.html',
-      //   controller:'IndexCtrl',
-      //   controllerAs: 'index'
-      // })
+      .state('home', {
+        url:'/',
+        templateUrl: 'index.html',
+        controller:'IndexCtrl',
+        controllerAs: 'index'
+      })
 
       .state('register', {
         url:'/register',

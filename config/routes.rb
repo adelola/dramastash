@@ -22,17 +22,16 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy], defaults: {:format => 'json'}
 
-  match '/search', to: 'search#search', via: 'get', :format => 'json'
-  match '/filter', to: 'search#filter', via: 'post', :format => 'json'
-  match '/auth/register',     to: 'auth#register',     via: 'post'
-  match '/auth/login', to: 'auth#login', via: 'post'
-  match '/auth/token_status', to: 'auth#token_status', via: 'get'
-  match 'ratings/find', to: 'ratings#find', via: 'get', :format => 'json'
-  match 'reviews/find', to: 'reviews#find', via: 'get', :format => 'json'
-  match '/activities', to: 'activities#index', via: 'get'
-  match 'relationships/find', to: 'relationships#find', via: 'get', :format => 'json'
-
+  match '/activities', to: 'activities#index', via: 'get', :format => 'json'
   match '/all', to: 'dramas#all', via: 'get'
+  match '/auth/login', to: 'auth#login', via: 'post'
+  match '/auth/register',     to: 'auth#register',     via: 'post'
+  match '/auth/token_status', to: 'auth#token_status', via: 'get'
   match '/delete', to: 'dramas#delete', via: 'delete'
+  match '/filter', to: 'search#filter', via: 'post', :format => 'json'
+  match 'ratings/find', to: 'ratings#find', via: 'get', :format => 'json'
+  match 'relationships/find', to: 'relationships#find', via: 'get', :format => 'json'
+  match 'reviews/find', to: 'reviews#find', via: 'get', :format => 'json'
+  match '/search', to: 'search#search', via: 'get', :format => 'json'
 
 end
