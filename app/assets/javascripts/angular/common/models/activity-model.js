@@ -10,8 +10,8 @@ angular
     }
     
     return {
-      getAll: function () {
-       $http.get('/activities', {id: 1}).then(extract);
+      getAll: function (userId) {
+        return $http.get('/activities', {params: {id: userId}}).then(extract);
       }
     }
     

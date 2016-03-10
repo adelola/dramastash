@@ -1,6 +1,5 @@
 class Rating < ActiveRecord::Base
-  include PublicActivity::Model
-  tracked
+  include PublicActivity::Common
 
   belongs_to :drama
   belongs_to :rater, class_name: "User"

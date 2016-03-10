@@ -1,8 +1,7 @@
 class List < ActiveRecord::Base
   searchkick
 
-  include PublicActivity::Model
-  tracked
+  include PublicActivity::Common
 
   def search_data
     as_json only: [:name, :description]

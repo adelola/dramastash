@@ -27,6 +27,7 @@ class RatingsController < ApplicationController
     @rating = drama.ratings.build(new_rating_params)
     if @rating.save
       @rating.update_review
+      @rating.create_activity :rated, owner: current_user, recipient: drama
       render json: { message: "Rating successfully created" }
     else
       render json: { errors: "Oops, something went wrong." }
@@ -36,6 +37,8 @@ class RatingsController < ApplicationController
   def update
     if @rating.update_attributes(update_params)
       @rating.update_review
+      drama = @rating.drama
+      @rating.create_activity :rated, owner: current_user, recipient: drama
       render json: { message: "Rating successfully updated" }
     else
       render json: { errors: "Oops, something went wrong." }

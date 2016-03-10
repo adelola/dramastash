@@ -1,8 +1,7 @@
 class Review < ActiveRecord::Base
   include ActsAsReviewable::Review
 
-  include PublicActivity::Model
-  tracked
+  include PublicActivity::Common
 
   belongs_to :drama
   belongs_to :reviewer, class_name: "User"

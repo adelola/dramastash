@@ -17,6 +17,7 @@ class ListsController < ApplicationController
   	@list = List.new(list_params)
     @list.user = find_user
   	if @list.save
+      @list.create_activity :created, owner: @list.user
       render json: { list: @list} 
   	else
   	  render json: { errors: "Oops, something went wrong." }

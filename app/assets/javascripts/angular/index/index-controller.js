@@ -7,13 +7,26 @@ angular
   .controller('IndexCtrl', [
     'ActivityModel',
     '$http',
-    function (ActivityModel, $http) {
+    'ListModel',
+    'UserModel',
+    function (ActivityModel, $http, ListModel, UserModel) {
     var ctrl = this;
 
-    ctrl.name = "Lola";
+    ctrl.user = '';
+    
+    var initialize = function () {
+      if (UserModel.currentUser()) {
+        ctrl.user = UserModel.currentUser();
+        ctrl.userLists = ListModel.currentUserLists(ctrl.user.id);
+      } 
+    };
+    initialize();
+
     ctrl.test = function() {
-    	ctrl.name = ActivityModel.getAll;
-    	console.log(ctrl.name);
+    	ActivityModel.getAll(ctrl.user.id).then(function(result){
+        console.log(result);
+      })
+      
     };
 
   }])
