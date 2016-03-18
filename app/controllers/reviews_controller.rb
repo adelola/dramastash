@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     review = drama.reviews.build(new_review_params)
     review.update_with_rating
     if review.save
-      drama.create_activity :reviewed_by, owner: current_user
+      review.create_activity :created, owner: review.reviewer, params: {username: review.reviewer.username, drama: drama}
       render json: { review: review}
     else
       render json: { errors: "Oops, something went wrong." }

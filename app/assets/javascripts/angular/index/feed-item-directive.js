@@ -13,18 +13,25 @@ angular.module('secondLead')
         scope.message = "";
         scope.userId = scope.activity.owner_id;
         scope.userName = name.substring(0,1).toUpperCase()+name.substring(1);
-        scope.listName = scope.activity.parameters.list;
-        scope.listId = scope.activity.trackable_id
+
 
         function parseActivity () {
-  	  	  if (scope.activity.trackable_type === "List"){
-            scope.message = " created a list, "
+          if (scope.activity.trackable_type === "List"){
+            scope.message = " created ";
+            scope.listId = scope.activity.trackable_id;
+            scope.listName = scope.activity.parameters.list;
+
+          } else if (scope.activity.trackable_type === "Review"){
+            scope.message = " reviewed ";
+            scope.dramaName = scope.activity.parameters.drama.name;
+            scope.dramaId = scope.activity.parameters.drama.id;
+
+          } else {
+            scope.message = " huh ";
           }
-
-
-
   	  	};
 
+        console.log(scope.activity.trackable_type);
         parseActivity();
   	  }
 

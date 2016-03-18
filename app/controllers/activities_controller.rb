@@ -3,9 +3,9 @@ class ActivitiesController < ApplicationController
   
   def index
     @activities = PublicActivity::Activity.order('created_at DESC').where(owner_id: params[:id], owner_type:"User").limit(5)
-      .select do |activity|
-        !activity.trackable.nil?
-      end
+      # .select do |activity|
+      #   !activity.trackable.nil?
+      # end
     render json:{activities: @activities}
   end
 

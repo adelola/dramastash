@@ -1,5 +1,7 @@
 class Drama < ActiveRecord::Base
   searchkick
+  # include PublicActivity::Common
+  
 
   def search_data
     as_json only: [:name, :non_english_name, :plot]
