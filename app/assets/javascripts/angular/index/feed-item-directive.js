@@ -26,12 +26,15 @@ angular.module('secondLead')
             scope.dramaName = scope.activity.parameters.drama.name;
             scope.dramaId = scope.activity.parameters.drama.id;
 
-          } else {
-            scope.message = " huh ";
+          } else if (scope.activity.trackable_type === "Rating") {
+            scope.message = " gave ";
+            scope.dramaName = scope.activity.parameters.drama.name;
+            scope.dramaId = scope.activity.parameters.drama.id;
+            scope.rating = scope.activity.parameters.rating+" hearts"
           }
   	  	};
 
-        console.log(scope.activity.trackable_type);
+        // console.log(scope.activity.trackable_type);
         parseActivity();
   	  }
 

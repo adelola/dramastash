@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
   def update
     if @review.update_attributes(update_params)
       drama = @review.drama
-      drama.create_activity :reviewed_by, owner: current_user
+      @review.create_activity :created, owner: @review.reviewer, params: {username: @review.reviewer.username, drama: drama}
       render json: { message: "Review successfully updated." }
     else
       render json: { errors: "Oops, something went wrong." }
