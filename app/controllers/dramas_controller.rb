@@ -34,6 +34,7 @@ class DramasController < ApplicationController
     else
       new_list_drama = drama.add_to_list(list)
       if new_list_drama.save
+        drama.create_activity :added, owner: list.user, params: {username: list.user.username, drama: drama, list: list}
         list.create_activity key: 'Drama', owner: @current_user
         render json: { message: "Drama successfully added to #{list.name}" }
       else

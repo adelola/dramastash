@@ -31,6 +31,15 @@ angular.module('secondLead')
             scope.dramaName = scope.activity.parameters.drama.name;
             scope.dramaId = scope.activity.parameters.drama.id;
             scope.rating = scope.activity.parameters.rating+" hearts"
+          } else if (scope.activity.trackable_type === "Drama") {
+            scope.message = " added ";
+            scope.dramaName = scope.activity.parameters.drama.name;
+            scope.dramaId = scope.activity.parameters.drama.id;
+            scope.preposition = " to "
+            scope.listId = scope.activity.parameters.list.id;
+            scope.listName = scope.activity.parameters.list.name;
+
+
           }
   	  	};
 

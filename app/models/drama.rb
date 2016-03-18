@@ -1,6 +1,6 @@
 class Drama < ActiveRecord::Base
   searchkick
-  # include PublicActivity::Common
+  include PublicActivity::Common
   
 
   def search_data
