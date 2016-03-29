@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6 }
 
-  after_create :create_top_five, :create_watch_list, :create_watching_list, :create_watched_list
+  after_create :create_faves_list, :create_watch_list, :create_watching_list, :create_watched_list
 
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
@@ -49,8 +49,8 @@ class User < ActiveRecord::Base
   end
 
   private
-    def create_top_five
-      List.create(name: 'Top Five', description:'Top Five Favorite Dramas', user_id: self.id)
+    def create_faves_list
+      List.create(name: 'Favorites', description:'Greatest of All Time', user_id: self.id)
     end
 
     def create_watch_list

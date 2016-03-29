@@ -1,8 +1,9 @@
 <div>
-  <h2>Your Top Five</h2>
-  <div gridster= "user.gridsterOpts">
-    <div gridster-item="drama" ng-repeat= "drama in lists.top_five_dramas" ng-cloak>
-      <md-content layout="row" layout-wrap layout-align="center start" layout-xs="column">
+  <h2>Favorites</h2>
+  
+  <div id="fav_list" gridster= "lists.gridsterFavListOpts">
+    <div gridster-item="drama" ng-repeat= "drama in lists.fav_dramas" ng-cloak>
+      <md-content class="fav_drama" layout="row" layout-wrap layout-align="center start" layout-xs="column">
         <div flex-xs="100" layout="column">
           <md-card>
             <a ui-sref="drama({dramaID: drama.id})">
@@ -17,7 +18,7 @@
               </md-card-title-text>
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center" ng-if="lists.authorized()">
-              <delete-drama drama="drama" remove-item= "lists.top_five_list.removeItem(drama)" list="{{lists.top_five_list.id}}" user="{{lists.userID}}"> </delete-drama>
+              <delete-drama drama="drama" remove-item= "lists.removeDrama(drama)" list="{{lists.fav_list.id}}" user="{{lists.userID}}"> </delete-drama>
             </md-card-actions>
           </md-card>
         </div>

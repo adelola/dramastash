@@ -8,18 +8,18 @@
       'Gridster',
       'ListModel',
       'lists',
-      'top_five_list',
-      'top_five_dramas',
+      'fav_list',
+      'fav_dramas',
       '$scope',
       '$stateParams',
       '$uibModal',
       'UserModel',
-      function (Gridster, ListModel, lists, top_five_list, top_five_dramas, $scope, $stateParams, $uibModal, UserModel){
-      var ctrl             = this;
-      ctrl.items           = lists;
-      ctrl.top_five_list   = top_five_list;
-      ctrl.top_five_dramas = top_five_dramas;
-      ctrl.userID          = $stateParams.userID;
+      function (Gridster, ListModel, lists, fav_list, fav_dramas, $scope, $stateParams, $uibModal, UserModel){
+      var ctrl        = this;
+      ctrl.items      = lists;
+      ctrl.fav_list   = fav_list;
+      ctrl.fav_dramas = fav_dramas;
+      ctrl.userID     = $stateParams.userID;
 
       var currentUser = UserModel.currentUser().id.toString();
 
@@ -52,6 +52,37 @@
         ctrl.items.splice(ctrl.items.indexOf(item),1);
       };
 
+      ctrl.removeDrama = function (drama){
+        ctrl.fav_dramas.splice(ctrl.fav_dramas.indexOf(drama),1)
+      }
+
       ctrl.gridsterOpts = Gridster.getOptions();
+      ctrl.gridsterFavListOpts = {
+        columns: 5,
+        width: 'auto',
+        colWidth: 'auto',
+        rowHeight: 'match',
+        margins: [5, 5],
+        outerMargin: true,
+        isMobile: false,
+        mobileBreakPoint: 750,
+        mobileModeEnabled: true,
+        minColumns: 5,
+        minRows: 1,
+        maxRows: 1,
+        defaultSizeX: 1,
+        defaultSizeY: 1,
+        minSizeX: 1,
+        maxSizeX: 1,
+        minSizeY: 1,
+        maxSizeY: 1,
+        swapping: true,
+        resizable: {
+           enabled: false
+        },
+        draggable: {
+           enabled: false
+        }
+      };
     }])
 })();

@@ -148,11 +148,11 @@ angular
             lists: ['user', function (user){
               return user["lists"];
             }],
-            top_five_list: ['user', function (user){
-              return user["top_five_list"];
+            fav_list: ['user', function (user){
+              return user["fav_list"];
             }],
-            top_five_dramas: ['user', function (user){
-              return user["top_five_dramas"];
+            fav_dramas: ['user', function (user){
+              return user["fav_dramas"];
             }]
           }
         })

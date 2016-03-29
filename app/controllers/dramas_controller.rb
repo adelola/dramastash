@@ -29,8 +29,8 @@ class DramasController < ApplicationController
     drama = Drama.find_by(id: params[:id])
     if list.dramas.find_by(id: drama.id)
       render json: { message: "Drama is already in #{list.name}" }
-    elsif list.name == 'Top Five' && list.dramas.count >= 5
-      render json: { message: "You already have five dramas in your top 5" }
+    elsif list.name == 'Favorites' && list.dramas.count >= 5
+      render json: { message: "You have five favorites. Remove one to add one." }
     else
       new_list_drama = drama.add_to_list(list)
       if new_list_drama.save
