@@ -17,4 +17,5 @@
 /tmp/*
 .env
 /public/system/
-/node_modules/*
+/node_modules/
+/coverage/

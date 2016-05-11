@@ -22,6 +22,7 @@ gem 'responders', '~> 2.0'
 gem 'searchkick'
 gem 'jwt', '~> 1.5', '>= 1.5.2'
 gem 'public_activity'
+gem 'puma'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
