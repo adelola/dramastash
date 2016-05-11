@@ -80,7 +80,7 @@ class ScrapeDramaFeverDramaContent
     @doc.search('.metagroup > a').map { |element| element.inner_text }
   end
 
-  def language
+  def country
     scrape_genre.each do |genre|
       if genre =~ /korea/i
         return "Korea"
@@ -129,7 +129,7 @@ class ScrapeDramaFeverDramaContent
           plot:             scrape_plot,
           network:          scrape_network,
           drama_fever_url:  @url,
-          language:         language
+          country:          country
         )
         if scrape_genre.any?
           scrape_genre.each do |name|

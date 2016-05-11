@@ -27,10 +27,10 @@ class SearchController < ApplicationController
       end
       @results = dramas.inject(:&)
       if country
-        @results = @results.select { |drama| drama.language == country}
+        @results = @results.select { |drama| drama.country == country}
       end
     elsif country && !genres
-      @results = Drama.where(language: country)
+      @results = Drama.where(country: country)
     else
       @results = Drama.fetch
     end

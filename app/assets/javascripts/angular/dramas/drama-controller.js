@@ -24,7 +24,7 @@
       ctrl.description      = drama.drama.plot;
       ctrl.dramaId          = drama.drama.id;
       ctrl.image_url        = drama.drama.image_url;
-      ctrl.country          = drama.drama.language;
+      ctrl.country          = drama.drama.country;
       ctrl.romanized_title  = drama.drama.romanized_title;
       ctrl.also_known_as    = drama.drama.also_known_as;
       ctrl.network          = drama.drama.network;

@@ -1,7 +1,8 @@
 require 'open-uri'
 
 class ScrapeVikiDramaContent
-
+  attr_reader :romanized_title
+  
   def initialize(url)
     begin
       file = open(url)
@@ -23,7 +24,7 @@ class ScrapeVikiDramaContent
     @release_date = nil
     @rating = nil
     scrape_info
-    add_content_to_db
+    # add_content_to_db
   end
 
   def scrape_name
@@ -75,7 +76,7 @@ class ScrapeVikiDramaContent
     end
   end
 
-  def scrape_language
+  def scrape_country
     @doc.search('.section > .badge').map { |element| element.inner_text }[0]
   end
 
@@ -102,7 +103,7 @@ class ScrapeVikiDramaContent
         non_english_name: @original_title,
         episode_count:    scrape_episode_count,
         plot:             scrape_plot,
-        language:         scrape_language,
+        country:          scrape_country,
         broadcast_period: @broadcast_period,
         romanized_title:  @romanized_title,
         also_known_as:    @also_known_as,
