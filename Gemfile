@@ -13,7 +13,7 @@ gem 'coveralls', require: false
 gem 'rails_12factor', group: :production
 gem 'materialize-sass'
 gem 'nokogiri'
-gem 'paperclip'
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
 gem 'buttercms'
 gem 'angular-rails-templates'
 gem 'bower-rails'
@@ -23,7 +23,7 @@ gem 'searchkick'
 gem 'jwt', '~> 1.5', '>= 1.5.2'
 gem 'public_activity'
 gem 'puma'
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '~> 2.3'
 
 
 group :development, :test do
