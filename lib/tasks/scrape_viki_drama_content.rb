@@ -2,7 +2,7 @@ require 'open-uri'
 
 class ScrapeVikiDramaContent
   attr_reader :romanized_title
-  
+
   def initialize(url)
     begin
       file = open(url)
@@ -24,7 +24,7 @@ class ScrapeVikiDramaContent
     @release_date = nil
     @rating = nil
     scrape_info
-    # add_content_to_db
+    add_content_to_db
   end
 
   def scrape_name
@@ -87,6 +87,7 @@ class ScrapeVikiDramaContent
   end
 
   def scrape_genre
+    puts 'scraping genre'
     @doc.search('.section > .badge').map { |element| element.inner_text }[1..-1]
   end
 
@@ -119,7 +120,7 @@ class ScrapeVikiDramaContent
       end
       if scrape_cast_urls.any?
         scrape_cast_urls.uniq.each do |url|
-          ScrapeCastContent.new(url, @drama)
+          ScrapeVikiCastContent.new(url, @drama)
         end
       end
     end

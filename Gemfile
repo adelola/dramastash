@@ -23,6 +23,8 @@ gem 'searchkick'
 gem 'jwt', '~> 1.5', '>= 1.5.2'
 gem 'public_activity'
 gem 'puma'
+gem 'aws-sdk', '~> 2'
+
 
 group :development, :test do
   gem 'web-console', '~> 2.0'

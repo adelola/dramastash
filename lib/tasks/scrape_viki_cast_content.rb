@@ -1,6 +1,6 @@
 require 'open-uri'
 
-class ScrapeCastContent
+class ScrapeVikiCastContent
 
   def initialize(url, drama)
     begin
