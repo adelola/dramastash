@@ -1,6 +1,5 @@
 # 51 pages on Viki
 (3..51).each do |num|
-  sleep 2
   ScrapeVikiForDramaUrls.new("https://www.viki.com/explore?page=#{num}&sort=latest&type=series").urls.each do |url|
     sleep 5
     ScrapeVikiDramaContent.new(url)
