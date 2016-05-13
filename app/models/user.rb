@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   require 'auth_token'
-  searchkick
 
   def search_data
     as_json only: [:first_name, :last_name, :email, :username]

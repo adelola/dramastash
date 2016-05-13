@@ -1,5 +1,4 @@
 class List < ActiveRecord::Base
-  searchkick
 
   include PublicActivity::Common
 

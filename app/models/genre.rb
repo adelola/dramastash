@@ -1,5 +1,4 @@
 class Genre < ActiveRecord::Base
-  searchkick
 
   def search_data
     as_json only: [:name]
