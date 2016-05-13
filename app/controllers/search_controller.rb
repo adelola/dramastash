@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   def search
     dramas = Drama.search(params[:q], index_name: [Drama.searchkick_index.name])
     users = User.where(username: params[:q])
-    casts = Cast.search(params[:q], index_name: [Cast.searchkick_index.name])
+    casts = Cast.search(params[:q], index_name: [Cast.searchkick_index.name], limit: 10)
     @results = {dramas: dramas, users: users, casts: casts}
     if @results 
       respond_with(@results)
