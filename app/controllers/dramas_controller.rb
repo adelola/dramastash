@@ -3,7 +3,7 @@ class DramasController < ApplicationController
 
   def all
     @dramas = Drama.all.order(:non_english_name)
-    render layout: 'all'
+    render 'dramas/all'
   end
 
   def delete
