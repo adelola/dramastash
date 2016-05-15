@@ -2,7 +2,7 @@ class DramasController < ApplicationController
   respond_to :json, :html
 
   def all
-    @dramas = Drama.all.order(:non_english_name)
+    @dramas = Drama.all.order(:non_english_name).reverse
     render 'dramas/all'
   end
 
