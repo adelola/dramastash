@@ -8,7 +8,7 @@
 #   end
 # end
 
-Drama.all[-302,-1].each do |drama|
+Drama.all[-302..-1].each do |drama|
   ScrapeVikiCastContent.new(drama.viki_url, drama)
   sleep 5
 end
