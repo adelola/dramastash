@@ -8,7 +8,7 @@
 #   end
 # end
 
-Drama.all.each do |drama|
+Drama.all[-635..-1].each do |drama|
   FixVikiContent.new(drama.viki_url, drama)
   sleep 5
 end
