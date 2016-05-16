@@ -8,11 +8,26 @@
 #   end
 # end
 
-Drama.all[-301..-1].each do |drama|
-  ScrapeVikiCastContent.new(drama.viki_url, drama)
+Drama.all.each do |drama|
+  FixVikiContent.new(drama.viki_url, drama)
   sleep 5
 end
 
-# (4741..).each do |num|
-#   ScrapeDramaFeverDramaContent.new("https://www.dramafever.com/drama/#{num}")
+# Drama.all[-301..-1].each do |drama|
+#   ScrapeVikiCastContent.new(drama.viki_url, drama)
+#   sleep 5
+# end
+
+# Drama.all[-301..-1].each do |drama|
+#   ScrapeVikiCastContent.new(drama.viki_url, drama)
+#   sleep 5
+# end
+
+# (1..21).each do |num|
+#   puts "scraping page #{num}"
+#   ScrapeDramaFeverForDramaUrls.new("https://www.dramafever.com/browse/genre/korean/popular?page=#{num}&lang=en").urls.each do |url|
+#   	puts "now scraping #{url}"
+#   	ScrapeDramaFeverDramaContent.new(url)
+#   	sleep 5
+#   end
 # end

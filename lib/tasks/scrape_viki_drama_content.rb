@@ -24,7 +24,7 @@ class ScrapeVikiDramaContent
     @release_date = nil
     @rating = nil
     scrape_info
-    add_content_to_db
+    # add_content_to_db
   end
 
   def scrape_name
