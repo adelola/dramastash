@@ -17,7 +17,7 @@ class ScrapeDramaFeverForDramaUrls
   end
 
   def urls
-    @doc.search('.table > a').map { |element| element["href"] }.map do |url|
+    @doc.search('.series-thumb > .thumb').map { |element| element["href"] }.map do |url|
       "https://www.dramafever.com/" + url
     end
   end
