@@ -9,7 +9,7 @@
 # end
 
 Drama.all.each do |drama|
-  ScrapeVikiDramaContent.new(drama.viki_url)
+  ScrapeVikiCastContent.new(drama.viki_url, drama)
   sleep 5
 end
 
