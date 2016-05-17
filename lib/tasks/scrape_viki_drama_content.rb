@@ -87,7 +87,6 @@ class ScrapeVikiDramaContent
   end
 
   def scrape_genre
-    puts 'scraping genre'
     @doc.search('.section > .badge').map { |element| element.inner_text }[1..-1]
   end
 
