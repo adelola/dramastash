@@ -1,10 +1,9 @@
 class Drama < ActiveRecord::Base
   include PublicActivity::Common
   searchkick settings: {index: {max_result_window: 100000}}
-  
 
   def search_data
-    as_json only: [:name]
+    as_json only: [:name, :also_known_as, :non_english_name]
   end
 
   has_many :drama_genres
@@ -21,10 +20,6 @@ class Drama < ActiveRecord::Base
   validates_attachment_content_type :poster, content_type: /\Aimage\/.*\Z/
 
   attr_accessor :poster_remote_url
-
-  def search_data
-  
-  end
 
   def poster_remote_url=(url_value)
     self.poster = URI.parse(url_value).open unless url_value.blank?
