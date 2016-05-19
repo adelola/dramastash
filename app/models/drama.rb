@@ -1,10 +1,10 @@
 class Drama < ActiveRecord::Base
-  searchkick 
   include PublicActivity::Common
+  searchkick settings: {index: {max_result_window: 100000}}
   
 
   def search_data
-    as_json only: [:name, :non_english_name, :plot]
+    as_json only: [:name, :non_english_name, :also_known_as]
   end
 
   has_many :drama_genres

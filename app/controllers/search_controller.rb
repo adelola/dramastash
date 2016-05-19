@@ -2,9 +2,9 @@ class SearchController < ApplicationController
   respond_to :json, :html
 
   def search
-    dramas = Drama.search params[:q], fields: [:name, :also_known_as]
+    dramas = Drama.search params[:q], fields: [:name, :non_english_name, :also_known_as]
     users = User.where(username: params[:q])
-    casts = Cast.search params[:q], fields: [:name, :non_english_name]
+    casts = Cast.search params[:q], fields: [:name, :non_english_name, :also_known_as]
     @results = {dramas: dramas, users: users, casts: casts}
     if @results 
       respond_with(@results)

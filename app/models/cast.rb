@@ -2,7 +2,7 @@ class Cast < ActiveRecord::Base
   searchkick settings: {index: {max_result_window: 100000}}
 
   def search_data
-    as_json only: [:name]
+    as_json only: [:name, :also_known_as]
   end
 
   has_many :drama_casts
