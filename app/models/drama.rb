@@ -4,7 +4,7 @@ class Drama < ActiveRecord::Base
   
 
   def search_data
-    as_json only: [:name, :non_english_name, :also_known_as]
+    as_json only: [:name]
   end
 
   has_many :drama_genres
