@@ -1,5 +1,5 @@
 class Cast < ActiveRecord::Base
-  searchkick
+  searchkick settings: {index: {max_result_window: 100000}}
 
   def search_data
     as_json only: [:name]
