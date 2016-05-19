@@ -32,7 +32,7 @@ class Drama < ActiveRecord::Base
   end
 
   def self.fetch
-    sample = Drama.where.not(poster_file_name: nil).limit(100)
+    Drama.where.not(poster_file_name: nil)
   end
 
   def add_image_url

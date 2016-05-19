@@ -2,9 +2,9 @@ class SearchController < ApplicationController
   respond_to :json, :html
 
   def search
-    dramas = Drama.search(params[:q], index_name: [Drama.searchkick_index.name])
+    dramas = Drama.search(params[:q]), limit: 10, order: {_score: :desc}
     users = User.where(username: params[:q])
-    casts = Cast.search(params[:q], index_name: [Cast.searchkick_index.name], limit: 10)
+    casts = Cast.search(params[:q]), limit: 10, order: {_score: :desc}
     @results = {dramas: dramas, users: users, casts: casts}
     if @results 
       respond_with(@results)
