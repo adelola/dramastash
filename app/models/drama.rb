@@ -22,6 +22,10 @@ class Drama < ActiveRecord::Base
 
   attr_accessor :poster_remote_url
 
+  def search_data
+  
+  end
+
   def poster_remote_url=(url_value)
     self.poster = URI.parse(url_value).open unless url_value.blank?
     @poster_remote_url = url_value
