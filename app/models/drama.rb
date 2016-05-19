@@ -1,5 +1,5 @@
 class Drama < ActiveRecord::Base
-  searchkick settings: {index: {max_result_window: 100000}}
+  searchkick 
   include PublicActivity::Common
   
 
