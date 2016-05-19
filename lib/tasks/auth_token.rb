@@ -14,4 +14,13 @@ module AuthToken
     end 
   end
 
+  def token_status
+    token = params[:token]
+    if self.valid?(token)
+      head 200
+    else
+      head 401
+    end
+  end
+
 end

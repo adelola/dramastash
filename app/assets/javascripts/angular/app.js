@@ -28,6 +28,18 @@ angular
 
     $httpProvider.interceptors.push('jwtInterceptor');
   }])
+    
+  .run(['jwtHelper','$rootScope', '$state', 'store', function (jwtHelper, $rootScope, $state, store){
+    $rootScope.$on('$stateChangeStart', ['event', 'toState', 'toParams', function (event, toState, toParams){
+      var requiresLogin = toState.data.requiresLogin;
+      if (requiresLogin === true) {
+        if (!store.get('jwt') || jwtHelper.isTokenExpired(store.get('jwt'))) {
+          event.preventDefault();
+          $state.go('login');
+        }
+      }
+    }]);
+  }])
 
   .config(['$locationProvider', function ($locationProvider) {
     $locationProvider.hashPrefix('!');
@@ -44,6 +56,7 @@ angular
       .state('home', {
         url:'/',
         templateUrl: 'index.html',
+        data: { requiresLogin: false },
         controller:'IndexCtrl',
         controllerAs: 'index'
       })
@@ -171,18 +184,6 @@ angular
       })
   }])
 
-  //   Do Not Delete - have to debug
-  // .run(['jwtHelper','$rootScope', '$state', 'store', function (jwtHelper, $rootScope, $state, store){
-    // $rootScope.$on('$stateChangeStart', ['event', 'toState', 'toParams', function (event, toState, toParams){
-        // var requiresLogin = toState.data.requiresLogin;
-        // if (requiresLogin === true) {
-    //     if (!store.get('jwt') || jwtHelper.isTokenExpired(store.get('jwt'))) {
-    //       event.preventDefault();
-    //       $state.go('login');
-    //     }
-    //   }
-    // }]);
-  // }])
 
   .run(['editableOptions',function (editableOptions){
     editableOptions.theme = 'bs2';

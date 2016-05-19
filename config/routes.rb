@@ -10,16 +10,15 @@ Rails.application.routes.draw do
     resources :reviews, except: [:new, :edit]
   end
 
-
   resources :users,:defaults => {:format => "json"} do
-    member do
-      get :following, :followers
-    end
+    # member do
+    #   get :following, :followers
+    # end
     resources :lists, except: [:new, :edit] do
       resources :dramas, only: [:create, :destroy], defaults: {:format => 'json'}
     end
   end
-
+  
   resources :relationships, only: [:create, :destroy], defaults: {:format => 'json'}
 
   match '/activities', to: 'activities#index', via: 'get', :format => 'json'

@@ -15,7 +15,7 @@ angular
     var initialize = function () {
       if (UserModel.currentUser()) {
         ctrl.currentUser = UserModel.currentUser();
-    	UserModel.checkRelationship(ctrl.profile.id).then(function (result){ 
+    	  UserModel.checkRelationship(ctrl.profile.id).then(function (result){ 
          ctrl.relationshipId = result.id;
       	}, function (error){
          ctrl.relationshipId = '';

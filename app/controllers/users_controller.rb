@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   require 'auth_token'
+  before_action :authenticate!, only: [:index, :show]
   respond_to :json, :html
 
   def index
@@ -30,19 +31,19 @@ class UsersController < ApplicationController
     respond_with({user: @user, lists: @lists, fav_list: @fav_list, fav_dramas: @fav_dramas})
   end
 
-  def following
-    @title = "Following"
-    @user  = User.find(params[:id])
-    @users = @user.following
-    render 'show_follow'
-  end
+  # def following
+  #   @title = "Following"
+  #   @user  = User.find(params[:id])
+  #   @users = @user.following
+  #   render 'show_follow'
+  # end
 
-  def followers
-    @title = "Followers"
-    @user  = User.find(params[:id])
-    @users = @user.followers
-    render 'show_follow'
-  end
+  # def followers
+  #   @title = "Followers"
+  #   @user  = User.find(params[:id])
+  #   @users = @user.followers
+  #   render 'show_follow'
+  # end
 
   private
     def user_params

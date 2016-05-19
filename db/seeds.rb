@@ -13,11 +13,11 @@
 #   sleep 5
 # end
 
-(7..21).each do |num|
-  puts "scraping page #{num}"
-  ScrapeDramaFeverForDramaUrls.new("https://www.dramafever.com/browse/genre/korean/popular?page=#{num}&lang=en").urls.each do |url|
-  	puts "now scraping #{url}"
-  	ScrapeDramaFeverDramaContent.new(url)
-  	sleep 5
-  end
-end
+# (7..21).each do |num|
+#   puts "scraping page #{num}"
+#   ScrapeDramaFeverForDramaUrls.new("https://www.dramafever.com/browse/genre/korean/popular?page=#{num}&lang=en").urls.each do |url|
+#   	puts "now scraping #{url}"
+#   	ScrapeDramaFeverDramaContent.new(url)
+#   	sleep 5
+#   end
+# end

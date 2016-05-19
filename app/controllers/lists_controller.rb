@@ -1,5 +1,7 @@
 class ListsController < ApplicationController
   before_action :find_list, only: [:show, :update, :destroy]
+  before_action :authenticate!
+  
   respond_to :json, :html
 
   def index
