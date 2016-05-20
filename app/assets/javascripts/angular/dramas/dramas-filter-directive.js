@@ -8,18 +8,19 @@ angular.module('secondLead')
   	  },
 	  link: function (scope, element, attrs) {
       scope.genreItems = [
-        {name: "Action", value: "action", ticked: false},
-        {name: "Comedy", value: "comedy", ticked: false}, 
-        {name: "Historical", value: "historical", ticked: false}, 
-        {name: "Idol", value: "idol", ticked: false}, 
-        {name: "Melodrama", value: "melodrama", ticked: false}, 
-        {name: "Mystery", value: "mystery", ticked: false}, 
-        {name: "Supernatural", value: "supernatural", ticked: false}, 
-        {name: "Thriller", value: "thriller", ticked: false} 
+        {name: "Action", value: "Action & Adventure", ticked: false},
+        {name: "Comedy", value: "Comedy", ticked: false}, 
+        {name: "Historical", value: "Historical", ticked: false}, 
+        {name: "Idol", value: "Idol Drama", ticked: false}, 
+        {name: "Melodrama", value: "Melodrama", ticked: false}, 
+        {name: "Mystery", value: "Crime & Mystery", ticked: false}, 
+        {name: "Supernatural", value: "SciFi & Fantasy", ticked: false}, 
+        {name: "Thriller", value: "Action / Thriller", ticked: false} 
       ];
 
       scope.countryItem = [
         {name: "China", ticked: false}, 
+        {name: "Hong Kong", ticked: false},
         {name: "Japan", ticked: false}, 
         {name: "Korea", ticked: false}, 
         {name: "Taiwan", ticked: false}
