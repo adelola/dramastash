@@ -31,7 +31,7 @@ class Drama < ActiveRecord::Base
   end
 
   def self.fetch
-    Drama.where.not(poster_file_name: nil).order("name DESC")
+    Drama.where.not(poster_file_name: nil).order("name ASC")
   end
 
   def add_image_url
