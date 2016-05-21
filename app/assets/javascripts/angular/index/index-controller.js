@@ -23,15 +23,11 @@ angular
     };
     initialize();
 
-    ctrl.test = function () {
-      console.log(ctrl.activities);
-      
-    }
-
 
     function getActivities () {
     	ActivityModel.getAll(ctrl.user.id).then(function(result){
         ctrl.activities = result.activities;
+        console.log(ctrl.activities);
       })     
     };
 

@@ -1,11 +1,12 @@
 class ActivitiesController < ApplicationController
   respond_to :json, :html
+  before_action :authenticate!
   
   def index
-    @activities = PublicActivity::Activity.order('created_at DESC').where(owner_id: params[:id], owner_type:"User").limit(5)
-      # .select do |activity|
-      #   !activity.trackable.nil?
-      # end
+    @activities = PublicActivity::Activity.where(owner_id: current_user.following_ids, owner_type:"User").order('created_at DESC').limit(15)
+      .select do |activity|
+        !activity.trackable.nil?
+      end
     render json:{activities: @activities}
   end
 

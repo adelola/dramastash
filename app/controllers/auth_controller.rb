@@ -4,7 +4,6 @@ class AuthController < ApplicationController
   def login
   	user = User.find_by(username: params[:username]) 
     if user && user.authenticate(params[:password])
-      current_user = user
       render json: { user: user, token: user.generate_auth_token }
     else
       render json: { error: 'Invalid username/password combination' }, status: :unauthorized

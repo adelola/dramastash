@@ -151,7 +151,7 @@ angular
         }
       })
 
-        .state('user.lists', {     //Indented because nested under user
+        .state('user.lists', {     //Nested under user
           url:'/lists',
           data: { requiresLogin: true },
           templateUrl: 'lists-index.html',
@@ -170,7 +170,7 @@ angular
           }
         })
 
-        .state('user.list', {       //Indented because nested under user
+        .state('user.list', {       //Nested under user
           url:'/lists/:listID',
           data: { requiresLogin: true },
           templateUrl: 'list-show.html',
