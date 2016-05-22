@@ -20,6 +20,15 @@ angular
     ctrl.description = list.list.description;
     ctrl.userID = user.user.id;
 
+    var initialize = function () {
+        ctrl.userLists = ListModel.currentUserLists(ctrl.userID);
+        console.log(ctrl.userLists);
+    };
+    initialize();
+
+    ctrl.selectedList = {};
+
+
     ctrl.authorized = function () {
       if ( ctrl.userID === currentUser) {
         return true
