@@ -10,16 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require hover
  *= require angular-gridster
  *= require angular-xeditable
  *= require angular-material
  *= require_tree .
  *= require_self
  */
-
-.main-container {
-  max-width: 1400px;
-  position: relative;
-  margin: 0 auto;
-}
