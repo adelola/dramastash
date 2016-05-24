@@ -1,14 +1,16 @@
+ @import 'colors.scss';
+
 nav {
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   md-toolbar, md-toolbar:not(.md-menu-toolbar) {
-    background-color: #FE7A47;
+    background-color: $ds-orange;
   }
   h2 {
     padding-right: 20px;
   }
   .md-button:hover {
     background-color: white !important;
-    color: #FE7A47 !important;
+    color: $ds-orange!important;
   }
   .search-box {
     padding-top: 40px;
@@ -21,13 +23,13 @@ nav {
       margin-top: 14px !important;
     }
   }
-  
+
   a:hover {
     text-decoration: none;
     background: none;
-    color: #FE7A47 !important
+    color: $ds-orange !important
   }
   a:visited {
-    color: white;
+    color: $ds-off-white;
   }
 }

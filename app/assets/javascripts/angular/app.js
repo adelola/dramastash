@@ -28,7 +28,7 @@ angular
 
     $httpProvider.interceptors.push('jwtInterceptor');
   }])
-    
+
   .run(['jwtHelper','$rootScope', '$state', 'store', function (jwtHelper, $rootScope, $state, store){
     $rootScope.$on('$stateChangeStart', ['event', 'toState', 'toParams', function (event, toState, toParams){
       var requiresLogin = toState.data.requiresLogin;
@@ -43,10 +43,6 @@ angular
 
   .config(['$locationProvider', function ($locationProvider) {
     $locationProvider.hashPrefix('!');
-  }])
-
-  .config(['paginationTemplateProvider', function (paginationTemplateProvider){
-    paginationTemplateProvider.setPath('/dirPagination.html');
   }])
 
   .config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $urlRouterProvider){
