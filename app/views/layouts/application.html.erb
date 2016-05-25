@@ -16,14 +16,14 @@
         <md-toolbar>
           <div class="md-toolbar-tools">
             <h2>
-              <md-button aria-label="Home" ng-if="true" ui-sref='home'>
+              <md-button aria-label="Home" ng-if="true" ui-sref="home" ui-sref-opts="{reload: true}">
                 <a ui-sref-active="active">DramaStash</a>
               </md-button>
             </h2>
-            <md-button aria-label="Browse" ng-if="true" ui-sref='dramas'>
+            <md-button aria-label="Browse" ng-if="true" ui-sref="dramas">
               <a ui-sref-active="active">Browse</a>
             </md-button>
-            <md-button aria-label="My Page" ng-if="main.currentUser" ui-sref='user.lists({userID: main.currentUser.id})'>
+            <md-button aria-label="My Page" ng-if="main.currentUser" ui-sref="user.lists({userID: main.currentUser.id})" ui-sref-opts="{reload: true}">
               <a ui-sref-active="active">My Page</a>
             </md-button>
             <md-button aria-label="Logout" ng-if="main.loggedIn || main.currentUser">
