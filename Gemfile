@@ -24,6 +24,7 @@ gem 'jwt', '~> 1.5', '>= 1.5.2'
 gem 'public_activity'
 gem 'puma'
 gem 'aws-sdk', '~> 2.3'
+gem 'kaminari'
 
 
 group :development, :test do

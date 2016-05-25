@@ -6,6 +6,7 @@ class Drama < ActiveRecord::Base
     as_json only: [:name, :also_known_as, :non_english_name]
   end
 
+
   has_many :drama_genres
   has_many :genres, through: :drama_genres
   has_many :drama_casts

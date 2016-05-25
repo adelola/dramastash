@@ -140,6 +140,9 @@ GEM
     json (1.8.3)
     json_pure (1.8.3)
     jwt (1.5.2)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -298,6 +301,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jwt (~> 1.5, >= 1.5.2)
+  kaminari
   materialize-sass
   nokogiri
   paperclip!

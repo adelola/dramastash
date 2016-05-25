@@ -5,10 +5,10 @@
   </div>
 
   <div class="clearfix">
-    <dir-pagination-controls boundary-links="true" template-url="pagination.html"> </dir-pagination-controls>
+    <dir-pagination-controls max-size=5 boundary-links="true" template-url="pagination.html" pagination-id="browse"> </dir-pagination-controls>
   </div>
   <div gridster= "dramas.gridsterOpts">
-    <div gridster-item="items" dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize" current-page="dramas.currentPage" ng-cloak>
+    <div gridster-item="items" dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize" current-page="dramas.pagination.current" total-items="dramas.totalDramas" pagination-id="browse" ng-cloak>
       <md-content layout="row" layout-wrap layout-align="center start" layout-xs="column">
         <div flex-xs="100" layout="column">
           <md-card>
@@ -32,6 +32,6 @@
     </div>
   </div>
   <div class="clearfix">
-    <dir-pagination-controls boundary-links="true" template-url="pagination.html"> </dir-pagination-controls>
+    <dir-pagination-controls max-size=5 boundary-links="true" on-page-change="dramas.pageChanged(newPageNumber)" template-url="pagination.html" pagination-id="browse"> </dir-pagination-controls>
   </div>
 </div>

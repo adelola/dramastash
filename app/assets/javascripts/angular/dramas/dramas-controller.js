@@ -12,19 +12,35 @@ angular
     'UserModel',
     function (DramaModel, Gridster, ListModel, Restangular, UserModel){
     var ctrl = this;
-
-    ctrl.items = DramaModel.getAll;
+    ctrl.items = '';
     ctrl.user = '';
-    
+    ctrl.totalDramas = 0;
+    ctrl.selectedList = {};
+    // ctrl.currentPage = 1;
+    ctrl.pageSize = 24;
+    ctrl.pagination = {
+      current: 1
+    };
     var initialize = function () {
+      DramaModel.getPage(1).then(function(result) {
+        ctrl.items = result.data.items;
+        ctrl.totalDramas = result.data.count
+      });
       if (UserModel.currentUser()) {
         ctrl.user = UserModel.currentUser();
         ctrl.userLists = ListModel.currentUserLists(ctrl.user.id);
-      } 
+      }
     };
     initialize();
 
-    ctrl.selectedList = {};
+    ctrl.pageChanged = function(newPage) {
+      console.log("Getting new dramas");
+      DramaModel.getPage(newPage).then(function(result) {
+        ctrl.items = result.data.items;
+        ctrl.totalDramas = result.data.count;
+        ctrl.currentPage = newPage;
+      });
+    };
 
     ctrl.gridsterOpts = {
         columns: 4,
@@ -52,8 +68,6 @@ angular
            enabled: false
         }
     };
-    ctrl.currentPage = 1;
-    ctrl.pageSize = 32;
   }])
 
 })();

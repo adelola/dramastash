@@ -2,7 +2,7 @@ class DramasController < ApplicationController
   respond_to :json, :html
 
   def all
-    @dramas = Drama.all.order(:non_english_name).reverse
+    @dramas = Drama.all.order(:non_english_name).page(params[:page]).per(24)
     render 'dramas/all'
   end
 
@@ -13,9 +13,9 @@ class DramasController < ApplicationController
   end
 
   def index
-    @dramas = Drama.fetch
-    @genres = Genre.limit(20)
-    respond_with(@dramas)
+    @dramas = Drama.fetch.page(params[:page]).per(24)
+    @count = Drama.fetch.count
+    respond_with(items:@dramas, count: @count)
   end
 
   def show
