@@ -11,7 +11,8 @@
       'Restangular',
       'UserModel',
       'ListModel',
-      function (drama, Gridster, RatingModel, Restangular, UserModel, ListModel) {
+      '$location',
+      function (drama, Gridster, RatingModel, Restangular, UserModel, ListModel, $location) {
       var ctrl = this;
 
       ctrl.drama            = drama.drama;
@@ -32,7 +33,14 @@
       ctrl.rating           = drama.drama.rating;
       ctrl.viki_url         = drama.drama.viki_url;
       ctrl.drama_fever_url  = drama.drama.drama_fever_url;
-      ctrl.casts            = drama.casts
+      ctrl.casts            = drama.casts;
+      ctrl.link             = $location.path('/dramas/' + drama.drama.id).$$path;
+
+      ctrl.disqusConfig = {
+        disqus_shortname: 'dramastash',
+        disqus_identifier: 'Drama ' + ctrl.drama.id,
+        disqus_url: ctrl.link
+      };
 
       var authorized = function () {
         if (UserModel.currentUser()) {

@@ -3,10 +3,10 @@ class SearchController < ApplicationController
 
   def search
     dramas = Drama.search params[:q], fields: [:name, :non_english_name, :also_known_as]
-    users = User.where(username: params[:q])  
+    users = User.where(username: params[:q])
     casts = Cast.search params[:q], fields: [:name, :non_english_name]
     @results = {dramas: dramas, users: users, casts: casts}
-    if @results 
+    if @results
       respond_with(@results)
     else
       render json: { errors: "Oops, something went wrong." }
@@ -14,7 +14,7 @@ class SearchController < ApplicationController
   end
 
   def filter
-    if params[:genres] 
+    if params[:genres]
       genres = params[:genres].map {|x| x[:value]}
     end
     if params[:country]
@@ -27,16 +27,16 @@ class SearchController < ApplicationController
       end
       @results = dramas.inject(:&)
       if country
-        @results = @results.select { |drama| drama.country == country}
+        @results = @results.select { |drama| drama.country == country}.page(params[:page]).per(24)
       end
     elsif country && !genres
-      @results = Drama.where(country: country)
+      @results = Drama.where(country: country).page(params[:page]).per(24)
     else
-      @results = Drama.fetch
+      @results = Drama.fetch.page(params[:page]).per(24)
     end
 
-    if @results 
-       render json: { dramas: @results}
+    if @results
+       render json: { dramas: @results, count: @results.count}
     else
       render json: { message: "No results found" }
     end

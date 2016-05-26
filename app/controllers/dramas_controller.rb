@@ -14,8 +14,7 @@ class DramasController < ApplicationController
 
   def index
     @dramas = Drama.fetch.page(params[:page]).per(24)
-    @count = Drama.fetch.count
-    respond_with(items:@dramas, count: @count)
+    respond_with(items:@dramas, count: @dramas.count)
   end
 
   def show

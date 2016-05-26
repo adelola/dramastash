@@ -4,25 +4,26 @@ angular.module('secondLead')
   	  restrict: 'E',
   	  templateUrl:'filter-bar.html',
   	  scope: {
-        items: "="
+        items: "=",
+        totalDramas: "="
   	  },
 	  link: function (scope, element, attrs) {
       scope.genreItems = [
         {name: "Action", value: "Action & Adventure", ticked: false},
-        {name: "Comedy", value: "Comedy", ticked: false}, 
-        {name: "Historical", value: "Historical", ticked: false}, 
-        {name: "Idol", value: "Idol Drama", ticked: false}, 
-        {name: "Melodrama", value: "Melodrama", ticked: false}, 
-        {name: "Mystery", value: "Crime & Mystery", ticked: false}, 
-        {name: "Supernatural", value: "SciFi & Fantasy", ticked: false}, 
-        {name: "Thriller", value: "Action / Thriller", ticked: false} 
+        {name: "Comedy", value: "Comedy", ticked: false},
+        {name: "Historical", value: "Historical", ticked: false},
+        {name: "Idol", value: "Idol Drama", ticked: false},
+        {name: "Melodrama", value: "Melodrama", ticked: false},
+        {name: "Mystery", value: "Crime & Mystery", ticked: false},
+        {name: "Supernatural", value: "SciFi & Fantasy", ticked: false},
+        {name: "Thriller", value: "Action / Thriller", ticked: false}
       ];
 
       scope.countryItem = [
-        {name: "China", ticked: false}, 
+        {name: "China", ticked: false},
         {name: "Hong Kong", ticked: false},
-        {name: "Japan", ticked: false}, 
-        {name: "Korea", ticked: false}, 
+        {name: "Japan", ticked: false},
+        {name: "Korea", ticked: false},
         {name: "Taiwan", ticked: false}
       ];
 
@@ -33,9 +34,10 @@ angular.module('secondLead')
         event.preventDefault();
         DramaModel.getSome(scope.selectedGenres, scope.selectedCountry)
           .then( function(result){
-            scope.items = result.dramas; 
+            scope.items = result.dramas;
+            scope.count = result.count;
         });
-        
+
       };
 	  }
 	}
