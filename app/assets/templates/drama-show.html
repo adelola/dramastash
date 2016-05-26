@@ -80,7 +80,11 @@
             <md-tab label="Comments">
               <md-content class="md-padding">
                 <div class="comments">
-                  <dir-disqus disqus-shortname="{{drama.disqusConfig.disqus_shortname}}" disqus-identifier="{{drama.disqusConfig.disqus_identifier}}" disqus-url="{{drama.disqusConfig.disqus_url}}" readytobind="true"></dir-disqus>
+                  <dir-disqus disqus-shortname="{{drama.disqusConfig.disqus_shortname}}"
+                              disqus-identifier="{{drama.disqusConfig.disqus_identifier}}"
+                              disqus-url="{{drama.disqusConfig.disqus_url}}"
+                              disqus-title="{{drama.name}}"
+                              readytobind="true"></dir-disqus>
                 </div>
               </md-content>
             </md-tab>
