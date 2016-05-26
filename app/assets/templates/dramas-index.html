@@ -1,11 +1,10 @@
-<div ng-controller= "DramasCtrl as dramas">
-
+<div>
   <div class="search-filter">
     <dramas-filter items="dramas.items"> </dramas-filter>
   </div>
 
   <div class="clearfix">
-    <dir-pagination-controls max-size=5 boundary-links="true" template-url="pagination.html" pagination-id="browse"> </dir-pagination-controls>
+    <dir-pagination-controls max-size=5 boundary-links="true" on-page-change="dramas.pageChanged(newPageNumber)" template-url="pagination.html" pagination-id="browse"> </dir-pagination-controls>
   </div>
   <div gridster= "dramas.gridsterOpts">
     <div gridster-item="items" dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize" current-page="dramas.pagination.current" total-items="dramas.totalDramas" pagination-id="browse" ng-cloak>

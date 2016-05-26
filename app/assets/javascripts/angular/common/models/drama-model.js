@@ -14,7 +14,7 @@ angular
       // getAll: baseDramas.getList().$object,
 
       getPage: function getResultsPage(pageNumber) {
-        return $http.get('/dramas?page=' + pageNumber)
+        return $http.get('/dramas', {params: {page: pageNumber}}).then(extract);
       },
 
       getSome: function (genres, country){

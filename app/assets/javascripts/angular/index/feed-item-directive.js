@@ -9,7 +9,7 @@ angular.module('secondLead')
   	  replace: false,
   	  link: function (scope, element, attributes){
         var name = scope.activity.parameters.username
-        
+
         scope.message = "";
         scope.userId = scope.activity.owner_id;
         scope.userName = name.substring(0,1).toUpperCase()+name.substring(1);
@@ -42,8 +42,6 @@ angular.module('secondLead')
 
           }
   	  	};
-
-        // console.log(scope.activity.trackable_type);
         parseActivity();
   	  }
 

@@ -74,11 +74,32 @@ angular
       })
 
       .state('dramas', {
-        url:'/dramas',
+        url:'/dramas?=:page',
         data: { requiresLogin: false },
         templateUrl: 'dramas-index.html',
         controller:'DramasCtrl',
-        controllerAs: 'dramas'
+        controllerAs: 'dramas',
+        resolve: {
+          dramas: ['DramaModel','Restangular','$stateParams', function (DramaModel,Restangular,$stateParams){
+              return DramaModel.getPage($stateParams.page);
+          }],
+          page: ['$stateParams', function($stateParams){
+            return $stateParams.page;
+          }]
+        }
+      })
+
+      .state('drama', {
+        url:'/dramas/:dramaID',
+        data: { requiresLogin: false },
+        templateUrl: 'drama-show.html',
+        controller:'DramaCtrl',
+        controllerAs: 'drama',
+        resolve: {
+          drama: ['$stateParams','DramaModel','Restangular', function ($stateParams,DramaModel,Restangular){
+            return DramaModel.getOne($stateParams.dramaID);
+          }]
+        }
       })
 
       .state('search-results', {
@@ -100,18 +121,6 @@ angular
         }
       })
 
-      .state('drama', {
-        url:'/dramas/:dramaID',
-        data: { requiresLogin: false },
-        templateUrl: 'drama-show.html',
-        controller:'DramaCtrl',
-        controllerAs: 'drama',
-        resolve: {
-          drama: ['$stateParams','DramaModel','Restangular', function ($stateParams,DramaModel,Restangular){
-              return DramaModel.getOne($stateParams.dramaID);
-          }]
-        }
-      })
 
       .state('casts', {
         url:'/casts',

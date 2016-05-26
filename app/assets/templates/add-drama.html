@@ -3,7 +3,7 @@
     <div>
       <md-input-container>
         <label>Add to your list</label>
-        <md-select name ="add_drama" id="add_drama" ng-model="selectedList" ng-change="addToList(selectedList, drama.id)" class="form-control" required>
+        <md-select name ="add_drama" id="add_drama" ng-model="selectedList" ng-change="addToList(selectedList, drama.id)" class="form-control" aria-label="add_drama" aria-required="true" required>
           <md-option ng-repeat="list in userLists" value="{{list.id}}">
             {{list.name}}
           </md-option>

@@ -22,7 +22,6 @@ angular
 
     var initialize = function () {
         ctrl.userLists = ListModel.currentUserLists(ctrl.userID);
-        console.log(ctrl.userLists);
     };
     initialize();
 

@@ -20,7 +20,7 @@
                 <a ui-sref-active="active">DramaStash</a>
               </md-button>
             </h2>
-            <md-button aria-label="Browse" ng-if="true" ui-sref="dramas">
+            <md-button aria-label="Browse" ng-if="true" ui-sref="dramas({page: 1})">
               <a ui-sref-active="active">Browse</a>
             </md-button>
             <md-button aria-label="My Page" ng-if="main.currentUser" ui-sref="user.lists({userID: main.currentUser.id})" ui-sref-opts="{reload: true}">
