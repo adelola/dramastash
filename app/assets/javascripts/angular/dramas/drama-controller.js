@@ -34,13 +34,7 @@
       ctrl.viki_url         = drama.drama.viki_url;
       ctrl.drama_fever_url  = drama.drama.drama_fever_url;
       ctrl.casts            = drama.casts;
-      ctrl.link             = $location.path('/dramas/' + drama.drama.id).$$path;
-
-      ctrl.disqusConfig = {
-        disqus_shortname: 'dramastash',
-        disqus_identifier: 'Drama ' + ctrl.drama.id,
-        disqus_url: ctrl.link
-      };
+      ctrl.link             = window.location.href;
 
       var authorized = function () {
         if (UserModel.currentUser()) {

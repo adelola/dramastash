@@ -35,6 +35,7 @@
       ctrl.star_sign         = cast.cast.star_sign;
       ctrl.blood_type        = cast.cast.blood_type;
       ctrl.dramas            = cast.dramas;
+      ctrl.link              = window.location.href;
 
       ctrl.gridsterOpts = {
         columns: 4,
