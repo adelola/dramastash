@@ -49,7 +49,6 @@
                 <a ui-sref="drama({dramaID: drama.id})">
                   {{drama.name}}
                 </a>
-                {{drama.release_date}}
               </md-card-title-text>
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center" ng-if="cast.user">
@@ -63,9 +62,9 @@
   <md-content class="md-padding">
     <div class="comments">
       <dir-disqus disqus-shortname="dramastash"
-      disqus-identifier="{{cast.id}}"
-      disqus-url="{{cast.link}}"
-      disqus-title="{{cast.name}}"
+      disqus-identifier="cast.id"
+      disqus-url="cast.link"
+      disqus-title="cast.name"
       readytobind="true"></dir-disqus>
     </div>
   </md-content>
