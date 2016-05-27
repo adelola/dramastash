@@ -23,7 +23,7 @@
       initialize();
 
       ctrl.selectedList = {};
-
+      ctrl.id                = cast.cast.id;
       ctrl.image_url         = cast.cast.image_url;
       ctrl.picture_file_name = cast.cast.picture_file_name;
       ctrl.name              = cast.cast.name;

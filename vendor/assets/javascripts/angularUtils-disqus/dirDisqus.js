@@ -42,7 +42,6 @@
             },
             template: '<div id="disqus_thread"></div><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>',
             link: function(scope) {
-
                 // ensure that the disqus_identifier and disqus_url are both set, otherwise we will run in to identifier conflicts when using URLs with "#" in them
                 // see http://help.disqus.com/customer/portal/articles/662547-why-are-the-same-comments-showing-up-on-multiple-pages-
                 if (typeof scope.disqus_identifier === 'undefined' || typeof scope.disqus_url === 'undefined') {
