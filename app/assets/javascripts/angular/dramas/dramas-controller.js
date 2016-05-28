@@ -5,23 +5,28 @@ angular
   .module('secondLead')
 
   .controller('DramasCtrl', [
-    'dramas',
+    'results',
     'DramaModel',
     'Gridster',
+    '$httpParamSerializer',
     'ListModel',
     '$location',
     'page',
     'Restangular',
     'UserModel',
-    function (dramas, DramaModel, Gridster, ListModel, $location, page, Restangular, UserModel){
+    function (results, DramaModel, Gridster, $httpParamSerializer, ListModel, $location, page, Restangular, UserModel){
     var ctrl = this;
-    ctrl.items = dramas.items;
+    ctrl.items = results.items;
     ctrl.user = '';
-    ctrl.totalDramas = dramas.count;
+    ctrl.totalDramas = results.count;
     ctrl.selectedList = {};
-    ctrl.pageSize = 24;
+    ctrl.pageSize = 2;
+    ctrl.filterItems = '';
+    ctrl.selectedGenres = [];
+    ctrl.selectedCountry = [];
+    var currentPage = page || 1;
     ctrl.pagination = {
-      current: page
+      current: currentPage
     };
 
     var initialize = function () {
@@ -33,7 +38,11 @@ angular
     initialize();
 
     ctrl.pageChanged = function(newPage) {
-      $location.url('/dramas?page=' + newPage);
+      // var genreItems = $httpParamSerializer({ genre: ctrl.selectedGenres });
+      // var countryItems = $httpParamSerializer({ country: ctrl.selectedCountry });
+      console.log($location.url({page: newPage}));
+      // $location.url('/dramas?&'+genreItems+'&'+countryItems+'&page=' + newPage);
+      // $location.url({page: newPage});
     };
 
     ctrl.gridsterOpts = {

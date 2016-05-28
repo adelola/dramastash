@@ -25,6 +25,7 @@ gem 'public_activity'
 gem 'puma'
 gem 'aws-sdk', '~> 2.3'
 gem 'kaminari'
+gem 'json'
 
 
 group :development, :test do

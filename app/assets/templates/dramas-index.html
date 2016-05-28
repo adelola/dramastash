@@ -1,13 +1,26 @@
 <div>
   <div class="search-filter">
-    <dramas-filter items="dramas.items" total-dramas="dramas.totalDramas"> </dramas-filter>
+    <dramas-filter  items="dramas.items"
+                    total-dramas="dramas.totalDramas"
+                    selected-genres="dramas.selectedGenres"
+                    selected-country="dramas.selectedCountry">
+    </dramas-filter>
   </div>
 
   <div class="clearfix">
-    <dir-pagination-controls max-size=5 boundary-links="true" on-page-change="dramas.pageChanged(newPageNumber)" template-url="pagination.html" pagination-id="browse"> </dir-pagination-controls>
+    <dir-pagination-controls  max-size=5
+                              boundary-links="true"
+                              on-page-change="dramas.pageChanged(newPageNumber)"
+                              template-url="pagination.html"
+                              pagination-id="browse">
+    </dir-pagination-controls>
   </div>
   <div gridster= "dramas.gridsterOpts">
-    <div gridster-item="items" dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize" current-page="dramas.pagination.current" total-items="dramas.totalDramas" pagination-id="browse" ng-cloak>
+    <div gridster-item="items"  dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize"
+                                current-page="dramas.pagination.current"
+                                total-items="dramas.totalDramas"
+                                pagination-id="browse"
+    ng-cloak>
       <md-content layout="row" layout-wrap layout-align="center start" layout-xs="column">
         <div flex-xs="100" layout="column">
           <md-card>
@@ -19,11 +32,14 @@
                 <a ui-sref="drama({dramaID: drama.id})">
                   {{drama.name}}
                 </a>
-                {{drama.release_date}}
               </md-card-title-text>
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center" ng-if="dramas.user">
-              <add-drama drama="drama" user="{{dramas.user.id}}" user-lists="dramas.userLists" selected-list="dramas.selectedList"> </add-drama>
+              <add-drama drama="drama"
+                          user="{{dramas.user.id}}"
+                          user-lists="dramas.userLists"
+                          selected-list="dramas.selectedList">
+              </add-drama>
             </md-card-actions>
           </md-card>
         </div>
@@ -31,6 +47,11 @@
     </div>
   </div>
   <div class="clearfix">
-    <dir-pagination-controls max-size=5 boundary-links="true" on-page-change="dramas.pageChanged(newPageNumber)" template-url="pagination.html" pagination-id="browse"> </dir-pagination-controls>
+    <dir-pagination-controls max-size=5
+                              boundary-links="true"
+                              on-page-change="dramas.pageChanged(newPageNumber)"
+                              template-url="pagination.html"
+                              pagination-id="browse">
+    </dir-pagination-controls>
   </div>
 </div>

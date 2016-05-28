@@ -1,3 +1,5 @@
+require 'json'
+
 class SearchController < ApplicationController
   respond_to :json, :html
 
@@ -15,32 +17,44 @@ class SearchController < ApplicationController
 
   def filter
     if params[:genres]
-      genres = params[:genres].map {|x| x[:value]}
+      if params[:genres].respond_to?(:map)
+        genres = params[:genres].map {|x| JSON.parse(x)}.map {|x| x["name"]}
+      else
+        genres = JSON.parse(params[:genres])
+      end
     end
+    
     if params[:country]
-      country =  params[:country][0][:name]
+      country = JSON.parse(params[:country])["name"]
     end
 
     if genres
       dramas = genres.map do |genre|
         Genre.find_by(name: genre).dramas
       end
-      @results = dramas.inject(:&)
+      dramas_for_genre = dramas.inject(:&)
+      @results = Kaminari.paginate_array(dramas_for_genre).page(params[:page]).per(24)
+      @count = dramas_for_genre.count
       if country
-        @results = @results.select { |drama| drama.country == country}.page(params[:page]).per(24)
+        dramas_for_country_and_genre = dramas_for_genre.select { |drama| drama.country == country}
+        @results= Kaminari.paginate_array(dramas_for_country_and_genre).page(params[:page]).per(24)
+        @count = dramas_for_country_and_genre.count
       end
     elsif country && !genres
-      @results = Drama.where(country: country).page(params[:page]).per(24)
+      dramas_for_country_only = Drama.where(country: country)
+      @results = Kaminari.paginate_array(dramas_for_country_only).page(params[:page]).per(24)
+      @count = dramas_for_country_only.count
     else
-      @results = Drama.fetch.page(params[:page]).per(24)
+      all_dramas = Drama.fetch
+      @results = all_dramas.page(params[:page]).per(24)
+      @count = all_dramas.count
     end
 
     if @results
-       render json: { dramas: @results, count: @results.count}
+       render json: { items: @results, count: @count}
     else
       render json: { message: "No results found" }
     end
-
   end
 
 end

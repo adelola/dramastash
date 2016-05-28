@@ -41,8 +41,6 @@ angular
     }]);
   }])
 
-
-
   .config(['$locationProvider', function ($locationProvider) {
     $locationProvider.hashPrefix('!');
   }])
@@ -76,14 +74,14 @@ angular
       })
 
       .state('dramas', {
-        url:'/dramas?=:page',
+        url:'/dramas?=:genre&=:country&=:page',
         data: { requiresLogin: false },
         templateUrl: 'dramas-index.html',
         controller:'DramasCtrl',
         controllerAs: 'dramas',
         resolve: {
-          dramas: ['DramaModel','Restangular','$stateParams', function (DramaModel,Restangular,$stateParams){
-              return DramaModel.getPage($stateParams.page);
+          results: ['DramaModel','Restangular','$stateParams', function (DramaModel,Restangular,$stateParams){
+            return DramaModel.getDramas($stateParams.genre,$stateParams.country,$stateParams.page);
           }],
           page: ['$stateParams', function($stateParams){
             return $stateParams.page;

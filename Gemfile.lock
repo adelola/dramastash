@@ -300,6 +300,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.0)
   jquery-rails
+  json
   jwt (~> 1.5, >= 1.5.2)
   kaminari
   materialize-sass

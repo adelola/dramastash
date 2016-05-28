@@ -13,12 +13,8 @@ angular
      return {
       // getAll: baseDramas.getList().$object,
 
-      getPage: function getResultsPage(pageNumber) {
-        return $http.get('/dramas', {params: {page: pageNumber}}).then(extract);
-      },
-
-      getSome: function (genres, country){
-        return $http.post('/filter', {genres: genres,country: country}).then(extract);
+      getDramas: function (genres, country, page){
+        return $http.get('/dramas', {genres: genres, country: country, page: page}).then(extract);
       },
 
       getOne: function (dramaID){

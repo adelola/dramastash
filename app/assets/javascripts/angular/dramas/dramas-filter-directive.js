@@ -1,11 +1,13 @@
 angular.module('secondLead')
-  .directive('dramasFilter', ['DramaModel', function (DramaModel) {
+  .directive('dramasFilter', ['DramaModel', '$httpParamSerializer', '$location', function (DramaModel, $httpParamSerializer, $location) {
   	return {
   	  restrict: 'E',
   	  templateUrl:'filter-bar.html',
   	  scope: {
         items: "=",
-        totalDramas: "="
+        totalDramas: "=",
+        selectedGenres: "=",
+        selectedCountry: "="
   	  },
 	  link: function (scope, element, attrs) {
       scope.genreItems = [
@@ -29,15 +31,13 @@ angular.module('secondLead')
 
       scope.selectedGenres = [];
       scope.selectedCountry = [];
+      scope.page = 1;
 
       scope.filter = function () {
         event.preventDefault();
-        DramaModel.getSome(scope.selectedGenres, scope.selectedCountry)
-          .then( function(result){
-            scope.items = result.dramas;
-            scope.count = result.count;
-        });
-
+        genre_items = $httpParamSerializer({ genre: scope.selectedGenres });
+        country_items = $httpParamSerializer({ country: scope.selectedCountry });
+        $location.url('/dramas?&'+genre_items+'&'+country_items+'&page=' + scope.page);
       };
 	  }
 	}
