@@ -20,7 +20,7 @@ angular
     ctrl.user = '';
     ctrl.totalDramas = results.count;
     ctrl.selectedList = {};
-    ctrl.pageSize = 2;
+    ctrl.pageSize = 24;
     ctrl.filterItems = '';
     ctrl.selectedGenres = [];
     ctrl.selectedCountry = [];
@@ -38,11 +38,7 @@ angular
     initialize();
 
     ctrl.pageChanged = function(newPage) {
-      // var genreItems = $httpParamSerializer({ genre: ctrl.selectedGenres });
-      // var countryItems = $httpParamSerializer({ country: ctrl.selectedCountry });
-      console.log($location.url({page: newPage}));
-      // $location.url('/dramas?&'+genreItems+'&'+countryItems+'&page=' + newPage);
-      // $location.url({page: newPage});
+      $location.search("page", newPage);
     };
 
     ctrl.gridsterOpts = {

@@ -31,13 +31,25 @@ angular.module('secondLead')
 
       scope.selectedGenres = [];
       scope.selectedCountry = [];
-      scope.page = 1;
+
+      function extract (thing){
+        var collection = [];
+        for(i=0; i < thing.length; i++){
+          collection.push(thing[i]["name"]);
+        }
+        return collection
+      }
 
       scope.filter = function () {
         event.preventDefault();
+        var page = 1;
+        // var genre = extract(scope.selectedGenres);
+        // var country = extract(scope.selectedCountry);
+        // $location.url('/dramas').search({"genre[]": genre, country: country, page: page});
+
         genre_items = $httpParamSerializer({ genre: scope.selectedGenres });
         country_items = $httpParamSerializer({ country: scope.selectedCountry });
-        $location.url('/dramas?&'+genre_items+'&'+country_items+'&page=' + scope.page);
+        $location.url('/dramas?&'+genre_items+'&'+country_items+'&page=' + page);
       };
 	  }
 	}
