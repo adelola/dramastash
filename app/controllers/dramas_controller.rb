@@ -14,15 +14,11 @@ class DramasController < ApplicationController
 
   def index
     if params[:genre]
-      if params[:genre].respond_to?(:map)
-        genres = params[:genre].map {|x| JSON.parse(x)}.map {|x| x["name"]}
-      else
-        genres = JSON.parse(params[:genre])
-      end
+      genres = params[:genre].split(",")
     end
-
+    
     if params[:country]
-      country = JSON.parse(params[:country])["name"]
+      country = params[:country]
     end
 
     if genres

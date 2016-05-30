@@ -5,9 +5,7 @@ angular.module('secondLead')
   	  templateUrl:'filter-bar.html',
   	  scope: {
         items: "=",
-        totalDramas: "=",
-        selectedGenres: "=",
-        selectedCountry: "="
+        totalDramas: "="
   	  },
 	  link: function (scope, element, attrs) {
       scope.genreItems = [
@@ -43,14 +41,11 @@ angular.module('secondLead')
       scope.filter = function () {
         event.preventDefault();
         var page = 1;
-        // var genre = extract(scope.selectedGenres);
-        // var country = extract(scope.selectedCountry);
-        // $location.url('/dramas').search({"genre[]": genre, country: country, page: page});
-
-        genre_items = $httpParamSerializer({ genre: scope.selectedGenres });
-        country_items = $httpParamSerializer({ country: scope.selectedCountry });
-        $location.url('/dramas?&'+genre_items+'&'+country_items+'&page=' + page);
+        var genre = extract(scope.selectedGenres).toString();
+        var country = extract(scope.selectedCountry).toString();
+        $location.url('/dramas').search({genre: genre, country: country, page: page});
       };
+
 	  }
 	}
 }])

@@ -22,8 +22,6 @@ angular
     ctrl.selectedList = {};
     ctrl.pageSize = 24;
     ctrl.filterItems = '';
-    ctrl.selectedGenres = [];
-    ctrl.selectedCountry = [];
     var currentPage = page || 1;
     ctrl.pagination = {
       current: currentPage
