@@ -16,7 +16,7 @@ class DramasController < ApplicationController
     if params[:genre]
       genres = params[:genre].split(",")
     end
-    
+
     if params[:country]
       country = params[:country]
     end
@@ -61,8 +61,10 @@ class DramasController < ApplicationController
     drama = Drama.find_by(id: params[:id])
     if list.dramas.find_by(id: drama.id)
       render json: { message: "Drama is already in #{list.name}" }
-    elsif list.name == 'Favorites' && list.dramas.count >= 5
-      render json: { message: "You have five favorites. Remove one to add one." }
+    elsif list.name == '*9psuu7wDcvUi*' && list.dramas.count >= 5
+      render json: { message: "Aigoo, your Favorities Bar is full." }
+    elsif list.name == '*9psuu7wDcvUi*' && list.dramas.count < 5
+      render json: { message: "Drama is already in your Favorites Bar." }
     else
       new_list_drama = drama.add_to_list(list)
       if new_list_drama.save

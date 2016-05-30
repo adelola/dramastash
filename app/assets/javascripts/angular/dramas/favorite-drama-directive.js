@@ -2,15 +2,14 @@ angular.module('secondLead')
   .directive('addDrama', ['DramaModel', '$mdToast', function (DramaModel, $mdToast) {
   	return {
   	  restrict: 'E',
-  	  templateUrl:'add-drama.html',
+  	  template:'<button><i class="fa fa-heart" ng-click="toggleFave(favList, drama)"></i></button>',
   	  scope: {
   	  	drama: "=",
-  	  	userLists: "=",
-  	  	user: "@",
-  	  	selectedList:"@"
+  	  	favList: "=",
+  	  	user: "@"
   	  },
-	  link: function (scope, element, attrs) {      
-	  	scope.addToList = function (list, drama) {
+	  link: function (scope, element, attrs) {
+	  	scope.toggleFave = function (list, drama) {
 	  	  DramaModel.add(scope.user, list, drama).then(function(response){
           $mdToast.show($mdToast.simple().textContent(response.message).position('right').hideDelay(2000));
         });

@@ -1,15 +1,15 @@
 class ListsController < ApplicationController
   before_action :find_list, only: [:show, :update, :destroy]
   before_action :authenticate!
-  
+
   respond_to :json, :html
 
   def index
   	find_user
-  	@lists = @user.lists
+  	@lists = @user.lists.where.not(name: '*9psuu7wDcvUi*')
     respond_with(@lists)
   end
-  
+
   def show
     @dramas = @list.dramas.map { |drama| drama.add_image_url }
     respond_with({list: @list, dramas: @dramas})
@@ -20,7 +20,7 @@ class ListsController < ApplicationController
     @list.user = find_user
   	if @list.save
       @list.create_activity :created, owner: @list.user, params: {username: @list.user.username, list:@list.name}
-      render json: { list: @list} 
+      render json: { list: @list}
   	else
   	  render json: { errors: "Oops, something went wrong." }
   	end
@@ -44,7 +44,7 @@ class ListsController < ApplicationController
 
 
   private
-  
+
   def find_user
   	@user = User.find(params[:user_id])
   end

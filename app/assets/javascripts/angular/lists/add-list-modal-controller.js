@@ -1,6 +1,6 @@
 angular
   .module('secondLead')
-  .controller('AddListModalCtrl', function ($scope, $uibModalInstance){
+  .controller('AddListModalCtrl', ['$uibModalInstance', function ($scope, $uibModalInstance){
 
     $scope.name = null;
     $scope.description =null;
@@ -13,4 +13,4 @@ angular
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
-  });
+  }]);
