@@ -27,8 +27,12 @@ angular
 
       add: function (userID, listID, dramaID){
         return Restangular.one("users", userID).one("lists", listID).all("dramas").post({id: dramaID})
+      },
 
+      checkIfFavorite: function (dramaID,userID){
+        return $http.get('/check_fave', {params: {drama_id: dramaID, user_id: userID}}).then(extract);
       }
+
     };
   }])
 })();

@@ -31,6 +31,12 @@ class UsersController < ApplicationController
     respond_with({user: @user, lists: @lists, fav_list: @fav_list, fav_dramas: @fav_dramas})
   end
 
+  def fave_list
+    user = User.find_by(id: params[:user_id])
+    fav_list = user.lists.find_by(name: '*9psuu7wDcvUi*')
+    respond_with({fav_list: fav_list})
+  end
+
   # def following
   #   @title = "Following"
   #   @user  = User.find(params[:id])

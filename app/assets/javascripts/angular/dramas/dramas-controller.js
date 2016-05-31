@@ -5,20 +5,18 @@ angular
   .module('secondLead')
 
   .controller('DramasCtrl', [
-    'results',
-    'DramaModel',
+    'dramas',
     'Gridster',
-    '$httpParamSerializer',
     'ListModel',
     '$location',
     'page',
     'Restangular',
     'UserModel',
-    function (results, DramaModel, Gridster, $httpParamSerializer, ListModel, $location, page, Restangular, UserModel){
+    function (dramas, Gridster, ListModel, $location, page, Restangular, UserModel){
     var ctrl = this;
-    ctrl.items = results.items;
+    ctrl.items = dramas.items;
     ctrl.user = '';
-    ctrl.totalDramas = results.count;
+    ctrl.totalDramas = dramas.count;
     ctrl.selectedList = {};
     ctrl.pageSize = 24;
     ctrl.filterItems = '';
@@ -26,11 +24,15 @@ angular
     ctrl.pagination = {
       current: currentPage
     };
+    ctrl.favList = '';
 
     var initialize = function () {
       if (UserModel.currentUser()) {
         ctrl.user = UserModel.currentUser();
         ctrl.userLists = ListModel.currentUserLists(ctrl.user.id);
+        ListModel.faveList(ctrl.user.id).then(function(result){
+          ctrl.favList = result.fav_list;
+        });
       }
     };
     initialize();

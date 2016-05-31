@@ -15,6 +15,17 @@ class ListsController < ApplicationController
     respond_with({list: @list, dramas: @dramas})
   end
 
+  def check_fave
+    drama = Drama.find_by(id: params[:drama_id])
+    user = User.find_by(id: params[:user_id])
+    fav_list = user.lists.find_by(name: '*9psuu7wDcvUi*')
+    if fav_list.dramas.include?(drama)
+      respond_with({status: true, fav_list_id: fav_list.id})
+    else
+      respond_with({status: false, fav_list_id: fav_list.id})
+    end
+  end
+
   def create
   	@list = List.new(list_params)
     @list.user = find_user

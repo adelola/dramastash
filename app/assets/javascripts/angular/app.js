@@ -80,7 +80,7 @@ angular
         controller:'DramasCtrl',
         controllerAs: 'dramas',
         resolve: {
-          results: ['DramaModel','Restangular','$stateParams', function (DramaModel,Restangular,$stateParams){
+          dramas: ['DramaModel','Restangular','$stateParams', function (DramaModel,Restangular,$stateParams){
             return DramaModel.getDramas($stateParams.genre,$stateParams.country,$stateParams.page);
           }],
           page: ['$stateParams', function($stateParams){

@@ -30,13 +30,17 @@
                 </a>
               </md-card-title-text>
             </md-card-title>
+
             <md-card-actions layout="row" layout-align="end center" ng-if="dramas.user">
               <add-drama drama="drama"
                           user="{{dramas.user.id}}"
                           user-lists="dramas.userLists"
                           selected-list="dramas.selectedList">
               </add-drama>
+              <span>{{dramas.favList.id}}</span>
+              <fave-drama drama="drama" user-id="{{dramas.user.id}}"></fave-drama>
             </md-card-actions>
+
           </md-card>
         </div>
       </md-content>

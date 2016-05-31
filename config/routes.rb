@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resources :dramas, only: [:create, :destroy], defaults: {:format => 'json'}
     end
   end
-  
+
   resources :relationships, only: [:create, :destroy], defaults: {:format => 'json'}
 
   match '/activities', to: 'activities#index', via: 'get', :format => 'json'
@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   match '/auth/login', to: 'auth#login', via: 'post'
   match '/auth/register',     to: 'auth#register',     via: 'post'
   match '/auth/token_status', to: 'auth#token_status', via: 'get'
+  match '/check_fave', to: 'lists#check_fave', via: 'get', :format => 'json'
   match '/delete', to: 'dramas#delete', via: 'delete'
+  match '/fave_list', to: 'users#fave_list', via: 'get', :format => 'json'
   match '/filter', to: 'search#filter', via: 'post', :format => 'json'
   match 'ratings/find', to: 'ratings#find', via: 'get', :format => 'json'
   match 'relationships/find', to: 'relationships#find', via: 'get', :format => 'json'

@@ -59,12 +59,17 @@ class DramasController < ApplicationController
   def create
     list = List.find_by(id: params[:list_id])
     drama = Drama.find_by(id: params[:id])
-    if list.dramas.find_by(id: drama.id)
-      render json: { message: "Drama is already in #{list.name}" }
-    elsif list.name == '*9psuu7wDcvUi*' && list.dramas.count >= 5
+
+    if list.name == '*9psuu7wDcvUi*' && list.dramas.count >= 5
       render json: { message: "Aigoo, your Favorities Bar is full." }
-    elsif list.name == '*9psuu7wDcvUi*' && list.dramas.count < 5
-      render json: { message: "Drama is already in your Favorites Bar." }
+    elsif list.name == '*9psuu7wDcvUi*' && list.dramas.find_by(id: drama.id)
+      render json: { message: "Drama already in your Favorites Bar."}
+    elsif list.name == '*9psuu7wDcvUi*' && list.dramas.count < 5 && !list.dramas.find_by(id: drama.id)
+      list.dramas << drama
+      drama.create_activity :added, owner: list.user, params: {username: list.user.username, drama: drama, list: list}
+      render json: { message: "Drama added to your Favorites Bar.", status: true}
+    elsif list.dramas.find_by(id: drama.id)
+      render json: { message: "Drama is already in #{list.name}" }
     else
       new_list_drama = drama.add_to_list(list)
       if new_list_drama.save
@@ -80,7 +85,7 @@ class DramasController < ApplicationController
   def destroy
     drama = ListDrama.find_by({drama_id: params[:id], list_id: params[:list_id]})
     if drama.destroy
-      render json: { message: "Drama successfully deleted." }
+      render json: { message: "Drama unfavorited." }
     else
       render json: { errors: "Oops, something went wrong." }
     end
