@@ -14,11 +14,10 @@
                 <a ui-sref="drama({dramaID: drama.id})">
                   {{drama.name}}
                 </a>
-                {{drama.release_date}}
               </md-card-title-text>
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center" ng-if="lists.authorized()">
-              <delete-drama drama="drama" remove-item= "lists.removeDrama(drama)" list="{{lists.fav_list.id}}" user="{{lists.userID}}"> </delete-drama>
+              <fave-drama drama="drama" user-id="{{lists.userID}}" remove-item= "lists.removeDrama(drama)"></fave-drama>
             </md-card-actions>
           </md-card>
         </div>

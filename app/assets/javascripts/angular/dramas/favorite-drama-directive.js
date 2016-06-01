@@ -5,7 +5,8 @@ angular.module('secondLead')
   	  template:'<button class="favorite-drama" ng-class="redHeart" ng-click="toggleFave()"><i class="fa fa-heart"></i></button>',
   	  scope: {
   	  	drama: "=",
-  	  	userId: "@"
+  	  	userId: "@",
+        removeItem: "&"
   	  },
 	  link: function (scope, element, attrs) {
       var dramaIsFave = function(drama){
@@ -43,9 +44,10 @@ angular.module('secondLead')
       scope.toggleFave = function () {
         dramaIsFave(scope.drama).then(function(result){
           if(result === true){
-            unfavorite()
+            unfavorite();
+            scope.removeItem(scope.drama);
           } else {
-            favorite()
+            favorite();
           }
         })
 	  	};
