@@ -27,7 +27,7 @@ angular
     function getActivities () {
     	ActivityModel.getAll(ctrl.user.id).then(function(result){
         ctrl.activities = result.activities;
-      })     
+      })
     };
 
   }])

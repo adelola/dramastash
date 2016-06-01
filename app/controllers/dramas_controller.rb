@@ -66,7 +66,7 @@ class DramasController < ApplicationController
       render json: { message: "Drama already in your Favorites Bar."}
     elsif list.name == '*9psuu7wDcvUi*' && list.dramas.count < 5 && !list.dramas.find_by(id: drama.id)
       list.dramas << drama
-      drama.create_activity :added, owner: list.user, params: {username: list.user.username, drama: drama, list: list}
+      drama.create_activity :favorited, owner: list.user, params: {username: list.user.username, drama: drama}
       render json: { message: "Drama added to your Favorites Bar.", status: true}
     elsif list.dramas.find_by(id: drama.id)
       render json: { message: "Drama is already in #{list.name}" }
@@ -74,7 +74,6 @@ class DramasController < ApplicationController
       new_list_drama = drama.add_to_list(list)
       if new_list_drama.save
         drama.create_activity :added, owner: list.user, params: {username: list.user.username, drama: drama, list: list}
-        list.create_activity key: 'Drama', owner: @current_user
         render json: { message: "Drama successfully added to #{list.name}" }
       else
         render json: { errors: "Oops, something went wrong." }

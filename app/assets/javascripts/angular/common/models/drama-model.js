@@ -11,8 +11,6 @@ angular
      };
 
      return {
-      // getAll: baseDramas.getList().$object,
-
       getDramas: function (genres, country, page){
         return $http.get('/dramas', {params: {genre: genres, country: country, page: page}}).then(extract);
       },
