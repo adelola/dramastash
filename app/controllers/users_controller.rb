@@ -27,7 +27,11 @@ class UsersController < ApplicationController
     @user     = User.find(params[:id])
     @lists    = @user.lists.where.not(name: '*9psuu7wDcvUi*')
     @fav_list = @user.lists.find_by(name: '*9psuu7wDcvUi*')
-    @fav_dramas = @fav_list.dramas
+    if @fav_list.dramas
+      @fav_dramas = @fav_list.dramas
+    else
+      @fav_dramas = []
+    end
     respond_with({user: @user, lists: @lists, fav_list: @fav_list, fav_dramas: @fav_dramas})
   end
 

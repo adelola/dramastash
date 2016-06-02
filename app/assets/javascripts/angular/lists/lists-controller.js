@@ -15,16 +15,23 @@
       '$uibModal',
       'UserModel',
       function (Gridster, ListModel, lists, fav_list, fav_dramas, $scope, $stateParams, $uibModal, UserModel){
-      var ctrl        = this;
-      ctrl.items      = lists;
-      ctrl.fav_list   = fav_list;
-      ctrl.fav_dramas = fav_dramas;
-      ctrl.userID     = $stateParams.userID;
+      var ctrl            = this;
+      ctrl.items          = lists;
+      ctrl.fav_list       = fav_list;
+      ctrl.fav_dramas     = fav_dramas;
+      ctrl.pageOwnerId    = $stateParams.userID;
+      ctrl.selectedList   = {};
 
-      var currentUser = UserModel.currentUser().id.toString();
+      var initialize = function () {
+        if (UserModel.currentUser()) {
+          ctrl.currentUser = UserModel.currentUser();
+          ctrl.userLists = ListModel.currentUserLists(ctrl.currentUser.id);
+        };
+      };
+      initialize();
 
       ctrl.authorized = function () {
-        if ( ctrl.userID === currentUser) {
+        if( ctrl.pageOwnerId === ctrl.currentUser.id.toString()) {
           return true
         }
       };

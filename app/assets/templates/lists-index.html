@@ -16,8 +16,13 @@
                 </a>
               </md-card-title-text>
             </md-card-title>
-            <md-card-actions layout="row" layout-align="end center" ng-if="lists.authorized()">
-              <fave-drama drama="drama" user-id="{{lists.userID}}" remove-item= "lists.removeDrama(drama)"></fave-drama>
+            <md-card-actions layout="row" layout-align="end center">
+              <add-drama drama="drama"
+                          user="{{lists.currentUser.id}}"
+                          user-lists="lists.userLists"
+                          selected-list="lists.selectedList">
+              </add-drama>
+              <fave-drama drama="drama" user-id="{{lists.currentUser.id}}" remove-item= "lists.removeDrama(drama)"></fave-drama>
             </md-card-actions>
           </md-card>
         </div>
