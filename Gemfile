@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'angular-rails-templates'
+gem 'angular-rails-templates', '~> 1.0.0'
 gem 'autoprefixer-rails'
 gem 'aws-sdk', '~> 2.3'
 gem 'bcrypt', '~> 3.1.7'
@@ -23,7 +23,7 @@ gem 'responders', '~> 2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'searchkick'
-gem 'sprockets'
+gem 'sprockets', '~> 3.6.0'
 gem 'uglifier', '>= 1.3.0'
 
 

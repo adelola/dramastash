@@ -1,0 +1,5 @@
+flexbox: no-2009
+browsers:
+  - "last 2 versions"
+  - "IE >= 9"
+  - "and_chr >= 2.3"
