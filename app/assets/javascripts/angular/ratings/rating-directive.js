@@ -1,9 +1,9 @@
 angular.module('secondLead')
   .directive('dramaRating', [ 'RatingModel', 'store',function (RatingModel, store){
-    
+
     return {
 	  restrict : 'A',
-	  templateUrl : 'rating.html',
+	  templateUrl : 'rating-template.html',
 	  scope : {
 	    ratingValue : '=',
 	    ratingId: '=',
@@ -13,7 +13,7 @@ angular.module('secondLead')
 	  link : function (scope, elem, attrs){
 		var dramaId = scope.drama.dramaId;
 		var currentUser = store.get('user');
-	  	
+
 	  	var initialize = function(){
 	  	  RatingModel.find(dramaId, currentUser.id).then(function (result){
 	  	  	if (result.errors) {
@@ -47,7 +47,7 @@ angular.module('secondLead')
 		  	initialize();
 		  };
 		};
-				
+
 		scope.toggle = function (index){
 		  if (currentUser) {
 		    scope.ratingValue = index + 1;
@@ -63,16 +63,16 @@ angular.module('secondLead')
 		  	scope.ratingId = '';
 		  }
 		};
-				
+
 		scope.$watch('ratingValue',
 		  function(oldVal, newVal) {
 			if (newVal) {
 			  updateHearts();
 			}
 		  }
-		);		
+		);
 	  }
-		
+
 	};
-	
+
   }]);

@@ -12,6 +12,6 @@
  *
  *= require angular-gridster
  *= require angular-xeditable
- *= require_self
  *= require main
+ *= require_self
  */

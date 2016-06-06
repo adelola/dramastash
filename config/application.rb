@@ -29,8 +29,8 @@ module Secondlead
 
     config.angular_templates.module_name    = 'templates'
     config.angular_templates.ignore_prefix  = %w(templates/)
-    config.angular_templates.inside_paths   = [Rails.root.join('app', 'assets', 'templates')]
-
+    # config.angular_templates.inside_paths   = [Rails.root.join('app', 'assets', 'templates')]
+    config.angular_templates.inside_paths = ['app/assets/templates']
 
 
   end

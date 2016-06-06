@@ -1,10 +1,9 @@
- @import 'colors.scss';
 
 .home-loggedout {
   height: 100vh;
   width: 100%;
   margin: 0px;
-  background-color: $ds-light-orange;
+  background-color: $ds-lgt-orange;
   background-image: linear-gradient($ds-orange, $ds-off-white);
   display: -webkit-flex;
   display: flex;
