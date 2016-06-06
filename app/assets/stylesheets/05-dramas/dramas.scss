@@ -1,135 +1,207 @@
-.drama-image-and-info {
-  margin-bottom: 50px;
-  .drama-info {
-    padding-left: 30px;
-    h1 {
-      font-size: 3em;
-      margin: 0 0 10px 0;
-    }
-    h2 {
-      font-size: 1.5em;
-      margin: 0 0 10px 0;
-    }
-    td {
-      padding: 9px 5px;
+/* CONTAINER */
+#browse-page {
+  max-width: 90%;
+  text-align: left;
+
+  #drama-browse {
+    max-width: 100%;
+  }
+
+  /*    TOASTS      */
+  md-toast {
+    position: fixed;
+    bottom: 0;
+    .md-toast-content {
+      background-color: #4AC948 !important;
     }
   }
-  img {
-    width: 100%;
+
+  //
+  // .range-label {
+  //   display: inline;
+  // }
+  //
+
+
+
+  /*  Material like Cards */
+  .card {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    color: #FA812F;
+    border-radius: 2px;
+    .title {
+      line-height: 3rem;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    .content {
+      padding: 1.3rem;
+      font-weight: 300;
+      border-radius: 0 0 2px 2px;
+    }
+    p {
+    margin: 0;
+    }
+    .action {
+      border-top: 1px solid rgba(160, 160, 160, 0.2);
+      padding: 1.3rem;
+    }
+    a {
+      color: #FA812F;
+      margin-right: 1.3rem;
+      transition: color 0.3s ease;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .favorite-drama {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .image {
+      position: relative;
+      top: 0;
+      .title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 1.3rem;
+        color: #fff;
+      }
+      img {
+        border-radius: 2px 2px 0 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+      }
+    }
   }
-}
 
-.drama-rating-picker {
-  margin-bottom: 10px;
-}
+  /* FAVORITES   */
 
-.drama-rating {
-  width: 125px;
-  text-align: center;
-  margin-bottom: 20px;
-  .drama-rating-box {
-    position: relative;
+  .favorite-drama-active {
+    color:red;
+  }
+
+
+  /*   RATING    */
+  .drama-rating-picker {
+    margin-bottom: 10px;
+  }
+
+  .drama-rating {
+    width: 125px;
     text-align: center;
-    font-size: 2.5em;
-    height: 80px;
-    line-height: 80px;
-    background-color: #FE7A47;
-    color: white;
+    margin-bottom: 20px;
+    .drama-rating-box {
+      position: relative;
+      text-align: center;
+      font-size: 2.5em;
+      height: 80px;
+      line-height: 80px;
+      background-color: #FE7A47;
+      color: white;
+    }
+    .drama-rating-box:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-width: 0px 0px 20px 20px;
+      border-style: solid;
+      border-color: #FE7A47 #fff;
+    }
   }
-  .drama-rating-box:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-width: 0px 0px 20px 20px;
-    border-style: solid;
-    border-color: #FE7A47 #fff;
-  }
-}
 
-.favorite-drama-active {
-  color:red;
-}
+  .rating{
+    color: #D9D9D9;
+    margin: 0;
+    padding: 0;
+    ul {
+      display: inline-block;
+    }
+    li {
+      list-style-type: none;
+      display: inline-block;
+      padding: 1px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .filled {
+      color: red;
+    }
+  }
 
-.rating{
-  color: #D9D9D9;
-  margin: 0;
-  padding: 0;
-  ul {
-    display: inline-block;
-  }
-  li {
-    list-style-type: none;
-    display: inline-block;
-    padding: 1px;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .filled {
+  .review-hearts {
     color: red;
   }
-}
 
-.review-hearts {
-  color: red;
-}
-
-md-card-title {
-  a,
-  a:visited {
-    color: #FE7A47;
-  }
-  a:hover {
-    background: none;
-  }
-}
-
-md-card md-card-title {
-  padding: 10px 16px 0;
-}
-
-md-input-container {
-  margin: 0;
-  vertical-align: top;
-  padding: 0 2px;
-}
-
-md-toast {
-  position: fixed;
-  bottom: 0;
-  .md-toast-content {
-    background-color: #4AC948 !important;
-  }
-}
-dir-pagination-controls {
-  float: right;
-}
-
-.range-label {
-  display: inline;
-}
-
-.drama-description {
-  margin-bottom: 20px;
-}
-
-.drama-review-and-cast {
-  h3 {
-    font-size: 2em;
-  }
-  h4 {
-    font-size: 1.3em;
-    font-weight: bold;
-  }
-  .drama-cast {
-    padding-left: 10px;
-    div {
-      text-align: center;
-      margin-bottom: 20px;
+  /*   DELETE SOON    */
+  .drama-image-and-info {
+    margin-bottom: 50px;
+    .drama-info {
+      padding-left: 30px;
+      h1 {
+        font-size: 3em;
+        margin: 0 0 10px 0;
+      }
+      h2 {
+        font-size: 1.5em;
+        margin: 0 0 10px 0;
+      }
+      td {
+        padding: 9px 5px;
+      }
     }
     img {
       width: 100%;
+    }
+  }
+
+  md-card-title {
+    a,
+    a:visited {
+      color: #FE7A47;
+    }
+    a:hover {
+      background: none;
+    }
+  }
+
+  md-card md-card-title {
+    padding: 10px 16px 0;
+  }
+
+  md-input-container {
+    margin: 0;
+    vertical-align: top;
+    padding: 0 2px;
+  }
+  .drama-description {
+    margin-bottom: 20px;
+  }
+
+  .drama-review-and-cast {
+    h3 {
+      font-size: 2em;
+    }
+    h4 {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+    .drama-cast {
+      padding-left: 10px;
+      div {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      img {
+        width: 100%;
+      }
     }
   }
 }

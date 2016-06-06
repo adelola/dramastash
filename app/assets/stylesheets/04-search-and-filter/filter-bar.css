@@ -19,15 +19,15 @@
     font-size: 14px;
     min-height : 38px !important;
     border-radius: 4px;
-    color: #555;
+    color: #222;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
     white-space:normal;
-    background-color: #2B2A55;
-    background-image: linear-gradient(#fff, #f7f7f7);
+    background-color: #F9F9FF;
+    /*background-image: linear-gradient(#fff, #f7f7f7);*/
 }
 
 #filter-button:hover {
@@ -39,7 +39,6 @@
     border: 1px solid #ddd;
     color: #999;
   }
-
 
 /* ! vertical layout */
 .multiSelect .vertical {

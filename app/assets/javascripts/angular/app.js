@@ -13,7 +13,7 @@ angular
     'ui.bootstrap',
     'ui.router',
     'xeditable',
-    // 'ngMaterial',
+    'ngMaterial',
     'isteven-multi-select',
     'angularUtils.directives.dirDisqus' ])
 
