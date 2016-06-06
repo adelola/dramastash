@@ -12,6 +12,7 @@
  *
  *= require angular-gridster
  *= require angular-xeditable
- *= require main
+ *= require bootstrap-css-only
  *= require_self
+ *= require main
  */

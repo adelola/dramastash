@@ -1,35 +1,36 @@
- @import 'colors.scss';
-
-nav {
+.navbar {
   margin-bottom: 0px;
-  md-toolbar, md-toolbar:not(.md-menu-toolbar) {
-    background-color: $ds-orange;
-  }
-  h2 {
-    padding-right: 20px;
-  }
-  .md-button:hover {
-    background-color: white !important;
-    color: $ds-orange!important;
-  }
-  .search-box {
-    padding-top: 40px;
-    margin-left: 30%;
-    button {
-      /*line-height: 30px;*/
-      vertical-align: top;
-      min-height: 30px;
-      min-width: 0;
-      margin-top: 14px !important;
-    }
-  }
+  background-color: $ds-orange;
+  color: $ds-off-white !important;
+  border-radius: 0;
 
-  a:hover {
-    text-decoration: none;
-    background: none;
-    color: $ds-orange !important
-  }
+  a:hover{
+    background-color: $ds-xlgt-orange !important;
+    }
+  //
+  //   a:active{
+  //   background-color: $ds-orange !important;
+  // }
   a:visited {
+    background-color: $ds-orange  !important;
     color: $ds-off-white;
   }
+
+}
+
+.navbar-toggle{
+  :hover {
+
+  }
+  :focus {
+
+  }
+}
+
+#search-button {
+  color: $ds-off-white;
+  background-color: $ds-lgt-orange;
+  border: none;
+  border-radius: 0;
+
 }

@@ -8,19 +8,56 @@
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css"> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
   </head>
   <body ng-controller="MainCtrl as main">
+    <nav class="navbar" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+          <span class="sr-only">Toggle navigation</span><i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <a class="navbar-brand" href="#">DramaStash</a>
+      </div>
+      <div class="uib-collapse navbar-collapse" uib-collapse="navCollapsed">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="#">Browse</a>
+          </li>
+          <li>
+            <a href="#">My Page</a>
+          </li>
+          <li>
+            <a href="#">Log In</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search" />
+            </div>
+            <button type="submit" class="btn btn-default" id="search-button">Submit</button>
+          </form>
+        </ul>
+      </div>
+    </nav>
+
+
+
+
+
+
+
     <!-- <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
       <button class="menu-icon" type="button" data-toggle></button>
       <div class="title-bar-title">Menu</div>
-    </div>
-    <div class="top-bar" id="main-menu">
+    </div> -->
+    <!-- <div class="top-bar" id="main-menu">
       <div class="top-bar-left">
         <ul>
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
+          <li><a href="#">Browse</a></li>
+          <li><a href="#">My Page</a></li>
+          <li><a href="#">Log In</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
@@ -31,7 +68,7 @@
       </div>
     </div> -->
 
-    <nav ng-cloak>
+    <!-- <nav ng-cloak>
       <md-content>
         <md-toolbar>
           <div class="md-toolbar-tools">
@@ -69,7 +106,9 @@
           </div>
         </md-toolbar>
       </md-content>
-    </nav>
+    </nav> -->
+
+
     <section>
       <ui-view></ui-view>
       <%= yield %>
