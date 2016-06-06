@@ -2,39 +2,40 @@
 <html ng-app="secondLead">
   <head>
     <title>Second Lead</title>
-    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css"> -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
   </head>
-  <body ng-controller="MainCtrl as main">
+  <body ng-controller="MainCtrl as main" ng-cloak>
+
     <nav class="navbar" role="navigation">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
           <span class="sr-only">Toggle navigation</span><i class="fa fa-bars" aria-hidden="true"></i>
         </button>
-        <a class="navbar-brand" href="#">DramaStash</a>
+        <a class="navbar-brand" ng-if="true" ui-sref="home" ui-sref-opts="{reload: true}">DramaStash</a>
       </div>
       <div class="uib-collapse navbar-collapse" uib-collapse="navCollapsed">
         <ul class="nav navbar-nav">
           <li>
-            <a href="#">Browse</a>
+            <a aria-label="Browse" ng-if="true" ui-sref="dramas({genre:nil, country:nil , page: 1})" ui-sref-opts="{reload: true}" ui-sref-active="active">Browse</a>
           </li>
-          <li>
-            <a href="#">My Page</a>
+          <li aria-label="My Page" ng-if="main.currentUser">
+            <a ui-sref="user.lists({userID: main.currentUser.id})" ui-sref-opts="{reload: true}" ui-sref-active="active">My Page</a>
           </li>
-          <li>
-            <a href="#">Log In</a>
+          <li aria-label="Login" ng-if="!main.loggedIn && !main.currentUser">
+            <a ui-sref='login' ui-sref-active="active">Sign Up/Log In</a>
+          </li>
+          <li aria-label="Logout" ng-if="main.loggedIn || main.currentUser">
+            <a ng-click="main.logout()">Log Out</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <form class="navbar-form navbar-left" role="search">
+          <form class="navbar-form navbar-left" role="search" ng-submit="main.submitSearch(main.query)">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search" />
+              <auto-search query="main.query" show-search="main.showResults()">
             </div>
             <button type="submit" class="btn btn-default" id="search-button">Submit</button>
           </form>
@@ -42,76 +43,10 @@
       </div>
     </nav>
 
-
-
-
-
-
-
-    <!-- <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
-      <button class="menu-icon" type="button" data-toggle></button>
-      <div class="title-bar-title">Menu</div>
-    </div> -->
-    <!-- <div class="top-bar" id="main-menu">
-      <div class="top-bar-left">
-        <ul>
-          <li><a href="#">Browse</a></li>
-          <li><a href="#">My Page</a></li>
-          <li><a href="#">Log In</a></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li><input type="search" placeholder="Search"></li>
-          <li><button type="button" class="button">Search</button></li>
-        </ul>
-      </div>
-    </div> -->
-
-    <!-- <nav ng-cloak>
-      <md-content>
-        <md-toolbar>
-          <div class="md-toolbar-tools">
-            <h2>
-              <md-button aria-label="Home" ng-if="true" ui-sref="home" ui-sref-opts="{reload: true}">
-                <a ui-sref-active="active">DramaStash</a>
-              </md-button>
-            </h2>
-            <md-button aria-label="Browse" ng-if="true" ui-sref="dramas({genre:nil, country:nil , page: 1})" ui-sref-opts="{reload: true}">
-              <a ui-sref-active="active">Browse</a>
-            </md-button>
-            <md-button aria-label="My Page" ng-if="main.currentUser" ui-sref="user.lists({userID: main.currentUser.id})" ui-sref-opts="{reload: true}">
-              <a ui-sref-active="active">My Page</a>
-            </md-button>
-            <md-button aria-label="Logout" ng-if="main.loggedIn || main.currentUser">
-              <a ng-click="main.logout()">Logout</a>
-            </md-button>
-            <md-button aria-label="Register" ng-if="!main.loggedIn && !main.currentUser">
-              <a ui-sref='register' ui-sref-active="active">Sign Up</a>
-            </md-button>
-            <md-button aria-label="Login" ng-if="!main.loggedIn && !main.currentUser">
-              <a ui-sref='login' ui-sref-active="active">Log In</a>
-            </md-button>
-            <div class="search-box">
-              <form name="searchForm" id="search-form" role="form" ng-submit="main.submitSearch(main.query)">
-                <md-input-container>
-                  <label>Search</label>
-                  <auto-search query="main.query" show-search="main.showResults()">
-                </md-input-container>
-                <md-button type="submit" class="go">
-                  <i class="fa fa-search fa-1x"></i>
-                </md-button>
-              </form>
-            </div>
-          </div>
-        </md-toolbar>
-      </md-content>
-    </nav> -->
-
-
     <section>
       <ui-view></ui-view>
       <%= yield %>
     </section>
+
   </body>
 </html>

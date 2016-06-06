@@ -1,21 +1,18 @@
 .navbar {
+  font-family: "Roboto Condensed";
   margin-bottom: 0px;
   background-color: $ds-orange;
   color: $ds-off-white !important;
   border-radius: 0;
 
-  a:hover{
-    background-color: $ds-xlgt-orange !important;
-    }
-  //
-  //   a:active{
-  //   background-color: $ds-orange !important;
-  // }
-  a:visited {
-    background-color: $ds-orange  !important;
-    color: $ds-off-white;
+  a {
+    color: $ds-off-white !important;
   }
 
+  a:hover{
+    background-color: darken($ds-orange, 5%) !important;
+    color: $ds-off-white !important;
+    }
 }
 
 .navbar-toggle{

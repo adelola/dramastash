@@ -10,7 +10,7 @@
 	      query: "=",
 	      showSearch: "&"
 	    },
-      template: '<input id="search-input" ng-model="query" type="text" placeholder="Search" ng-keyup="keyPressed()" />',
+      template: '<input id="search-input" ng-model="query" type="text" class="form-control" placeholder="Search" ng-keyup="keyPressed()" />',
       link: function (scope, elem, attrs){
         scope.lastSearchTerm = null;
 	      scope.searchTimer = null;
@@ -38,7 +38,7 @@
               error(function (data, status, headers, config){
                 console.log("error");
               });
-              
+
           }
         };
 
@@ -53,7 +53,7 @@
               }, scope.pause);
             } else {
               event.preventDefault();
-            }   
+            }
         };
       }
 	  };
