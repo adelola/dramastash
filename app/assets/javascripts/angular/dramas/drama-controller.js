@@ -49,6 +49,12 @@
         });
       }
 
+      ctrl.view_tab = 'tab1';
+      ctrl.changeTab = function(tab) {
+        ctrl.view_tab = tab;
+      };
+
+
       var initialize = function () {
         authorized();
         avgRate(drama.drama.id);

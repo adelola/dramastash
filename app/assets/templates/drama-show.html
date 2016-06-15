@@ -1,109 +1,116 @@
 <section>
   <div class="drama-image-and-info row">
-    <div class="drama-image col m12 l5">
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+    <div class="small-12 large-5 columns">
       <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
     </div>
-    <div class="drama-info col m12 l7">
-      <h1>{{drama.name}}</h1>
-      <div layout="row">
-        <div class="drama-info-left" flex>
-          <div ng-controller="RatingsCtrl as ctrl" class="drama-rating-picker">
-            <div drama-rating drama="drama" rating-id ="ctrl.id" rating-value="ctrl.rating" data-max="ctrl.max"></div>
-          </div>
-          <p>{{drama.country}}</p>
-          <p>
-            {{drama.non_english_name}}
-            <span ng-if="drama.romanized_title">/</span>
-            {{drama.romanized_title}}
-          </p>
-          <p>{{drama.year}}</p>
-          <p>{{drama.episode_count}} Episodes</p>
-          <p>{{drama.network}}</p>
-          <p>{{drama.broadcast_period}}</p>
-        </div>
-        <div class="drama-info-right" flex>
-          <div class="drama-rating">
-            <div class="drama-rating-box">{{drama.avgRating}}</div>
-            Avg Rating
-          </div>
-          <div ng-if="drama.user" class="add-drama-box">
-            <add-drama drama="drama.drama" user="{{drama.user.id}}" user-lists="drama.userLists" selected-list="drama.selectedList"> </add-drama>
-          </div>
-        </div>
+    <div class="small-12 large-3 columns">
+      <span class="drama-info"><h1>{{drama.name}}</h1></span>
+      <p>{{drama.country}}</p>
+      <p>
+        {{drama.non_english_name}}
+        <span ng-if="drama.romanized_title">/</span>
+        {{drama.romanized_title}}
+      </p>
+      <p>{{drama.year}}</p>
+      <p>{{drama.episode_count}} Episodes</p>
+      <p>{{drama.network}}</p>
+      <p>{{drama.broadcast_period}}</p>
+    </div>
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+  </div>
+  <!-- end of row -->
+
+    <!-- <div ng-controller="RatingsCtrl as ctrl" class="drama-rating-picker">
+      <div drama-rating drama="drama" rating-id ="ctrl.id" rating-value="ctrl.rating" data-max="ctrl.max"></div>
+    </div> -->
+
+    <!-- <div class="drama-rating">
+      <div class="drama-rating-box">{{drama.avgRating}}</div>
+      Avg Rating
+    </div>
+
+    <div ng-if="drama.user" class="add-drama-box">
+      <add-drama drama="drama.drama" user="{{drama.user.id}}" user-lists="drama.userLists" selected-list="drama.selectedList"> </add-drama>
+    </div> -->
+
+  <div class="row">
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+    <div class="small-12 large-3 columns">
+      <h3>Description</h3>
+      {{drama.description}}
+      <div class="watch-drama-links">
+        <a href="{{drama.viki_url}}" ng-if="drama.viki_url">Watch on Viki &nbsp;</a>
+        <a href="{{drama.drama_fever_url}}" ng-if="drama.drama_fever_url">Watch on Drama Fever</a>
       </div>
     </div>
-  </div>
-  <div class="drama-description">
-    {{drama.description}}
-  </div>
-  <div class="watch-drama-links">
-    <a href="{{drama.viki_url}}" ng-if="drama.viki_url">Watch on Viki</a>
-    <a href="{{drama.drama_fever_url}}" ng-if="drama.drama_fever_url">Watch on Drama Fever</a>
-  </div>
-  <div class="drama-review-and-cast row">
-    <div class="drama-review col m12 l8">
-      <div ng-cloak>
-        <md-content>
-          <md-tabs md-dynamic-height md-border-bottom>
-
-            <md-tab label="Reviews">
-              <md-content class="md-padding">
-                <div ng-if="drama.user">
-                  <add-review drama="drama"></add-review>
-                </div>
-                <div ng-controller="ReviewsCtrl as ctrl">
-                  <h4>{{ctrl.reviews.length}} Reviews</h4>
-                  <div ng-repeat= "review in ctrl.reviews" ng-cloak>
-                    <md-content>
-                      <md-list>
-                        <md-list-item class="md-3-line">
-                          <img src="https://lh5.googleusercontent.com/-Qhu7Srm0lp8/AAAAAAAAAAI/AAAAAAAAReo/s-uOtXpAmHE/photo.jpg" class="md-avatar" alt="avatar" />
-                          <div class="md-list-item-text">
-                            <h3>
-                              <span name-user user-id="review.reviewer_id"></span>
-                            </h3>
-                            <p ng-if="review.rating_weight > 0">
-                              <i class="fa fa-heart fa-1x review-hearts" ng-repeat="n in getNums(review.rating_weight) track by $index"></i>
-                            </p>
-                            <p>
-                              {{review.body}}
-                            </p>
-                          </div>
-                        </md-list-item>
-                      </md-list>
-                    </md-content>
-                  </div>
-                </div>
-              </md-content>
-            </md-tab>
-
-            <md-tab label="Comments">
-              <md-content class="md-padding">
-                <div class="comments">
-                  <dir-disqus disqus-shortname="dramastash"
-                              disqus-identifier="{{ drama.dramaId }}"
-                              disqus-url="{{ drama.link }}"
-                              disqus-title="{{ drama.name }}"
-                              readytobind="true"></dir-disqus>
-                </div>
-              </md-content>
-            </md-tab>
-
-          </md-tabs>
-        </md-content>
-
-      </div>
-    </div>
-    <div class="drama-cast col m12 l4 row">
+    <div class="hide-for-small-only large-5 columns cast_section">
       <h3>Cast</h3>
-      <div ng-repeat="cast in drama.casts" class="col m6">
-        <a ui-sref="cast({castID: cast.id})">
-          <img src="{{cast.image_url}}" alt="{{cast.poster_file_name}}">
-        </a>
-        <a ui-sref="cast({castID: cast.id})">
-          {{cast.name}}
-        </a>
+
+
+      <div id="cast_block" class="row medium-up-3 cast_roll">
+        <div class="column" ng-repeat="cast in drama.casts">
+          <a ui-sref="cast({castID: cast.id})">
+            <img src="http://fillmurray.com/100/100" alt="{{cast.poster_file_name}}">
+            <span>{{cast.name}}</span>
+          </a>
+        </div>
       </div>
+
+
     </div>
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
   </div>
+  <!-- end of row -->
+  <div class="row">
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+    <div class="small-12 large-8 columns">
+      <div class="row">
+        <div class="small-3 medium-2 columns">
+            <ul class="nav nav-tabs nav-stacked nav-pills" role="tablist">
+                <li ng-class="{'active': view_tab == 'tab1'}">
+                    <a class="btn-lg" ng-click="drama.changeTab('tab1')" href="">Reviews</a>
+                </li>
+                <li ng-class="{'active': view_tab == 'tab2'}">
+                    <a class="btn-lg" ng-click="drama.changeTab('tab2')" href="">Comments</a>
+                </li>
+            </ul>
+        </div>
+        <div class="small-9 medium-10 columns">
+          <div class="reviews-panel" ng-if="drama.view_tab === 'tab1'">
+          <!-- Reviews -->
+            <div ng-if="drama.user">
+              <add-review drama="drama"></add-review>
+            </div>
+            <div ng-controller="ReviewsCtrl as ctrl">
+              <h4>{{ctrl.reviews.length}} Reviews</h4>
+              <div ng-repeat= "review in ctrl.reviews" ng-cloak>
+                <h3>
+                  <span name-user user-id="review.reviewer_id"></span>
+                </h3>
+                <p ng-if="review.rating_weight > 0">
+                  <i class="fa fa-heart fa-1x review-hearts" ng-repeat="n in getNums(review.rating_weight) track by $index"></i>
+                </p>
+                <p>
+                  {{review.body}}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="comments-panel" ng-if="drama.view_tab === 'tab2'">
+            <!-- Comments Tab -->
+            <div class="comments">
+              <dir-disqus disqus-shortname="dramastash"
+                          disqus-identifier="{{ drama.dramaId }}"
+                          disqus-url="{{ drama.link }}"
+                          disqus-title="{{ drama.name }}"
+                          readytobind="true">
+              </dir-disqus>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End of row -->
+    </div>
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+  </div> <!-- End of row -->
 </section>

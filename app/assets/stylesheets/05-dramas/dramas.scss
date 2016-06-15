@@ -1,3 +1,76 @@
+.cast_section {
+  background: white;
+}
+
+#cast_block{
+  padding-left: 5%;
+  overflow:hidden;
+  width: 80%;
+  margin:0 auto;
+
+}
+.cast_roll:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+#cast_block div{
+  padding-left: 4%;
+  position:relative;
+  width:27.85714285714286%; /* = (100-2.5) / 3.5 */
+  padding-bottom: 5%;
+  float:left;
+  overflow:hidden;
+  visibility:hidden;
+
+  -webkit-transform: rotate(-60deg) skewY(30deg);
+  -ms-transform: rotate(-60deg) skewY(30deg);
+  transform: rotate(-60deg) skewY(30deg);
+}
+#cast_block div:nth-child(3n+2){
+  margin:0 1%;
+}
+#cast_block div:nth-child(6n+4){
+  margin-left:0.5%;
+}
+#cast_block div:nth-child(6n+4), #cast_block div:nth-child(6n+5), #cast_block div:nth-child(6n+6) {
+	margin-top: -6.9285714285%;
+  margin-bottom: -6.9285714285%;
+
+  -webkit-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+  -ms-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+  transform: translateX(50%) rotate(-60deg) skewY(30deg);
+}
+#cast_block div:nth-child(6n+4):last-child, #cast_block div:nth-child(6n+5):last-child, #cast_block div:nth-child(6n+6):last-child{
+  margin-bottom:0%;
+}
+#cast_block div *{
+  position: relative;
+  visibility:visible;
+}
+
+#cast_block div img{
+  -webkit-transform: skewY(-30deg) rotate(60deg);
+  -ms-transform: skewY(-30deg) rotate(60deg);
+  transform: skewY(-30deg) rotate(60deg);
+  margin:0 auto;
+  padding: 5%;
+  border-radius: 50%;
+}
+
+#cast_block div span {
+  padding:1% 1%;
+  margin-top: 25%;
+  margin-left: -54%;
+  color: $ds-orange;
+  display: block;
+  font-family: 'Roboto Condensed', sans-serif;
+  -webkit-transform: skewY(-30deg) rotate(90deg);
+  -ms-transform: skewY(-30deg) rotate(60deg);
+  transform: skewY(-30deg) rotate(60deg);
+  -webkit-backface-visibility:hidden;
+}
+
 /* CONTAINER */
 #browse-page {
   max-width: 90%;
@@ -5,6 +78,11 @@
 
   #drama-browse {
     max-width: 100%;
+
+    .drama-cards {
+      margin: 10rem 0 20rem;
+    }
+
   }
 
   /*    TOASTS      */
@@ -62,7 +140,6 @@
     }
     .image {
       position: relative;
-      top: 0;
       .title {
         position: absolute;
         bottom: 0;
@@ -96,14 +173,36 @@
     width: 125px;
     text-align: center;
     margin-bottom: 20px;
+
     .drama-rating-box {
-      position: relative;
-      text-align: center;
-      font-size: 2.5em;
-      height: 80px;
-      line-height: 80px;
-      background-color: #FE7A47;
-      color: white;
+    // background: #FE7A47;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    text-align: center;
+    background-color: #FE7A47;
+    color: white;
+    }
+  .drama-rating-box:before, .drama-rating-box:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 80px;
+    background: #FE7A47;
+    }
+    .drama-rating-box:before {
+    -webkit-transform: rotate(30deg);
+       -moz-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+         -o-transform: rotate(30deg);
+    }
+    .drama-rating-box:after {
+    -webkit-transform: rotate(60deg);
+       -moz-transform: rotate(60deg);
+        -ms-transform: rotate(60deg);
+         -o-transform: rotate(60deg);
     }
     .drama-rating-box:before {
       content: "";
@@ -112,7 +211,7 @@
       left: 0;
       border-width: 0px 0px 20px 20px;
       border-style: solid;
-      border-color: #FE7A47 #fff;
+      border-color: #FE7A47;
     }
   }
 
@@ -139,6 +238,11 @@
   .review-hearts {
     color: red;
   }
+
+
+
+
+
 
   /*   DELETE SOON    */
   .drama-image-and-info {

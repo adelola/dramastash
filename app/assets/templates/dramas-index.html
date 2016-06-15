@@ -16,7 +16,7 @@
 </div>
 <div id="drama-browse">
   <ul class="row small-up-1 medium-up-2 large-up-4">
-    <li class="column" dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize"
+    <li class="column drama-cards" dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize"
                                 current-page="dramas.pagination.current"
                                 total-items="dramas.totalDramas"
                                 pagination-id="browse"
