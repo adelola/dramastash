@@ -1,21 +1,36 @@
 <section>
-  <div class="drama-image-and-info row">
+  <div class="row">
     <div class="hide-for-small-only large-2 columns">&nbsp;</div>
-    <div class="small-12 large-5 columns">
-      <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
-    </div>
-    <div class="small-12 large-3 columns">
-      <span class="drama-info"><h1>{{drama.name}}</h1></span>
-      <p>{{drama.country}}</p>
-      <p>
-        {{drama.non_english_name}}
-        <span ng-if="drama.romanized_title">/</span>
-        {{drama.romanized_title}}
-      </p>
-      <p>{{drama.year}}</p>
-      <p>{{drama.episode_count}} Episodes</p>
-      <p>{{drama.network}}</p>
-      <p>{{drama.broadcast_period}}</p>
+    <div class="small-12 large-8 columns" id="headline_div">
+      <div id="pic_div" class="small-12 large-8 columns">
+        <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
+        <div id="slash_div" class=""></div>
+      </div>
+      <div id="end_div" class="small-12 large-4 columns">
+        <span class="drama-info"><h1>{{drama.name}}</h1></span>
+        <p>{{drama.country}}</p>
+        <p>
+          {{drama.non_english_name}}
+          <span ng-if="drama.romanized_title">/</span>
+          {{drama.romanized_title}}
+        </p>
+        <p>{{drama.year}}</p>
+        <p>{{drama.episode_count}} Episodes</p>
+        <p>{{drama.network}}</p>
+        <p>{{drama.broadcast_period}}</p>
+        <!-- <div ng-controller="RatingsCtrl as ctrl" class="drama-rating-picker">
+          <div drama-rating rating-id ="ctrl.id" rating-value="ctrl.rating" data-max="ctrl.max"></div>
+        </div>
+
+        <div class="drama-rating">
+          <div class="drama-rating-box">{{drama.avgRating}}</div>
+          Avg Rating
+        </div>
+
+        <div ng-if="drama.user" class="add-drama-box">
+          <add-drama drama="drama.drama" user="{{drama.user.id}}" user-lists="drama.userLists" selected-list="drama.selectedList"> </add-drama>
+        </div> -->
+      </div>
     </div>
     <div class="hide-for-small-only large-2 columns">&nbsp;</div>
   </div>
@@ -46,8 +61,6 @@
     </div>
     <div class="hide-for-small-only large-5 columns cast_section">
       <h3>Cast</h3>
-
-
       <div id="cast_block" class="row medium-up-3 cast_roll">
         <div class="column" ng-repeat="cast in drama.casts">
           <a ui-sref="cast({castID: cast.id})">
@@ -56,8 +69,6 @@
           </a>
         </div>
       </div>
-
-
     </div>
     <div class="hide-for-small-only large-2 columns">&nbsp;</div>
   </div>
@@ -66,7 +77,13 @@
     <div class="hide-for-small-only large-2 columns">&nbsp;</div>
     <div class="small-12 large-8 columns">
       <div class="row">
-        <div class="small-3 medium-2 columns">
+        <div class="show-for-small-only small-12">
+          <p>
+           <button type="button" class="btn btn-default btn-sm" ng-click="drama.changeTab('tab1')">Reviews</button>
+           <button type="button" class="btn btn-default btn-sm" ng-click="drama.changeTab('tab2')">Comments</button>
+         </p>
+        </div>
+        <div class="hide-for-small-only medium-2 columns">
             <ul class="nav nav-tabs nav-stacked nav-pills" role="tablist">
                 <li ng-class="{'active': view_tab == 'tab1'}">
                     <a class="btn-lg" ng-click="drama.changeTab('tab1')" href="">Reviews</a>
@@ -76,7 +93,7 @@
                 </li>
             </ul>
         </div>
-        <div class="small-9 medium-10 columns">
+        <div class="small-12 medium-10 columns">
           <div class="reviews-panel" ng-if="drama.view_tab === 'tab1'">
           <!-- Reviews -->
             <div ng-if="drama.user">
