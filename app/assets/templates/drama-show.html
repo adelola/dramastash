@@ -18,15 +18,14 @@
         <p>{{drama.episode_count}} Episodes</p>
         <p>{{drama.network}}</p>
         <p>{{drama.broadcast_period}}</p>
-        <!-- <div ng-controller="RatingsCtrl as ctrl" class="drama-rating-picker">
-          <div drama-rating rating-id ="ctrl.id" rating-value="ctrl.rating" data-max="ctrl.max"></div>
+        <div ng-controller="RatingsCtrl as ctrl" class="drama-rating-picker">
+          <div drama-rating drama="drama" rating-id="ctrl.id" rating-value="ctrl.rating" data-max="ctrl.max"></div>
         </div>
-
-        <div class="drama-rating">
+        <!-- <div class="drama-rating">
           <div class="drama-rating-box">{{drama.avgRating}}</div>
           Avg Rating
-        </div>
-
+        </div> -->
+        <!--
         <div ng-if="drama.user" class="add-drama-box">
           <add-drama drama="drama.drama" user="{{drama.user.id}}" user-lists="drama.userLists" selected-list="drama.selectedList"> </add-drama>
         </div> -->
@@ -60,7 +59,7 @@
       </div>
     </div>
     <div class="hide-for-small-only large-5 columns cast_section">
-      <h3>Cast</h3>
+      <h3 ng-if="drama.casts.length > 0">Cast</h3>
       <div id="cast_block" class="row medium-up-3 cast_roll">
         <div class="column" ng-repeat="cast in drama.casts">
           <a ui-sref="cast({castID: cast.id})">

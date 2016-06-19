@@ -1,5 +1,5 @@
 .cast_section {
-  background: $ds-light-grey;
+  background: $ds-lgt-grey;
   max-height: inherit;
 }
 
@@ -111,7 +111,6 @@
   .drama-cards {
       margin: 10rem 0 20rem;
     }
-
   /*    TOASTS      */
   md-toast {
     position: fixed;
@@ -127,83 +126,8 @@
   //
 
   /* FAVORITES   */
-
   .favorite-drama-active {
     color:red;
   }
-
-  /*   RATING    */
-  .drama-rating-picker {
-    margin-bottom: 10px;
-  }
-
-  .drama-rating {
-    width: 125px;
-    text-align: center;
-    margin-bottom: 20px;
-
-    .drama-rating-box {
-    // background: #FE7A47;
-    width: 80px;
-    height: 80px;
-    position: relative;
-    text-align: center;
-    background-color: #FE7A47;
-    color: white;
-    }
-  .drama-rating-box:before, .drama-rating-box:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 80px;
-    width: 80px;
-    background: #FE7A47;
-    }
-    .drama-rating-box:before {
-    -webkit-transform: rotate(30deg);
-       -moz-transform: rotate(30deg);
-        -ms-transform: rotate(30deg);
-         -o-transform: rotate(30deg);
-    }
-    .drama-rating-box:after {
-    -webkit-transform: rotate(60deg);
-       -moz-transform: rotate(60deg);
-        -ms-transform: rotate(60deg);
-         -o-transform: rotate(60deg);
-    }
-    .drama-rating-box:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-width: 0px 0px 20px 20px;
-      border-style: solid;
-      border-color: #FE7A47;
-    }
-  }
-
-  .rating{
-    color: #D9D9D9;
-    margin: 0;
-    padding: 0;
-    ul {
-      display: inline-block;
-    }
-    li {
-      list-style-type: none;
-      display: inline-block;
-      padding: 1px;
-      text-align: center;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .filled {
-      color: red;
-    }
-  }
-
-  .review-hearts {
-    color: red;
-  }
 }
+// End of Browse page nesting
