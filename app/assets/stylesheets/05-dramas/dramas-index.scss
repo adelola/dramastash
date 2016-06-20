@@ -1,0 +1,60 @@
+#browse-page {
+  max-width: 100%;
+
+  #drama-browse {
+    background: white;
+    width: 100%;
+    background-image: linear-gradient($ds-off-white, $ds-xlgt-orange);
+    #drama-grid{
+      padding: 0px;
+    }
+
+    .drama-cards {
+      margin: 2rem auto;
+      list-style: none;
+      text-align: center;
+      .card {
+        .card-image {
+          max-width: 100%;
+          img {
+            max-width: 100%;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+            0 2px 10px 0 rgba(0, 0, 0, 0.12);
+          }
+        }
+        a {
+          cursor: pointer;
+        }
+      }
+    }
+    /*    TOASTS      */
+    md-toast {
+      position: fixed;
+      bottom: 0;
+      .md-toast-content {
+        background-color: #4AC948 !important;
+      }
+    }
+
+  }
+
+  // .range-label {
+  //   display: inline;
+  // }
+  //
+
+  /* FAVORITES   */
+  .favorite-drama-active {
+    background-color: transparent;
+    color: $ds-red;
+    border: none;
+    position: absolute;
+  }
+
+  .favorite-drama {
+    background-color: transparent;
+    color: darken($ds-lgt-grey, 10%);
+    border: none;
+    position: absolute;
+  }
+}

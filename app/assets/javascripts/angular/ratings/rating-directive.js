@@ -11,7 +11,6 @@ angular.module('secondLead')
 	    max : '='
 	  },
 	  link : function (scope, elem, attrs){
-      console.log(scope.drama)
 		var dramaId = scope.drama.dramaId;
 		var currentUser = store.get('user');
 

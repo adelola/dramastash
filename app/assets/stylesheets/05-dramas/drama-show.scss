@@ -33,7 +33,6 @@
 }
 
 /* CAST SECTION */
-
 #cast_block{
   padding-left: 5%;
   overflow:hidden;
@@ -102,32 +101,3 @@
   transform: skewY(-30deg) rotate(60deg);
   -webkit-backface-visibility:hidden;
 }
-
-/* CONTAINER */
-#browse-page {
-  max-width: 90%;
-  text-align: left;
-
-  .drama-cards {
-      margin: 10rem 0 20rem;
-    }
-  /*    TOASTS      */
-  md-toast {
-    position: fixed;
-    bottom: 0;
-    .md-toast-content {
-      background-color: #4AC948 !important;
-    }
-  }
-
-  // .range-label {
-  //   display: inline;
-  // }
-  //
-
-  /* FAVORITES   */
-  .favorite-drama-active {
-    color:red;
-  }
-}
-// End of Browse page nesting

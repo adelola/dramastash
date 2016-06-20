@@ -12,35 +12,37 @@
                               pagination-id="browse">
     </dir-pagination-controls>
   </div>
+</div>
+<div class="row" ng-cloak>
+  <div class="large-6 large-centered columns" id="drama-browse">
+    <ul class="row small-up-1 medium-up-2 large-up-4" id="drama-grid">
+      <li class="column drama-cards" dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize"
+                                  current-page="dramas.pagination.current"
+                                  total-items="dramas.totalDramas"
+                                  pagination-id="browse"
+      ng-cloak>
+        <div class="card">
+          <div class="card-image">
+            <fave-drama drama="drama" user-id="{{dramas.user.id}}"></fave-drama>
+            <a ui-sref="drama({dramaID: drama.id})"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
+            </a>
+          </div>
+          <div class="content">
+            <a ui-sref="drama({dramaID: drama.id})"><span class="title">{{drama.name}}</span></a>
+          </div>
+          <div class="action">
+            <!-- <add-drama drama="drama"
+                        user="{{dramas.user.id}}"
+                        user-lists="dramas.userLists"
+                        selected-list="dramas.selectedList">
+            </add-drama> -->
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 
-</div>
-<div id="drama-browse">
-  <ul class="row small-up-1 medium-up-2 large-up-4">
-    <li class="column drama-cards" dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize"
-                                current-page="dramas.pagination.current"
-                                total-items="dramas.totalDramas"
-                                pagination-id="browse"
-    ng-cloak>
-      <div class="card">
-        <div class="image">
-          <fave-drama drama="drama" user-id="{{dramas.user.id}}"></fave-drama>
-          <a ui-sref="drama({dramaID: drama.id})"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
-          </a>
-        </div>
-        <div class="content">
-          <a ui-sref="drama({dramaID: drama.id})"><span class="title">{{drama.name}}</span></a>
-        </div>
-        <div class="action">
-          <!-- <add-drama drama="drama"
-                      user="{{dramas.user.id}}"
-                      user-lists="dramas.userLists"
-                      selected-list="dramas.selectedList">
-          </add-drama> -->
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
 <div class="row">
   <div class="small-12 large-10 columns">&nbsp;</div>
   <div class="large-2 columns">
