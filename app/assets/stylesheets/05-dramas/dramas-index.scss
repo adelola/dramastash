@@ -2,7 +2,6 @@
   max-width: 100%;
 
   #drama-browse {
-    background: white;
     width: 100%;
     background-image: linear-gradient($ds-off-white, $ds-xlgt-orange);
     #drama-grid{
@@ -14,19 +13,39 @@
       list-style: none;
       text-align: center;
       .card {
-        .card-image {
-          max-width: 100%;
-          img {
-            max-width: 100%;
-            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
-            0 2px 10px 0 rgba(0, 0, 0, 0.12);
-          }
-        }
+        position: relative;
         a {
           cursor: pointer;
         }
+        .card-image {
+          max-width: 100%;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          img {
+            max-width: 100%;
+            position: static;
+            box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.4);
+            transition: all ease-in-out 300ms;
+          }
+        }
+        .card-image:hover{
+          box-shadow: 0 37px 20px -20px rgba(0, 0, 0, 0.2);
+          transform: translate(0px, -2px);
+        }
+        .drama_card_name {
+          padding-top: 10px;
+        }
+        .title {
+          color: darken($ds-grey,10%);
+        }
+      }
+      .card:hover .title{
+        color: black;
+        transform: translate(0px, -2px);
       }
     }
+    
     /*    TOASTS      */
     md-toast {
       position: fixed;
@@ -44,6 +63,12 @@
   //
 
   /* FAVORITES   */
+  .favorite-drama {
+    background-color: transparent;
+    color: darken($ds-lgt-grey, 10%);
+    border: none;
+    position: absolute;
+  }
   .favorite-drama-active {
     background-color: transparent;
     color: $ds-red;
@@ -51,10 +76,4 @@
     position: absolute;
   }
 
-  .favorite-drama {
-    background-color: transparent;
-    color: darken($ds-lgt-grey, 10%);
-    border: none;
-    position: absolute;
-  }
 }

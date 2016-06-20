@@ -1,0 +1,23 @@
+.card-image:hover #add_drama {
+  display: block;
+}
+
+#add_drama{
+  position: absolute;
+  top: 75%;
+  left: 75%;
+  display: none;
+
+  #add_drama_selector {
+    color: transparent;
+    width: 35%;
+    display: inline-block;
+    background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right;
+
+  }
+   select {
+   border: 0px;
+   font-size: 16px;
+  }
+
+}

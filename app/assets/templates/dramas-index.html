@@ -24,18 +24,16 @@
         <div class="card">
           <div class="card-image">
             <fave-drama drama="drama" user-id="{{dramas.user.id}}"></fave-drama>
-            <a ui-sref="drama({dramaID: drama.id})"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
+            <a id="drama-thumbnail-link" ui-sref="drama({dramaID: drama.id})"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
             </a>
+            <add-drama drama="drama"
+              user="{{dramas.user.id}}"
+              user-lists="dramas.userLists"
+              selected-list="dramas.selectedList">
+            </add-drama>
           </div>
-          <div class="content">
+          <div class="drama_card_name">
             <a ui-sref="drama({dramaID: drama.id})"><span class="title">{{drama.name}}</span></a>
-          </div>
-          <div class="action">
-            <!-- <add-drama drama="drama"
-                        user="{{dramas.user.id}}"
-                        user-lists="dramas.userLists"
-                        selected-list="dramas.selectedList">
-            </add-drama> -->
           </div>
         </div>
       </li>
