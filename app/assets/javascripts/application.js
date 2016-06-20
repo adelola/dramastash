@@ -22,10 +22,12 @@
 //= require angular-animate
 //= require angular-messages
 //= require angular-material
+//= require angular-sanitize
 //= require a0-angular-storage
 //= require angularUtils-pagination
 //= require isteven-multi-select
 //= require lodash
+//= require ngToast
 //= require angularUtils-disqus
 //= require restangular
 //= require_tree ../templates

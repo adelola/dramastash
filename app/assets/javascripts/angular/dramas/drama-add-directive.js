@@ -1,5 +1,5 @@
 angular.module('secondLead')
-  .directive('addDrama', ['DramaModel', '$mdToast', function (DramaModel, $mdToast) {
+  .directive('addDrama', ['DramaModel', 'ngToast', function (DramaModel, ngToast) {
   	return {
   	  restrict: 'E',
   	  templateUrl:'add-drama.html',
@@ -9,10 +9,10 @@ angular.module('secondLead')
   	  	user: "@",
   	  	selectedList:"@"
   	  },
-	  link: function (scope, element, attrs) {      
+	  link: function (scope, element, attrs) {
 	  	scope.addToList = function (list, drama) {
 	  	  DramaModel.add(scope.user, list, drama).then(function(response){
-          $mdToast.show($mdToast.simple().textContent(response.message).position('right').hideDelay(2000));
+          ngToast.create(response.message);
         });
 	  	  scope.selectedList = "";
 	  	};

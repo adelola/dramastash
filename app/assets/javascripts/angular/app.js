@@ -13,7 +13,8 @@ angular
     'ui.bootstrap',
     'ui.router',
     'xeditable',
-    'ngMaterial',
+    'ngToast',
+    'ngAnimate',
     'isteven-multi-select',
     'angularUtils.directives.dirDisqus' ])
 
@@ -27,6 +28,12 @@ angular
     }];
 
     $httpProvider.interceptors.push('jwtInterceptor');
+  }])
+
+  .config(['ngToastProvider', function(ngToastProvider) {
+    ngToastProvider.configure({
+      additionalClasses: 'ds-toast-animation'
+    });
   }])
 
   .run(['jwtHelper','$rootScope', '$state', 'store', function (jwtHelper, $rootScope, $state, store){

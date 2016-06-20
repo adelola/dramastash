@@ -13,6 +13,8 @@
  *= require angular-gridster
  *= require angular-xeditable
  *= require bootstrap-css-only
+ *= require ngToast/ngToast
+ *= require animate
  *= require_self
  *= require main
  */

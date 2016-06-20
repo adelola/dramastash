@@ -22,6 +22,7 @@
                                   pagination-id="browse"
       ng-cloak>
         <div class="card">
+          <toast></toast>
           <div class="card-image">
             <fave-drama ng-if="dramas.user" drama="drama" user-id="{{dramas.user.id}}"></fave-drama>
             <a id="drama-thumbnail-link" ui-sref="drama({dramaID: drama.id})"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
