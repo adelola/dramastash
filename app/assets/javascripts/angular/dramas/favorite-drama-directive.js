@@ -1,5 +1,5 @@
 angular.module('secondLead')
-  .directive('faveDrama', ['DramaModel', '$mdToast', 'store', function (DramaModel, $mdToast, store) {
+  .directive('faveDrama', ['DramaModel', 'ngToast', 'store', function (DramaModel, ngToast, store) {
   	return {
   	  restrict: 'E',
   	  template:'<button class="favorite-drama" ng-class="redHeart" ng-click="toggleFave()"><i class="fa fa-heart"></i></button>',
@@ -30,13 +30,13 @@ angular.module('secondLead')
           if(response.status === true){
             scope.redHeart = 'favorite-drama-active';
           }
-            $mdToast.show($mdToast.simple().textContent(response.message).position('right').hideDelay(1000));
+            ngToast.create(response.message);
         })
       };
 
       function unfavorite(){
         DramaModel.delete(scope.userId, favListId, scope.drama.id).then(function(response){
-          $mdToast.show($mdToast.simple().textContent(response.message).position('right').hideDelay(1000));
+          ngToast.create(response.message);
           scope.redHeart = '';
         })
       }
