@@ -63,7 +63,7 @@
       <div id="cast_block" class="row medium-up-3 cast_roll">
         <div class="column" ng-repeat="cast in drama.casts">
           <a ui-sref="cast({castID: cast.id})">
-            <img src="http://fillmurray.com/100/100" alt="{{cast.poster_file_name}}">
+            <img src="{{cast.image_url}}" alt="{{cast.poster_file_name}}">
             <span>{{cast.name}}</span>
           </a>
         </div>
