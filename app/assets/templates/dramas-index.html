@@ -23,10 +23,10 @@
       ng-cloak>
         <div class="card">
           <div class="card-image">
-            <fave-drama drama="drama" user-id="{{dramas.user.id}}"></fave-drama>
+            <fave-drama ng-if="dramas.user" drama="drama" user-id="{{dramas.user.id}}"></fave-drama>
             <a id="drama-thumbnail-link" ui-sref="drama({dramaID: drama.id})"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
             </a>
-            <add-drama drama="drama"
+            <add-drama ng-if="dramas.user" drama="drama"
               user="{{dramas.user.id}}"
               user-lists="dramas.userLists"
               selected-list="dramas.selectedList">
