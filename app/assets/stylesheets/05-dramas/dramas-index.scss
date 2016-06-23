@@ -5,11 +5,11 @@
     width: 100%;
     background-image: linear-gradient($ds-off-white, $ds-xlgt-orange);
     #drama-grid{
-      padding: 0px;
+      padding: 50px;
     }
 
     .drama-cards {
-      margin: 2rem auto;
+      margin: 1rem auto;
       list-style: none;
       text-align: center;
       .card {
@@ -18,7 +18,7 @@
           cursor: pointer;
         }
         .card-image {
-          max-width: 100%;
+          max-width: 90%;
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;

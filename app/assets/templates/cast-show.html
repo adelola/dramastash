@@ -1,9 +1,11 @@
 <section>
-  <div class="drama-image-and-info row">
-    <div class="drama-image col s12 l5">
-      <img src="{{cast.image_url}}" alt="{{cast.picture_file_name}}">
+  <div class="row">
+
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+    <div class="small-12 large-5 columns">
+      <img src="http://fillmurray.com/g/600/400" alt="{{cast.picture_file_name}}">
     </div>
-    <div class="drama-info col s12 l5">
+    <div class="small-12 large-3 columns">
       <h1>{{cast.name}}</h1>
       <h2>{{cast.non_english_name}}</h2>
       <table class="bordered">
@@ -35,37 +37,49 @@
         </tbody>
       </table>
     </div>
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
   </div>
-  <div gridster= "cast.gridsterOpts">
-    <div gridster-item="drama" ng-repeat= "drama in cast.dramas" ng-cloak>
-      <md-content layout="row" layout-wrap layout-align="center start" layout-xs="column">
-        <div flex-xs="100" layout="column">
-          <md-card>
-            <a ui-sref="drama({dramaID: drama.id})">
-              <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
-            </a>
-            <md-card-title>
-              <md-card-title-text>
-                <a ui-sref="drama({dramaID: drama.id})">
-                  {{drama.name}}
-                </a>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center" ng-if="cast.user">
-              <add-drama drama="drama" user="{{cast.user.id}}" user-lists="cast.userLists" selected-list="cast.selectedList"> </add-drama>
-            </md-card-actions>
-          </md-card>
-        </div>
-      </md-content>
+
+  <div class="row">
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+    <div class="small-12 large-8 columns">
+      <h2>Dramas</h2>
+      <div class="row small-up-2 medium-up-3 large-up-4" id="drama-roll">
+         <div class="column drama-cards" ng-repeat="drama in cast.dramas">
+           <toast></toast>
+           <a ui-sref="drama({dramaID: drama.id})">
+             <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
+           </a> <br/>
+           <a ui-sref="drama({dramaID: drama.id})">
+             {{drama.name}}
+           </a>
+           <add-drama ng-if="cast.user" drama="drama"
+                      user="{{cast.user.id}}"
+                      user-lists="cast.userLists"
+                      selected-list="cast.selectedList">
+
+           </add-drama>
+         </div>
+      </div>
     </div>
+    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+
   </div>
-  <md-content class="md-padding">
-    <div class="comments">
+
+
+
+
+
+
+
+  <div class="row">
+    <div class="large-8 large-centered columns comments">
       <dir-disqus disqus-shortname="dramastash"
       disqus-identifier="{{ cast.id }}"
       disqus-url="{{ cast.link }}"
       disqus-title="{{ cast.name }}"
       readytobind="true"></dir-disqus>
     </div>
-  </md-content>
+  </div>
+
 </section>
