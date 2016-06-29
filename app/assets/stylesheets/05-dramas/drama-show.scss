@@ -3,11 +3,11 @@
   max-height: inherit;
 }
 
-#headline_div{
+.headline_div{
   background: white;
 }
 
-#pic_div {
+.pic_div {
   position: relative;
   img {
     padding: 0 auto;
@@ -27,7 +27,7 @@
 // 	border-left: 100px solid transparent;
 // }
 
-#end_div {
+.stats_div {
   background: white;
   max-height: inherit;
 }

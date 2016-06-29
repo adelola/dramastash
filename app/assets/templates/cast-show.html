@@ -1,54 +1,57 @@
 <section>
   <div class="row">
 
-    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
-    <div class="small-12 large-5 columns">
-      <img src="http://fillmurray.com/g/600/400" alt="{{cast.picture_file_name}}">
+    <div class="hide-for-small-only medium-1 large-2 columns">&nbsp;</div>
+    <div class="small-12 medium-10 large-8 columns headline_div">
+      <div class="small-12 medium-8 columns pic_div">
+        <span class="full-image"><img src="http://fillmurray.com/g/600/400" alt="{{cast.picture_file_name}}"></span>
+      </div>
+      <div class="small-12 medium-4 columns stats_div">
+        <h1>{{cast.name}}</h1>
+        <h2>{{cast.non_english_name}}</h2>
+        <table class="bordered">
+          <tbody>
+            <tr ng-if="cast.dob">
+              <td>Date of Birth</td>
+              <td>{{cast.dob}}</td>
+            </tr>
+            <tr ng-if="cast.age">
+              <td>Age</td>
+              <td>{{cast.age}}</td>
+            </tr>
+            <tr ng-if="cast.height">
+              <td>Height</td>
+              <td>{{cast.height}}</td>
+            </tr>
+            <tr ng-if="cast.weight">
+              <td>Weight</td>
+              <td>{{cast.weight}}</td>
+            </tr>
+            <tr ng-if="cast.blood_type">
+              <td>Blood Type</td>
+              <td>{{cast.blood_type}}</td>
+            </tr>
+            <tr ng-if="cast.star_sign">
+              <td>Star Sign</td>
+              <td>{{cast.star_sign}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="small-12 large-3 columns">
-      <h1>{{cast.name}}</h1>
-      <h2>{{cast.non_english_name}}</h2>
-      <table class="bordered">
-        <tbody>
-          <tr ng-if="cast.dob">
-            <td>Date of Birth</td>
-            <td>{{cast.dob}}</td>
-          </tr>
-          <tr ng-if="cast.age">
-            <td>Age</td>
-            <td>{{cast.age}}</td>
-          </tr>
-          <tr ng-if="cast.height">
-            <td>Height</td>
-            <td>{{cast.height}}</td>
-          </tr>
-          <tr ng-if="cast.weight">
-            <td>Weight</td>
-            <td>{{cast.weight}}</td>
-          </tr>
-          <tr ng-if="cast.blood_type">
-            <td>Blood Type</td>
-            <td>{{cast.blood_type}}</td>
-          </tr>
-          <tr ng-if="cast.star_sign">
-            <td>Star Sign</td>
-            <td>{{cast.star_sign}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+
+    <div class="hide-for-small-only medium-1 large-2 columns">&nbsp;</div>
   </div>
 
   <div class="row">
-    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
-    <div class="small-12 large-8 columns">
-      <h2>Dramas</h2>
-      <div class="row small-up-2 medium-up-3 large-up-4" id="drama-roll">
+    <div class="hide-for-small-only medium-1 large-2 columns">&nbsp;</div>
+    <div class="small-12 medium-10 large-8 columns" id="drama-roll">
+      <h2>Drama Roll</h2>
+      <div class="row small-up-2 medium-up-3 large-up-4">
          <div class="column drama-cards" ng-repeat="drama in cast.dramas">
            <toast></toast>
            <a ui-sref="drama({dramaID: drama.id})">
-             <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
+             <span class="full-image"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}"></span>
            </a> <br/>
            <a ui-sref="drama({dramaID: drama.id})">
              {{drama.name}}
@@ -62,14 +65,9 @@
          </div>
       </div>
     </div>
-    <div class="hide-for-small-only large-2 columns">&nbsp;</div>
+    <div class="hide-for-small-only medium-1 large-2 columns">&nbsp;</div>
 
   </div>
-
-
-
-
-
 
 
   <div class="row">
