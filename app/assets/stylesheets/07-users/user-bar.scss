@@ -1,0 +1,40 @@
+#user-bar {
+  min-height: 50px;
+  background-color:$ds-dark-grey;
+}
+
+#user-info {
+  padding: 0 5px 0 5px;
+  display: inline;
+  height:50px;
+  color: white;
+  background-color: #222;
+}
+
+.user-profile-name{
+  color: $ds-off-white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.user-icon {
+  display: inline;
+  min-width: 40px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+button.alter-relationship {
+  min-width: 40px;
+  background-color: #222;
+  border: 0;
+}
+
+.md-button.alter-relationship:hover {
+  background-color: #ffd8b3;
+  color: white;
+}
+
+.relationship {
+  display: inline
+}

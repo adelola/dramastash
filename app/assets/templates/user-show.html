@@ -1,12 +1,15 @@
-<div>
-  <div id="user-bar">
-  	<div id="user-info">
-  	  <i class="fa fa-user fa-2x user-icon"></i><span name-user user-id="user.profile.id"></span>
+<div class="row">
+  <div id="user-bar" class="small-12 columns">
+    <div class="small-4 medium-8 columns">&nbsp;</div>
+    <div id="user-info" class="small-8 medium-4 large-3 columns">
+  	  <i class="fa fa-user fa-2x user-icon"></i><span class="user-profile-name" name-user user-id="user.profile.id"></span>
   	  <div ng-if="user.currentUser && !user.authorized()" class="relationship">
-  	    <button class="alter-relationship" ng-if="!user.relationshipId" ng-click="user.follow()"><i class="fa fa-plus fa-1x"></i></button>
+        &nbsp;
+        <button class="alter-relationship" ng-if="!user.relationshipId" ng-click="user.follow()"><i class="fa fa-plus fa-1x"></i></button>
   	    <button class="alter-relationship" ng-if="user.relationshipId" ng-click="user.unfollow()"><i class="fa fa-minus fa-1x"></i></button>
   	  </div>
     </div>
+    <div class="hide-for-small-only large-1 column"></div>
   </div>
   <div ui-view></div>
 </div>
