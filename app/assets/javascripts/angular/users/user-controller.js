@@ -11,17 +11,19 @@ angular
     function (Gridster,user,UserModel){
     var ctrl = this;
     ctrl.profile = user["user"];
-    
+    ctrl.lists = user["lists"];
+    ctrl.fav_list = user["fav_list"];
+
     var initialize = function () {
       if (UserModel.currentUser()) {
         ctrl.currentUser = UserModel.currentUser();
-    	  UserModel.checkRelationship(ctrl.profile.id).then(function (result){ 
+    	  UserModel.checkRelationship(ctrl.profile.id).then(function (result){
          ctrl.relationshipId = result.id;
       	}, function (error){
          ctrl.relationshipId = '';
         });
       };
-    }; 
+    };
     initialize();
 
     ctrl.authorized = function () {
@@ -40,7 +42,7 @@ angular
       UserModel.unfollow(ctrl.relationshipId);
       ctrl.relationshipId = '';
     };
-  
+
     ctrl.gridsterOpts = Gridster.getOptions();
   }])
 

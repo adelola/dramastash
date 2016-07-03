@@ -4,6 +4,9 @@
   background-color: $ds-orange;
   color: $ds-off-white !important;
   border-radius: 0;
+  position: fixed;
+  width: 100%;
+  z-index:3;
 
   a {
     color: $ds-off-white !important;

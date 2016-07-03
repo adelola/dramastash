@@ -1,6 +1,9 @@
 #user-bar {
   min-height: 50px;
   background-color:$ds-dark-grey;
+  position: fixed;
+  top: 50px;
+  z-index:3;
 }
 
 #user-info {

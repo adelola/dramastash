@@ -4,31 +4,28 @@
 angular
   .module('secondLead')
 
-  .controller('ListCtrl', [
+  .controller('FavListCtrl', [
+    'fav_dramas',
+    'fav_list',
     'Gridster',
-    'list',
-    'ListModel',
+    'ListModel',  
     'user',
     'UserModel',
-    function (Gridster, list, ListModel,user, UserModel){
+    function (fav_dramas, fav_list, Gridster, ListModel, user, UserModel){
     var ctrl = this;
-    var currentUser = UserModel.currentUser().id;
-
-    ctrl.items = list.dramas;
-    ctrl.id = list.list.id;
-    ctrl.name = list.list.name;
-    ctrl.description = list.list.description;
+    ctrl.dramas = fav_dramas;
+    ctrl.id = fav_list.id;
+    ctrl.name = "Top 5";
+    ctrl.description = "Greatest of All Time";
     ctrl.userID = user.user.id;
-    
+    ctrl.selectedList = {};
 
     var initialize = function () {
         ctrl.userLists = ListModel.currentUserLists(ctrl.userID);
     };
     initialize();
 
-    ctrl.selectedList = {};
-
-
+    var currentUser = UserModel.currentUser().id;
     ctrl.authorized = function () {
       if ( ctrl.userID === currentUser) {
         return true
@@ -37,16 +34,6 @@ angular
 
     ctrl.removeItem = function (item){
       ctrl.items.splice(ctrl.items.indexOf(item),1)
-    };
-
-    ctrl.updateName = function (name){
-      ListModel.update(ctrl.id, {name: name});
-      ctrl.name = name;
-    };
-
-    ctrl.updateDescription = function (description){
-      ListModel.update(ctrl.id, {description: description});
-      ctrl.description = description;
     };
 
     ctrl.gridsterOpts = {

@@ -1,0 +1,38 @@
+<div>
+  <div ng-if="faves.authorized()">
+    <h3> {{faves.name}} </h3>
+    <h4>
+      Description:
+      <p> {{faves.description}} </p>
+    </h4>
+  </div>
+  <div ng-if="!faves.authorized()">
+    <h3> {{faves.name}}</h3>
+    <h4> {{faves.description}} </h4>
+  </div>
+  <div gridster= "faves.gridsterOpts">
+    <div gridster-item="items" ng-repeat= "drama in faves.dramas" ng-cloak>
+      <md-content layout="row" layout-wrap layout-align="center start" layout-xs="column">
+        <div flex-xs="100" layout="column">
+          <md-card>
+            <a ui-sref="drama({dramaID: drama.id})">
+              <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
+            </a>
+            <md-card-title>
+              <md-card-title-text>
+                <a ui-sref="drama({dramaID: drama.id})">
+                  {{drama.name}}
+                </a>
+                {{drama.release_date}}
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center" ng-if="faves.authorized()">
+              <add-drama drama="drama" user="{{faves.userID}}" user-lists="faves.userLists" selected-list="faves.selectedList"> </add-drama>
+              <delete-drama drama="drama" remove-item= "faves.removeItem(drama)" list="{{faves.id}}" user="{{faves.userID}}"> </delete-drama>
+            </md-card-actions>
+          </md-card>
+        </div>
+      </md-content>
+    </div>
+  </div>
+</div>
