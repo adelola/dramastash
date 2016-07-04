@@ -29,6 +29,14 @@
 
 .user-content{
   float: right;
+  // background: #FFA577;
+  // background: darken(#93C8DA, 10%);
+  background: $ds-off-white; /* For browsers that do not support gradients */
+  // background: -webkit-linear-gradient(left,$ds-lgt-orange, $ds-orange); /* For Safari 5.1 to 6.0 */
+  // background: -o-linear-gradient(right,$ds-lgt-orange, $ds-orange); /* For Opera 11.1 to 12.0 */
+  // background: -moz-linear-gradient(right, $ds-lgt-orange, $ds-orange); /* For Firefox 3.6 to 15 */
+  // background: linear-gradient(to right,$ds-lgt-orange, $ds-orange); /* Standard syntax */
+  height: 100vh;
 }
 
 #fav_list{

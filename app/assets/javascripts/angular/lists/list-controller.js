@@ -12,12 +12,12 @@ angular
     function (list, ListModel,user, UserModel){
     var ctrl = this;
     var currentUser = UserModel.currentUser().id;
-    console.log(list);
     ctrl.items = list.dramas;
     ctrl.id = list.list.id;
     ctrl.name = list.list.name;
     ctrl.description = list.list.description;
     ctrl.userID = user.user.id;
+    console.log(ctrl.id);
 
 
     var initialize = function () {
