@@ -11,20 +11,15 @@
   a {
     color: $ds-off-white !important;
   }
-
-  a:hover{
+    a:hover{
     background-color: darken($ds-orange, 5%) !important;
     color: $ds-off-white !important;
     }
-}
+    a:focus {
+     background: darken($ds-orange,8%) !important;
+    }
 
-.navbar-toggle{
-  :hover {
 
-  }
-  :focus {
-
-  }
 }
 
 #search-button {
