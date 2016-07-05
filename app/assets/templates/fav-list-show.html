@@ -1,3 +1,32 @@
+<!-- <div id="fav_list" gridster= "lists.gridsterFavListOpts">
+  <div gridster-item="drama" ng-repeat= "drama in lists.fav_dramas" ng-cloak>
+    <md-content class="fav_drama" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+      <div flex-xs="100" layout="column">
+        <md-card>
+          <a ui-sref="drama({dramaID: drama.id})">
+            <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
+          </a>
+          <md-card-title>
+            <md-card-title-text>
+              <a ui-sref="drama({dramaID: drama.id})">
+                {{drama.name}}
+              </a>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+            <add-drama drama="drama"
+                        user="{{lists.currentUser.id}}"
+                        user-lists="lists.userLists"
+                        selected-list="lists.selectedList">
+            </add-drama>
+            <fave-drama drama="drama" user-id="{{lists.currentUser.id}}" remove-item= "lists.removeDrama(drama)"></fave-drama>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </md-content>
+  </div>
+</div> -->
+
 <div class="row small-up-1 medium-up-3 large-up-4 push_down">
   <div>
     <h3> {{faves.name}} </h3>

@@ -3,7 +3,7 @@ angular.module('secondLead')
 
     return {
 	  restrict : 'E',
-	  templateUrl : 'get-review.html',
+	  template : '<p>{{review}}</p>',
 	  scope : {
 	    drama : '=',
       userId : '@'

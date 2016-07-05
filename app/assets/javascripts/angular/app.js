@@ -164,7 +164,7 @@ angular
       })
 
         .state('user.lists', {     //Nested under user
-          url:'/lists',
+          url:'/stashes',
           data: { requiresLogin: true },
           templateUrl: 'lists-index.html',
           controller:'ListsCtrl',
@@ -181,9 +181,9 @@ angular
             }]
           }
         })
-      
+
         .state('user.list', {       //Nested under user
-          url:'/lists/:listID',
+          url:'/stashes/:listID',
           data: { requiresLogin: true },
           templateUrl: 'list-show.html',
           controller:'ListCtrl',
