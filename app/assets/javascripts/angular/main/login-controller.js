@@ -4,10 +4,10 @@
 
 angular
   .module('secondLead')
- 
+
   .controller('LoginCtrl', [
     'Restangular',
-    '$state', 
+    '$state',
     'store',
     'UserModel',
     function (Restangular, $state, store, UserModel){

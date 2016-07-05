@@ -9,7 +9,7 @@ angular
     'ListModel',
     'user',
     'UserModel',
-    function (list, ListModel,user, UserModel){
+    function (list, ListModel, user, UserModel){
     var ctrl = this;
     var currentUser = UserModel.currentUser().id;
     ctrl.items = list.dramas;
@@ -17,7 +17,7 @@ angular
     ctrl.name = list.list.name;
     ctrl.description = list.list.description;
     ctrl.userID = user.user.id;
-    console.log(ctrl.id);
+    console.log(user);
 
 
     var initialize = function () {

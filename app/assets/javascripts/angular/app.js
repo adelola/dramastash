@@ -162,24 +162,9 @@ angular
           }]
         }
       })
-        .state('user.fav_list', {       //Nested under user
-          url:'/top5',
-          data: { requiresLogin: true },
-          templateUrl: 'fav-list-show.html',
-          controller:'FavListCtrl',
-          controllerAs: 'faves',
-          resolve: {
-            fav_list: ['user', function (user){
-              return user["fav_list"];
-            }],
-            fav_dramas: ['user', function (user){
-              return user["fav_dramas"];
-            }]
-          }
-        })
 
         .state('user.lists', {     //Nested under user
-          url:'/stash',
+          url:'/lists',
           data: { requiresLogin: true },
           templateUrl: 'lists-index.html',
           controller:'ListsCtrl',
@@ -196,9 +181,9 @@ angular
             }]
           }
         })
-
+      
         .state('user.list', {       //Nested under user
-          url:'/stash/:listID',
+          url:'/lists/:listID',
           data: { requiresLogin: true },
           templateUrl: 'list-show.html',
           controller:'ListCtrl',
@@ -209,6 +194,22 @@ angular
             }]
           }
       })
+        .state('user.fav_list', {       //Nested under user
+          url:'/top5',
+          data: { requiresLogin: true },
+          templateUrl: 'fav-list-show.html',
+          controller:'FavListCtrl',
+          controllerAs: 'faves',
+          resolve: {
+            fav_list: ['user', function (user){
+              return user["fav_list"];
+            }],
+            fav_dramas: ['user', function (user){
+              return user["fav_dramas"];
+            }]
+          }
+        })
+
   }])
 
 

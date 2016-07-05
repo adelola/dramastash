@@ -18,7 +18,7 @@
       <ul class="side-nav">
         <li role="menuitem"><a ui-sref="user.lists">STASH</a></li>
         <li role="menuitem"><a ui-sref="user.fav_list">Top 5</a></li>
-        <li role="menuitem" ng-repeat="list in user.lists"><a ui-sref="user.list({listID: list.id})">{{list.name}}</li>
+        <li role="menuitem" ng-repeat="list in user.lists"><a ui-sref="user.list({listID: list.id})">{{list.name}}</a></li>
       </ul>
     </article>
   </div>
