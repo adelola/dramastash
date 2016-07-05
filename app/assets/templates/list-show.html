@@ -10,18 +10,23 @@
     <h3> {{list.name}} </h3>
     <h4> {{list.description}} </h4>
   </div>
+
+
   <div class="row small-up-1 medium-up-3 large-up-4">
-    <div ng-repeat= "drama in list.items" class="column" ng-cloak>
-      <a ui-sref="drama({dramaID: drama.id})">
-        <span class="full-image"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}"></span>
-      </a>
-      <a ui-sref="drama({dramaID: drama.id})">
-       {{drama.name}}
-      </a>
+    <div ng-repeat= "drama in list.items" class="column user-drama-card" ng-cloak>
+      <div class="image">
+        <a ui-sref="drama({dramaID: drama.id})">
+          <span class="full-image"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}"></span>
+        </a>
+      </div>
+      <div class="content">
+        <span class="drama-title"> {{drama.name}} </span>
+        <p>Review</p>
+      </div>
       <div ng-if="list.authorized()">
         <add-drama drama="drama" user="{{list.userID}}" user-lists="list.userLists" selected-list="list.selectedList"> </add-drama>
         <delete-drama drama="drama" remove-item= "list.removeItem(drama)" list="{{list.id}}" user="{{list.userID}}"> </delete-drama>
-      </div>
+      </div>  
     </div>
   </div>
 </div>

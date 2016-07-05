@@ -36,8 +36,7 @@
   // background: -o-linear-gradient(right,$ds-lgt-orange, $ds-orange); /* For Opera 11.1 to 12.0 */
   // background: -moz-linear-gradient(right, $ds-lgt-orange, $ds-orange); /* For Firefox 3.6 to 15 */
   // background: linear-gradient(to right,$ds-lgt-orange, $ds-orange); /* Standard syntax */
-  height: 100vh;
-  border: 1px red solid;
+  min-height: 100vh;
 }
 
 #fav_list{
