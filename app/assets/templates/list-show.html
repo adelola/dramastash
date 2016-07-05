@@ -19,12 +19,13 @@
       </div>
       <div class="content">
         <span class="drama-title"> {{drama.name}} </span>
+        <span ng-if="list.authorized()">
+          <add-drama drama="drama" user="{{list.userID}}" user-lists="list.userLists" selected-list="list.selectedList"> </add-drama>
+          <delete-drama drama="drama" remove-item= "list.removeItem(drama)" list="{{list.id}}" user="{{list.userID}}"> </delete-drama>
+        </span>
         <get-review drama="drama" user-id="{{list.userID}}"></get-review>
       </div>
-      <div ng-if="list.authorized()">
-        <add-drama drama="drama" user="{{list.userID}}" user-lists="list.userLists" selected-list="list.selectedList"> </add-drama>
-        <delete-drama drama="drama" remove-item= "list.removeItem(drama)" list="{{list.id}}" user="{{list.userID}}"> </delete-drama>
-      </div>
+
     </div>
   </div>
 </div>

@@ -1,5 +1,9 @@
-<div>
-  <button class="add-list btn btn-primary" ng-if="lists.authorized()" ng-click="lists.showModal()"><i class="fa fa-plus fa-1x"></i></button>
+<div class="push_down">
+  <div class="row">
+    <div class="small-12">
+      <button class="add-list btn btn-success push_right" ng-if="lists.authorized()" ng-click="lists.showModal()"><i class="fa fa-plus fa-1x"></i></button>
+    </div>
+  </div>
   <div class="row small-up-1 medium-up-3 large-up-4 push_down">
     <div class="column user-drama-card" ng-repeat= "list in lists.items" ng-cloak>
       <div class="image">
