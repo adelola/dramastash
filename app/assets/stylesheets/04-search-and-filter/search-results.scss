@@ -4,10 +4,13 @@
   width: 100%;
   padding: 1em;
   border: 1px solid red;
-  background-image: linear-gradient($ds-orange, $ds-off-white);
+  background-image: linear-gradient($ds-orange, $ds-dark-grey);
   min-height: 100vh;
   p{
     font-size: large;
+  }
+  h3{
+    color: #fff;
   }
 
   .search-cards {
@@ -39,13 +42,26 @@
         padding-top: 10px;
       }
       .title {
-        color: darken($ds-grey,10%);
+        color: $ds-off-white;
       }
     }
     .card:hover .title{
       color: black;
       transform: translate(0px, -2px);
     }
+  }
+
+  .favorite-drama {
+    background-color: transparent;
+    color: darken($ds-lgt-grey, 10%);
+    border: none;
+    position: absolute;
+  }
+  .favorite-drama-active {
+    background-color: transparent;
+    color: $ds-red;
+    border: none;
+    position: absolute;
   }
 
 }

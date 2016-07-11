@@ -45,18 +45,23 @@
             current-page="search.currentPage"
             class="column search-cards" ng-cloak>
         <div class="card">
+          <toast></toast>
           <div class="card-image">
+            <fave-drama ng-if="search.user" drama="drama" user-id="{{search.user.id}}"></fave-drama>
             <a ui-sref="drama({dramaID: drama.id})">
               <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
             </a>
+            <add-drama ng-if="search.user"
+              drama="drama"
+              user="{{search.user.id}}"
+              user-lists="search.userLists"
+              selected-list="search.selectedList">
+            </add-drama>
           </div>
           <div class="drama_card_name">
             <a ui-sref="drama({dramaID: drama.id})">
               <span class="title">{{drama.name}}</span>
             </a>
-          </div>
-          <div ng-if="search.user">
-            <add-drama drama="drama" user="{{search.user.id}}" user-lists="search.userLists" selected-list="search.selectedList"> </add-drama>
           </div>
         </div>
       </div>
