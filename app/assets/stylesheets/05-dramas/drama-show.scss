@@ -1,3 +1,9 @@
+#drama_show {
+  position: absolute;
+  margin-top: 100px;
+  width: 100%;
+}
+
 .cast_section {
   background: $ds-lgt-grey;
   max-height: inherit;
@@ -15,6 +21,7 @@
     max-height: auto;
   }
 }
+
 
 // #slash_div {
 //   width: 0;

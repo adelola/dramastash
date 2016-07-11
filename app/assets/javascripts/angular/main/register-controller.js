@@ -4,10 +4,10 @@
 
 angular
   .module('secondLead')
- 
+
   .controller('RegisterCtrl', [
     'Restangular',
-    '$state', 
+    '$state',
     'store',
     'UserModel',
     function (Restangular, $state, store, UserModel){
@@ -20,7 +20,7 @@ angular
       	.then(function(response){
           if (response.errors) {
             register.error = response.errors[0];
-          } else { 
+          } else {
             store.set('jwt',response.token);
             store.set('user',response.user);
             UserModel.setLoggedIn(true);

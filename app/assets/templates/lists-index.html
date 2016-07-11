@@ -1,61 +1,20 @@
-<div>
-  <h2>Favorites Bar</h2>
-
-  <div id="fav_list" gridster= "lists.gridsterFavListOpts">
-    <div gridster-item="drama" ng-repeat= "drama in lists.fav_dramas" ng-cloak>
-      <md-content class="fav_drama" layout="row" layout-wrap layout-align="center start" layout-xs="column">
-        <div flex-xs="100" layout="column">
-          <md-card>
-            <a ui-sref="drama({dramaID: drama.id})">
-              <img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
-            </a>
-            <md-card-title>
-              <md-card-title-text>
-                <a ui-sref="drama({dramaID: drama.id})">
-                  {{drama.name}}
-                </a>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-              <add-drama drama="drama"
-                          user="{{lists.currentUser.id}}"
-                          user-lists="lists.userLists"
-                          selected-list="lists.selectedList">
-              </add-drama>
-              <fave-drama drama="drama" user-id="{{lists.currentUser.id}}" remove-item= "lists.removeDrama(drama)"></fave-drama>
-            </md-card-actions>
-          </md-card>
-        </div>
-      </md-content>
+<div class="push_down">
+  <div class="row">
+    <div class="small-12">
+      <button class="add-list btn btn-success push_right" ng-if="lists.authorized()" ng-click="lists.showModal()"><i class="fa fa-plus fa-1x"></i></button>
     </div>
   </div>
-
-  <h2 ng-cloak>
-    Lists
-    <md-button class="add-list" ng-if="lists.authorized()" ng-click="lists.showModal()"><i class="fa fa-plus fa-1x"></i></md-button>
-  </h2>
-
-  <div gridster= "user.gridsterOpts">
-    <div gridster-item="items" ng-repeat= "list in lists.items" ng-cloak>
-      <md-content layout="row" layout-wrap layout-align="center start" layout-xs="column">
-        <div flex-xs="100" layout="column">
-          <md-card>
-            <a ui-sref="user.list({listID: list.id, userID: list.user_id})">
-              <img src="http://www.clipartbest.com/cliparts/dc7/jkA/dc7jkAdc9.svg">
-            </a>
-            <md-card-title>
-              <md-card-title-text>
-                <a ui-sref="user.list({listID: list.id, userID: list.user_id})">
-                  {{list.name}}
-                </a>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-              <delete-list list="list" remove-item="lists.removeItem(list)" ng-if="lists.authorized()"> </delete-list>
-            </md-card-actions>
-          </md-card>
-        </div>
-      </md-content>
+  <div class="row small-up-1 medium-up-3 large-up-4 push_down">
+    <div class="column user-drama-card" ng-repeat= "list in lists.items" ng-cloak>
+      <div class="image">
+        <a ui-sref="user.list({listID: list.id, userID: list.user_id})">
+          <span class="full-image"><img src="http://www.clipartbest.com/cliparts/dc7/jkA/dc7jkAdc9.svg"></span>
+        </a>
+      </div>
+      <div class="content">
+        <a ui-sref="user.list({listID: list.id, userID: list.user_id})">{{list.name}}</a>
+        <delete-list list="list" remove-item="lists.removeItem(list)" ng-if="lists.authorized()"> </delete-list>
+      </div>
     </div>
   </div>
 </div>
