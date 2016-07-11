@@ -1,3 +1,84 @@
 #search_results{
-  background-image: linear-gradient($ds-orange, $ds-off-white);
+  position: absolute;
+  margin-top: 50px;
+  width: 100%;
+  padding: 1em;
+  border: 1px solid red;
+  background-image: linear-gradient($ds-orange, $ds-dark-grey);
+  min-height: 100vh;
+  p{
+    font-size: large;
+  }
+  h3{
+    color: #fff;
+  }
+
+  .search-cards {
+    margin: 1rem auto;
+    list-style: none;
+    text-align: center;
+    .card {
+      position: relative;
+      a {
+        cursor: pointer;
+      }
+      .card-image {
+        max-width: 90%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        img {
+          max-width: 100%;
+          position: static;
+          box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.4);
+          transition: all ease-in-out 300ms;
+        }
+      }
+      .card-image:hover{
+        box-shadow: 0 37px 20px -20px rgba(0, 0, 0, 0.2);
+        transform: translate(0px, -2px);
+      }
+      .drama_card_name {
+        padding-top: 10px;
+      }
+      .title {
+        color: $ds-off-white;
+      }
+    }
+    .card:hover .title{
+      color: black;
+      transform: translate(0px, -2px);
+    }
+  }
+
+  .favorite-drama {
+    background-color: transparent;
+    color: darken($ds-lgt-grey, 10%);
+    border: none;
+    position: absolute;
+  }
+  .favorite-drama-active {
+    background-color: transparent;
+    color: $ds-red;
+    border: none;
+    position: absolute;
+  }
+
+}
+#users-results {
+  padding: 2em;
+
+}
+
+#casts-results {
+  padding: 2em;
+  border-top: .1em solid;
+  border-color: rgba(253, 219, 204, .5);
+}
+
+#dramas-results {
+  padding: 2em;
+  border-top: .1em solid;
+  border-color: rgba(253, 219, 204, .5);
+
 }
