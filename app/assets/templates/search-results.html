@@ -18,7 +18,10 @@
     </div>
     <div ng-if="search.casts" class="row small-up-2 medium-up-4 large-up-5">
       <h3>Performers</h3>
-        <div class="column search-cards" ng-repeat= "cast in search.casts" ng-cloak>
+        <div class="column search-cards"
+        dir-paginate= "cast in search.casts | itemsPerPage: search.pageSize"
+        current-page="search.currentPage"
+        pagination-id="casts" ng-cloak>
           <div class="card">
             <div class="card-image">
               <a ui-sref="cast({castID: cast.id})">
