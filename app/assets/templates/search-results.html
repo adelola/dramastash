@@ -43,7 +43,8 @@
       <h3>Dramas</h3>
       <div dir-paginate= "drama in search.dramas | itemsPerPage: search.pageSize"
             current-page="search.currentPage"
-            class="column search-cards" ng-cloak>
+            class="column search-cards"
+            pagination-id="dramas" ng-cloak>
         <div class="card">
           <toast></toast>
           <div class="card-image">
@@ -66,6 +67,7 @@
         </div>
       </div>
     </div>
+    <dir-pagination-controls pagination-id="dramas"></dir-pagination-controls>
   </div>
 
 
