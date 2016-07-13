@@ -16,9 +16,11 @@
     <div ng-if="!search.casts">
       <p> No performers found. </p>
     </div>
-    <div ng-if="search.casts" class="row small-up-2 medium-up-4 large-up-5">
+    <div ng-if="search.casts" class="row small-up-2 medium-up-3 large-up-4">
       <h3>Performers</h3>
-        <div class="column search-cards" ng-repeat= "cast in search.casts" ng-cloak>
+        <div class="column search-cards"
+        dir-paginate= "cast in search.casts | itemsPerPage:12"
+        pagination-id="casts" ng-cloak>
           <div class="card">
             <div class="card-image">
               <a ui-sref="cast({castID: cast.id})">
@@ -33,17 +35,20 @@
           </div>
         </div>
     </div>
+    <div class="search-pagination-controls">
+      <dir-pagination-controls pagination-id="casts"></dir-pagination-controls>
+    </div>
   </div>
 
   <div id="dramas-results">
     <div ng-if="!search.dramas">
       <p>No dramas found.</p>
     </div>
-    <div ng-if="search.dramas" class="row small-up-2 medium-up-4 large-up-5">
+    <div ng-if="search.dramas" class="row small-up-2 medium-up-3 large-up-4">
       <h3>Dramas</h3>
-      <div dir-paginate= "drama in search.dramas | itemsPerPage: search.pageSize"
-            current-page="search.currentPage"
-            class="column search-cards" ng-cloak>
+      <div dir-paginate= "drama in search.dramas | itemsPerPage: 12"
+            class="column search-cards"
+            pagination-id="dramas" ng-cloak>
         <div class="card">
           <toast></toast>
           <div class="card-image">
@@ -66,6 +71,7 @@
         </div>
       </div>
     </div>
+    <dir-pagination-controls pagination-id="dramas"></dir-pagination-controls>
   </div>
 
 

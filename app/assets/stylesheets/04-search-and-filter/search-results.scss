@@ -6,6 +6,19 @@
   border: 1px solid red;
   background-image: linear-gradient($ds-orange, $ds-dark-grey);
   min-height: 100vh;
+  ul.pagination{
+    li  {
+      border-radius: 50%;
+    }
+    a {
+    border-radius: 50%;
+    margin: 0 4px;
+    }
+  }
+  .search-pagination-controls{
+    text-align: right;  
+  }
+
   p{
     font-size: large;
   }
