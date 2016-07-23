@@ -1,5 +1,5 @@
 <div id="home_page">
-<div ng-controller="IndexCtrl as index">
+<div>
   <div class="home-loggedout" ng-if="!index.user">
     <div class="row">
       <div class="small-12 large-4 columns">
@@ -61,12 +61,8 @@
       <div class="small-12 large-6 columns">&nbsp;</div>
     </div>
   	<div class="row">
-      <div class="small-12 columns">
-  	    <h1>Featured Collections</h1>
-        <div><h2>Latest</h2></div>
-        <div><h2>Where to Start</h2></div>
-        <div><h2>Sure Bets</h2></div>
-        <div><h2>Emotional Rollercoasters</h2></div>
+      <div class="small-12 columns" ng-repeat= "item in index.featured" >
+        <div><h2>{{item.list}}</h2></div>
       </div>
     </div>
   </div>

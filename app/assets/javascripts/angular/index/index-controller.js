@@ -8,11 +8,13 @@ angular
     'ActivityModel',
     '$http',
     'ListModel',
+    'lists',
     'UserModel',
-    function (ActivityModel, $http, ListModel, UserModel) {
+    function (ActivityModel, $http, ListModel, lists, UserModel) {
     var ctrl = this;
     ctrl.user = '';
     ctrl.activities ='';
+    ctrl.featured = lists;
 
     var initialize = function () {
       if (UserModel.currentUser()) {
