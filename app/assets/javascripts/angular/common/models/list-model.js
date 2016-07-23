@@ -12,6 +12,13 @@ angular
         return Restangular.one('users', userID).getList('lists')
       },
 
+      getFeatured: function() {
+        return $http.get('/featured').then(function(result){
+          console.log(result);
+          return result.data;
+        })
+      },
+
       currentUserLists: function (userID){
         return Restangular.one('users', userID).getList('lists').$object
       },

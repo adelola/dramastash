@@ -53,6 +53,16 @@ class ListsController < ApplicationController
     end
   end
 
+  def featured
+    lists = List.where(user_id: 1)
+
+    results = lists.map do |list|
+      {list:list.name, dramas:list.dramas}
+    end
+    respond_with(results)
+
+  end
+
 
   private
 

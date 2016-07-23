@@ -1,9 +1,19 @@
+#home_page{
+  min-height: 100vh;
+  min-width: 100%;
+  position: absolute;
+  padding-top: 50px;
+}
 
 .home-loggedout {
-  height: 100vh;
+  min-height: 100vh;
+  min-width: 100%;
   background-color: $ds-lgt-orange;
   background-image: linear-gradient($ds-orange, $ds-off-white);
 
+  .row {
+    max-width: 90%;
+  }
   h1{
     padding-top: 50px;
     font-family: 'Roboto Slab', sans-serif;
@@ -15,8 +25,5 @@
     border: 1px solid $ds-off-white;
     font-family: 'Roboto Condensed', sans-serif;
 
-  }
-  .row {
-    max-width: 80%;
   }
 }

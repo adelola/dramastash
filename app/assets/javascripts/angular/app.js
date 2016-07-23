@@ -61,7 +61,12 @@ angular
         templateUrl: 'index.html',
         data: { requiresLogin: false },
         controller:'IndexCtrl',
-        controllerAs: 'index'
+        controllerAs: 'index',
+        resolve: {
+          lists: ['ListModel','Restangular', function (ListModel,Restangular){
+            return ListModel.getFeatured();
+          }]
+        }
       })
 
       .state('register', {

@@ -1,5 +1,5 @@
-<div class="col-md-6 col-md-offset-3" ng-controller="RegisterCtrl as register" >
-  <h2>Register</h2>  
+<div class="col-md-6 col-md-offset-3 pinch_down" ng-controller="RegisterCtrl as register" >
+  <h2>Register</h2>
   <div ng-if="register.error" role="alert"> {{register.error}}</div>
   <form name="registerForm" ng-submit= "register.onSubmit()" role="form" novalidate>
     <div class="form-group" ng-class="{ 'has-error' : registerForm.firstName.$invalid && !registerForm.firstName.$pristine }">
@@ -26,7 +26,7 @@
       <p ng-show="registerForm.username.$error.minlength" class="help-block">Username is too short.</p>
       <p ng-show="registerForm.username.$error.maxlength" class="help-block">Username is too long.</p>
     </div>
-    
+
     <div class="form-group" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
       <label for="password">Password</label>
       <input type="password" name="password" class="form-control" ng-model="register.newUser.password" ng-minlength="6" ng-maxlength="20" required />
