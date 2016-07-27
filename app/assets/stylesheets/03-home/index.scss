@@ -1,22 +1,22 @@
+#home_page {
+  min-height: 100vh;
+  min-width: 100%;
+  position: absolute;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-image: linear-gradient($ds-orange, $ds-off-white); ;
 
-.home-loggedout {
-  height: 100vh;
-  background-color: $ds-lgt-orange;
-  background-image: linear-gradient($ds-orange, $ds-off-white);
 
-  h1{
-    padding-top: 50px;
-    font-family: 'Roboto Slab', sans-serif;
-    color: $ds-lgt-grey;
+  .feature-section {
+    padding: 1em;
+    margin: 1em 1em auto;
+    background-color: rgba(253, 219, 204, 0.3);
+
+    h2 {
+      color: darken($ds-orange, 10%);
+      font-family: 'Roboto Slab', sans-serif;
+
+    }
   }
 
-  .index-signup{
-    color: $ds-off-white;
-    border: 1px solid $ds-off-white;
-    font-family: 'Roboto Condensed', sans-serif;
-
-  }
-  .row {
-    max-width: 80%;
-  }
 }

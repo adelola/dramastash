@@ -1,64 +1,34 @@
-
-<div ng-controller="IndexCtrl as index">
-  <div class="home-loggedout" ng-if="!index.user">
-    <div class="row">
-      <div class="small-12 large-4 columns">
-        <h1 >Discover, Stash, and Share Asian TV dramas.</h1>
-      </div>
-      <div class="small-12 large-8 columns">&nbsp;</div>
-    </div>
-    <div class="row">
-      <div class="small-12 large-7 columns">&nbsp;</div>
-      <div class="index-signup small-12 large-5 columns" ng-controller="RegisterCtrl as register" >
-        <h3>Sign Up Today!</h3>
-        <div ng-if="register.error" role="alert"> {{register.error}}</div>
-
-        <form name="registerForm" ng-submit= "register.onSubmit()" role="form" novalidate>
-          <div class="form-group" ng-class="{ 'has-error' : registerForm.firstName.$invalid && !registerForm.firstName.$pristine }">
-            <input type="text" name="firstName" class="form-control" ng-model="register.newUser.firstName" placeholder="First Name" required />
-            <p ng-show="registerForm.firstName.$invalid && !registerForm.firstName.$pristine" class="help-block">Your first name is required.</p>
-          </div>
-
-          <div class="form-group" ng-class="{ 'has-error' : registerForm.lastName.$invalid && !registerForm.lastName.$pristine }">
-            <input type="text" name="lastName" class="form-control" ng-model="register.newUser.lastName" placeholder="Last Name" required />
-            <p ng-show="registerForm.lastName.$invalid && !registerForm.lastName.$pristine" class="help-block">Your last name is required.</p>
-          </div>
-
-          <div class="form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && !registerForm.email.$pristine }">
-            <input type="text" name="email" class="form-control" ng-model="register.newUser.email" placeholder="Email" required />
-            <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine" class="help-block">Enter a valid email.</p>
-          </div>
-
-          <div class="form-group" ng-class="{ 'has-error' : registerForm.username.$invalid && !registerForm.username.$pristine }">
-            <input type="text" name="username" class="form-control" ng-model="register.newUser.username" placeholder="Username" ng-minlength="3" ng-maxlength="20" required />
-            <p ng-show="registerForm.username.$error.minlength" class="help-block">Username is too short.</p>
-            <p ng-show="registerForm.username.$error.maxlength" class="help-block">Username is too long.</p>
-          </div>
-
-          <div class="form-group" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine }">
-            <input type="password" name="password" class="form-control" ng-model="register.newUser.password" placeholder="Password" ng-minlength="6" ng-maxlength="20" required />
-            <p ng-show="registerForm.password.$error.minlength" class="help-block">Password is too short.</p>
-            <p ng-show="registerForm.password.$error.maxlength" class="help-block">Password is too long.</p>
-          </div>
-
-          <div class="form-group">
-            <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-primary">Register</button>
-            <a href="#/login" class="btn btn-link">Cancel</a>
-          </div>
-        </form>
-        </div>
-      </div>
-
-  <div class="home-loggedin" ng-if="index.user">
-  	<div class="feed" ng-if="index.activities.length > 0">
-  	  <h3>Feed</h3>
-      <ul ng-repeat="activity in index.activities">
-	    <li feed-item activity="activity"></li>
-	  </ul>
-	</div>
-  	<div>
-  	  <h1>Featured Collections</h1>
-  	</div>
+<div id="home_page">
+    <!-- <div class="row">
+    	<div class="feed small-12 large-6 columns" ng-if="index.activities.length > 0">
+    	  <h3>Feed</h3>
+        <ul ng-repeat="activity in index.activities">
+  	      <li feed-item activity="activity"></li>
+  	    </ul>
+  	  </div>
+      <div class="small-12 large-6 columns">&nbsp;</div>
+    </div> -->
+	<div class="feature-section" ng-repeat= "item in index.featured">
+	  <h2>{{item.list}}</h2>
+	  <div class="row small-up-2 medium-up-3 large-up-4">
+	    <div ng-repeat= "drama in item.dramas" class="column drama-cards" ng-cloak>
+	      <div class="card">
+	        <toast></toast>
+	        <div class="card-image">
+	          <fave-drama ng-if="index.user" drama="drama" user-id="{{index.user.id}}"></fave-drama>
+	          <a id="drama-thumbnail-link" ui-sref="drama({dramaID: drama.id})"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
+	          </a>
+	          <add-drama ng-if="index.user" drama="drama"
+	            user="{{index.user.id}}"
+	            user-lists="index.userLists"
+	            selected-list="index.selectedList">
+	          </add-drama>
+	        </div>
+	        <div class="drama_card_name">
+	          <a ui-sref="drama({dramaID: drama.id})"><span class="title">{{drama.name}}</span></a>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
   </div>
-
 </div>

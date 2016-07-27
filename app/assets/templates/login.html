@@ -1,28 +1,30 @@
-<div class="col-md-6 col-md-offset-3">
-  <h2>Login</h2>
-  <div ng-if="login.error" role="alert">{{login.error}}</div>
-  <form name="loginForm" role="form" ng-submit="login.onSubmit()" novalidate>
-    <div class="form-group" ng-class="{ 'has-error' : loginForm.username.$invalid && !loginForm.username.$pristine }">
-      <label for="username">Username</label>
-      <input type="text" name="username" class="form-control" ng-model="login.user.username" ng-minlength="3" ng-maxlength="20" required />
-      <p ng-show="loginForm.username.$error.minlength" class="help-block">Username is too short.</p>
-      <p ng-show="loginForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+<div id="login" class=" pinch_down">
+  <div class="row">
+    <h1 class="small-12 large-4 columns">Discover, Stash, and Share Asian TV dramas.</h1>
+    <div class="hide-for-small-only large-8">&nbsp;</div>
+  </div>
+  <div class="row">
+    <div class="login_form small-12 large-5 large-centered columns">
+      <h3>Login</h3>
+      <div ng-if="login.error" role="alert">{{login.error}}</div>
+      <form name="loginForm" role="form" ng-submit="login.onSubmit()" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : loginForm.username.$invalid && !loginForm.username.$pristine }">
+          <label for="username">Username</label>
+          <input type="text" name="username" class="form-control" ng-model="login.user.username" ng-minlength="3" ng-maxlength="20" required />
+          <p ng-show="loginForm.username.$error.minlength" class="help-block">Username is too short.</p>
+          <p ng-show="loginForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" ng-model="login.user.password" ng-minlength="6" ng-maxlength="20" required />
+          <p ng-show="loginForm.password.$error.minlength" class="help-block">Password is too short.</p>
+          <p ng-show="loginForm.password.$error.maxlength" class="help-block">Password is too long.</p>
+        </div>
+        <div>
+          <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-primary">Login</button>
+          <a ui-sref="register" class="btn btn-link">Sign Up</a>
+        </div>
+      </form>
     </div>
-    
-    <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
-      <label for="password">Password</label>
-      <input type="password" name="password" class="form-control" ng-model="login.user.password" ng-minlength="6" ng-maxlength="20" required />
-      <p ng-show="loginForm.password.$error.minlength" class="help-block">Password is too short.</p>
-      <p ng-show="loginForm.password.$error.maxlength" class="help-block">Password is too long.</p>
-    </div>
-    
-    <div>
-      <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-primary">Login</button>
-      <a href="#/register" class="btn btn-link">Register</a>
-    </div>
-  </form>
+  </div>
 </div>
-
-
-
-      

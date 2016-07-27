@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :find_list, only: [:show, :update, :destroy]
-  before_action :authenticate!
+  before_action :authenticate!, only: [:create, :destroy]
 
   respond_to :json, :html
 
@@ -51,6 +51,16 @@ class ListsController < ApplicationController
   	else
       render json: { errors: "Oops, something went wrong." }
     end
+  end
+
+  def featured
+    lists = List.where(user_id: 1)
+
+    results = lists.map do |list|
+      {list:list.name, dramas:list.dramas}
+    end
+    respond_with(results)
+
   end
 
 
