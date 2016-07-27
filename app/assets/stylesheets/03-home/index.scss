@@ -1,15 +1,22 @@
-#home_page{
+#home_page {
   min-height: 100vh;
   min-width: 100%;
   position: absolute;
   padding-top: 50px;
-}
+  padding-bottom: 50px;
+  background-image: linear-gradient($ds-orange, $ds-off-white); ;
 
 
+  .feature-section {
+    padding: 1em;
+    margin: 1em 1em auto;
+    background-color: rgba(253, 219, 204, 0.3);
 
-.index-signup{
-  color: $ds-off-white;
-  border: 1px solid $ds-off-white;
-  font-family: 'Roboto Condensed', sans-serif;
+    h2 {
+      color: darken($ds-orange, 5%);
+      font-family: 'Roboto Slab', sans-serif;
+
+    }
+  }
 
 }
