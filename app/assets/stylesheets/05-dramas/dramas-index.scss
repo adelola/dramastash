@@ -8,63 +8,61 @@
     #drama-grid{
       padding: 50px;
     }
-
-    .drama-cards {
-      margin: 1rem auto;
-      list-style: none;
-      text-align: center;
-      .card {
-        position: relative;
-        a {
-          cursor: pointer;
-        }
-        .card-image {
-          max-width: 90%;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          img {
-            max-width: 100%;
-            position: static;
-            box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.4);
-            transition: all ease-in-out 300ms;
-          }
-        }
-        .card-image:hover{
-          box-shadow: 0 37px 20px -20px rgba(0, 0, 0, 0.2);
-          transform: translate(0px, -2px);
-        }
-        .drama_card_name {
-          padding-top: 10px;
-        }
-        .title {
-          color: darken($ds-grey,10%);
-        }
-      }
-      .card:hover .title{
-        color: black;
-        transform: translate(0px, -2px);
-      }
-    }
   }
-
   // .range-label {
   //   display: inline;
   // }
   //
+}
 
-  /* FAVORITES   */
-  .favorite-drama {
-    background-color: transparent;
-    color: darken($ds-lgt-grey, 10%);
-    border: none;
-    position: absolute;
+.drama-cards {
+  margin: 1rem auto;
+  list-style: none;
+  text-align: center;
+  .card {
+    position: relative;
+    a {
+      cursor: pointer;
+    }
+    .card-image {
+      max-width: 90%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      img {
+        max-width: 100%;
+        position: static;
+        box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.4);
+        transition: all ease-in-out 300ms;
+      }
+    }
+    .card-image:hover{
+      box-shadow: 0 37px 20px -20px rgba(0, 0, 0, 0.2);
+      transform: translate(0px, -2px);
+    }
+    .drama_card_name {
+      padding-top: 10px;
+    }
+    .title {
+      color: darken($ds-grey,10%);
+    }
   }
-  .favorite-drama-active {
-    background-color: transparent;
-    color: $ds-red;
-    border: none;
-    position: absolute;
+  .card:hover .title{
+    color: black;
+    transform: translate(0px, -2px);
   }
+}
 
+/* FAVORITES   */
+.favorite-drama {
+  background-color: transparent;
+  color: darken($ds-lgt-grey, 10%);
+  border: none;
+  position: absolute;
+}
+.favorite-drama-active {
+  background-color: transparent;
+  color: $ds-red;
+  border: none;
+  position: absolute;
 }

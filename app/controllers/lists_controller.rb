@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :find_list, only: [:show, :update, :destroy]
-  before_action :authenticate!
+  before_action :authenticate!, only: [:create, :destroy]
 
   respond_to :json, :html
 

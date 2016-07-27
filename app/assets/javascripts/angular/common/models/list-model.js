@@ -14,7 +14,6 @@ angular
 
       getFeatured: function() {
         return $http.get('/featured').then(function(result){
-          console.log(result);
           return result.data;
         })
       },

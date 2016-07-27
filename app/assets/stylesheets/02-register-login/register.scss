@@ -1,0 +1,22 @@
+#sign_up {
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: $ds-lgt-orange;
+  background-image: linear-gradient($ds-orange, $ds-off-white);
+
+  .row {
+    max-width: 90%;
+  }
+  h1{
+    padding-top: 50px;
+    font-family: 'Roboto Slab', sans-serif;
+    color: $ds-lgt-grey;
+  }
+
+  .sign_up_form {
+    color: $ds-off-white;
+    border: 1px solid $ds-off-white;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+}
