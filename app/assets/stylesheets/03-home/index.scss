@@ -4,7 +4,9 @@
   position: absolute;
   padding-top: 50px;
   padding-bottom: 50px;
-  background-image: linear-gradient($ds-orange, $ds-off-white); ;
+  background-image: -webkit-linear-gradient($ds-orange, $ds-off-white);
+  background-image: -o-linear-gradient($ds-orange, $ds-off-white);
+  background-image: linear-gradient($ds-orange, $ds-off-white);
 
 
   .feature-section {
@@ -15,7 +17,6 @@
     h2 {
       color: darken($ds-orange, 10%);
       font-family: 'Roboto Slab', sans-serif;
-
     }
   }
 
