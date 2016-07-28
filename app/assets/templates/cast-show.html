@@ -4,7 +4,7 @@
     <div class="hide-for-small-only medium-1 large-2 columns">&nbsp;</div>
     <div class="small-12 medium-10 large-8 columns headline_div">
       <div class="small-12 medium-8 columns pic_div">
-        <span class="full-image"><img src="http://fillmurray.com/g/600/400" alt="{{cast.picture_file_name}}"></span>
+        <span class="full-image"><img src="{{cast.image_url}}" alt="{{cast.picture_file_name}}"></span>
       </div>
       <div class="small-12 medium-4 columns stats_div">
         <h1>{{cast.name}}</h1>
@@ -14,10 +14,6 @@
             <tr ng-if="cast.dob">
               <td>Date of Birth</td>
               <td>{{cast.dob}}</td>
-            </tr>
-            <tr ng-if="cast.age">
-              <td>Age</td>
-              <td>{{cast.age}}</td>
             </tr>
             <tr ng-if="cast.height">
               <td>Height</td>
