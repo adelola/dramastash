@@ -21,6 +21,10 @@
         <div ng-controller="RatingsCtrl as ctrl" class="drama-rating-picker">
           <div drama-rating drama="drama" rating-id="ctrl.id" rating-value="ctrl.rating" data-max="ctrl.max"></div>
         </div>
+        <div class="watch-drama-links">
+          <a href="{{drama.viki_url}}" ng-if="drama.viki_url">Watch on Viki &nbsp;</a>
+          <a href="{{drama.drama_fever_url}}" ng-if="drama.drama_fever_url">Watch on Drama Fever</a>
+        </div>
         <!-- <div class="drama-rating">
           <div class="drama-rating-box">{{drama.avgRating}}</div>
           Avg Rating
@@ -53,10 +57,6 @@
     <div class="small-12 large-3 columns">
       <h3>Description</h3>
       {{drama.description}}
-      <div class="watch-drama-links">
-        <a href="{{drama.viki_url}}" ng-if="drama.viki_url">Watch on Viki &nbsp;</a>
-        <a href="{{drama.drama_fever_url}}" ng-if="drama.drama_fever_url">Watch on Drama Fever</a>
-      </div>
     </div>
     <div class="hide-for-small-only large-5 columns cast_section">
       <h3 ng-if="drama.casts.length > 0">Cast</h3>
