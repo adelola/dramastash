@@ -9,7 +9,7 @@ gem 'buttercms'
 gem 'coveralls', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
-gem 'json', '1.8.1' 
+gem 'json' 
 gem 'jwt', '~> 1.5', '>= 1.5.2'
 gem 'kaminari'
 gem 'nokogiri'
