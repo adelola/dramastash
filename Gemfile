@@ -9,7 +9,7 @@ gem 'buttercms'
 gem 'coveralls', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
-gem 'json' 
+gem 'json'
 gem 'jwt', '~> 1.5', '>= 1.5.2'
 gem 'kaminari'
 gem 'nokogiri'
@@ -17,7 +17,7 @@ gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523b
 gem 'pg'
 gem 'public_activity'
 gem 'puma'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.8'
 gem 'rails_12factor', group: :production
 gem 'responders', '~> 2.0'
 gem 'sass-rails', '~> 5.0'
