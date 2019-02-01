@@ -6,7 +6,7 @@ class ListsController < ApplicationController
 
   def index
   	find_user
-  	@lists = @user.lists.where.not(name: '*9psuu7wDcvUi*')
+  	@lists = @user.lists.where.not(name: 'Favorites')
     respond_with(@lists)
   end
 
@@ -18,7 +18,7 @@ class ListsController < ApplicationController
   def check_fave
     drama = Drama.find_by(id: params[:drama_id])
     user = User.find_by(id: params[:user_id])
-    fav_list = user.lists.find_by(name: '*9psuu7wDcvUi*')
+    fav_list = user.lists.find_by(name: 'Favorites')
     if fav_list.dramas.include?(drama)
       respond_with({status: true, fav_list_id: fav_list.id})
     else

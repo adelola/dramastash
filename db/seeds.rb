@@ -1,17 +1,17 @@
-# 51 pages on Viki
-# (1..51).each do |num|
-#   puts "scraping page #{num}"
-#   ScrapeVikiForDramaUrls.new("https://www.viki.com/explore?page=#{num}&sort=latest&type=series").urls.each do |url|
-#     puts "now scraping #{url}"
-#     ScrapeVikiDramaContent.new(url)
-#     sleep 5
-#   end
-# end
+# 59 pages on Viki
+(1..59).each do |num|
+  puts "scraping page #{num}"
+  ScrapeVikiForDramaUrls.new("https://www.viki.com/explore?page=#{num}&sort=latest&type=series").urls.each do |url|
+    puts "now scraping #{url}"
+    ScrapeVikiDramaContent.new(url)
+    sleep 5
+  end
+end
 
-# Drama.all[-495..-1].each do |drama|
-#   FixVikiContent.new(drama.viki_url, drama)
-#   sleep 5
-# end
+Drama.all.each do |drama|
+  FixVikiContent.new(drama.viki_url, drama)
+  sleep 5
+end
 
 # (7..21).each do |num|
 #   puts "scraping page #{num}"

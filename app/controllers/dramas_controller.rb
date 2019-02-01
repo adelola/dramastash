@@ -60,11 +60,11 @@ class DramasController < ApplicationController
     list = List.find_by(id: params[:list_id])
     drama = Drama.find_by(id: params[:id])
 
-    if list.name == '*9psuu7wDcvUi*' && list.dramas.count >= 5
+    if list.name == 'Favorites' && list.dramas.count >= 5
       render json: { message: "Aigoo, your Favorities Bar is full." }
-    elsif list.name == '*9psuu7wDcvUi*' && list.dramas.find_by(id: drama.id)
+    elsif list.name == 'Favorites' && list.dramas.find_by(id: drama.id)
       render json: { message: "Drama already in your Favorites Bar."}
-    elsif list.name == '*9psuu7wDcvUi*' && list.dramas.count < 5 && !list.dramas.find_by(id: drama.id)
+    elsif list.name == 'Favorites' && list.dramas.count < 5 && !list.dramas.find_by(id: drama.id)
       list.dramas << drama
       drama.create_activity :favorited, owner: list.user, params: {username: list.user.username, drama: drama}
       render json: { message: "Drama added to your Favorites Bar.", status: true}

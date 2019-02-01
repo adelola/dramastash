@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
 
   private
     def create_faves_list
-      List.create(name: '*9psuu7wDcvUi*', description:'Greatest of All Time', user_id: self.id)
+      List.create(name: 'Favorites', description:'Greatest of All Time', user_id: self.id)
     end
 
     def create_watch_list
