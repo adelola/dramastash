@@ -24,7 +24,7 @@ class ScrapeVikiDramaContent
     @release_date = nil
     @rating = nil
     scrape_info
-    # add_content_to_db
+    add_content_to_db
   end
 
   def scrape_name
@@ -96,8 +96,10 @@ class ScrapeVikiDramaContent
         @drama = Drama.create!(name: scrape_name, poster: URI.parse(scrape_image_url))
         @drama.image_url = @drama.poster.url
         @drama.save
+        puts "Created #{scrape_name}"
       else
         @drama = Drama.create!(name: scrape_name)
+        puts "Created #{scrape_name} without image"
       end
       @drama.update_attributes(
         non_english_name: @original_title,
