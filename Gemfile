@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'angular-rails-templates', '~> 1.0.0'
-gem 'autoprefixer-rails'
+gem 'angular-rails-templates'
+gem 'autoprefixer-rails' #current
 gem 'aws-sdk', '~> 2.3'
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7', '>= 3.1.11'
 gem 'bower-rails'
-gem 'buttercms'
+# gem 'buttercms'
 gem 'coveralls', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
@@ -13,19 +13,20 @@ gem 'json'
 gem 'jwt', '~> 1.5', '>= 1.5.2'
 gem 'kaminari'
 gem 'nokogiri'
-gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
-gem 'pg', '~> 0.15'
+gem "paperclip", "~> 6.0"
+gem 'pg'
 gem 'public_activity'
 gem 'puma'
-gem 'rails', '4.2.8'
+gem 'rails', '~> 6.0'
 gem 'rails_12factor', group: :production
-gem 'responders', '~> 2.0'
-gem 'sass-rails', '~> 5.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'responders'
+gem 'sass-rails'
+gem 'sdoc', '~> 2.6', '>= 2.6.1', group: :doc
 gem 'searchkick'
-gem 'sprockets', '~> 3.6.0'
+gem 'sprockets'
 gem 'uglifier', '>= 1.3.0'
-
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+gem 'psych', '< 4'
 
 group :development, :test do
   gem 'better_errors'

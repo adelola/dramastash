@@ -21,8 +21,8 @@ Second Lead is a tool for exploring, tracking, and sharing Asian television dram
 
 
 ## System Requirements
-* Ruby 2.0.0p481
-* Rails 4.2.3
+* Ruby 3.2.0
+* Rails 6
 * PostgreSQL 9.4.1
 * Javascript Enabled
 * A browser with HTML5

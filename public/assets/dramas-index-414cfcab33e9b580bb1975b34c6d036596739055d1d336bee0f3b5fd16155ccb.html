@@ -1,0 +1,56 @@
+<div id="browse-page" class="pinch_down">
+<div class="row">
+  <div class="search-filter small-12 large-5 columns">
+    <dramas-filter  items="dramas.items" total-dramas="dramas.totalDramas"></dramas-filter>
+  </div>
+  <div class="large-5 columns">&nbsp;</div>
+  <div class="small-12 large-2 columns">
+    <dir-pagination-controls  max-size=5
+                              boundary-links="true"
+                              on-page-change="dramas.pageChanged(newPageNumber)"
+                              template-url="pagination-template.html"
+                              pagination-id="browse">
+    </dir-pagination-controls>
+  </div>
+</div>
+<div class="row" ng-cloak>
+  <div class="large-6 large-centered columns" id="drama-browse">
+    <ul class="row small-up-1 medium-up-3 large-up-4" id="drama-grid">
+      <li class="column drama-cards" dir-paginate= "drama in dramas.items | itemsPerPage: dramas.pageSize"
+                                  current-page="dramas.pagination.current"
+                                  total-items="dramas.totalDramas"
+                                  pagination-id="browse"
+      ng-cloak>
+        <div class="card">
+          <toast></toast>
+          <div class="card-image">
+            <fave-drama ng-if="dramas.user" drama="drama" user-id="{{dramas.user.id}}"></fave-drama>
+            <a id="drama-thumbnail-link" ui-sref="drama({dramaID: drama.id})"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}">
+            </a>
+            <add-drama ng-if="dramas.user" drama="drama"
+              user="{{dramas.user.id}}"
+              user-lists="dramas.userLists"
+              selected-list="dramas.selectedList">
+            </add-drama>
+          </div>
+          <div class="drama_card_name">
+            <a ui-sref="drama({dramaID: drama.id})"><span class="title">{{drama.name}}</span></a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 large-10 columns">&nbsp;</div>
+  <div class="large-2 columns">
+    <dir-pagination-controls max-size=5
+                              boundary-links="true"
+                              on-page-change="dramas.pageChanged(newPageNumber)"
+                              template-url="pagination-template.html"
+                              pagination-id="browse">
+    </dir-pagination-controls>
+  </div>
+</div>
+<div>

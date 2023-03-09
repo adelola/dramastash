@@ -1,0 +1,14 @@
+<div id="add_drama" ng-cloak>
+  <!-- <label for="add_drama_selector">Add</label> -->
+  <select class="form-control" name ="add_drama"
+          id="add_drama_selector"
+          ng-model="selectedList"
+          ng-change="addToList(selectedList, drama.id)"
+          class="form-control"
+          aria-label="add_drama"
+          aria-required="true" required>
+    <option ng-repeat="list in userLists" value="{{list.id}}">
+      {{list.name}}
+    </option>
+  <select>
+</div>

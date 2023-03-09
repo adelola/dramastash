@@ -1,0 +1,79 @@
+<section id="cast_show">
+  <div class="row">
+
+    <div class="hide-for-small-only medium-1 large-2 columns">&nbsp;</div>
+    <div class="small-12 medium-10 large-8 columns headline_div">
+      <div class="small-12 medium-8 columns pic_div">
+        <span class="full-image"><img src="{{cast.image_url}}" alt="{{cast.picture_file_name}}"></span>
+      </div>
+      <div class="small-12 medium-4 columns stats_div">
+        <h1>{{cast.name}}</h1>
+        <h2>{{cast.non_english_name}}</h2>
+        <table class="bordered">
+          <tbody>
+            <tr ng-if="cast.dob">
+              <td>Date of Birth</td>
+              <td>{{cast.dob}}</td>
+            </tr>
+            <tr ng-if="cast.height">
+              <td>Height</td>
+              <td>{{cast.height}}</td>
+            </tr>
+            <tr ng-if="cast.weight">
+              <td>Weight</td>
+              <td>{{cast.weight}}</td>
+            </tr>
+            <tr ng-if="cast.blood_type">
+              <td>Blood Type</td>
+              <td>{{cast.blood_type}}</td>
+            </tr>
+            <tr ng-if="cast.star_sign">
+              <td>Star Sign</td>
+              <td>{{cast.star_sign}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="hide-for-small-only medium-1 large-2 columns">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="hide-for-small-only medium-1 large-2 columns">&nbsp;</div>
+    <div class="small-12 medium-10 large-8 columns" id="drama-roll">
+      <h2>Drama Roll</h2>
+      <div class="row small-up-2 medium-up-3 large-up-4">
+         <div class="column drama-cards" ng-repeat="drama in cast.dramas">
+           <toast></toast>
+           <a ui-sref="drama({dramaID: drama.id})">
+             <span class="full-image"><img src="{{drama.image_url}}" alt="{{drama.poster_file_name}}"></span>
+           </a> <br/>
+           <a ui-sref="drama({dramaID: drama.id})">
+             {{drama.name}}
+           </a>
+           <add-drama ng-if="cast.user" drama="drama"
+                      user="{{cast.user.id}}"
+                      user-lists="cast.userLists"
+                      selected-list="cast.selectedList">
+
+           </add-drama>
+         </div>
+      </div>
+    </div>
+    <div class="hide-for-small-only medium-1 large-2 columns">&nbsp;</div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="large-8 large-centered columns comments">
+      <dir-disqus disqus-shortname="dramastash"
+      disqus-identifier="{{ cast.id }}"
+      disqus-url="{{ cast.link }}"
+      disqus-title="{{ cast.name }}"
+      readytobind="true"></dir-disqus>
+    </div>
+  </div>
+
+</section>
