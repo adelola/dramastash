@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  mount Buttercms::Engine => '/blog'
+  # mount Buttercms::Engine => '/blog'
 
   resources :genres
   resources :casts, defaults: {:format => 'json'}
